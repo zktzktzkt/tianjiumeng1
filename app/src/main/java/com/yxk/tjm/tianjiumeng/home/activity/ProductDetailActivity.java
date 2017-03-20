@@ -183,7 +183,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         mBanner.setImages(images);
         //设置banner动画效果
         mBanner.setBannerAnimation(Transformer.Accordion);
-        mBanner.start();
+        mBanner.start();//
     }
 
     private FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
