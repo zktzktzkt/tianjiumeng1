@@ -181,7 +181,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         specialOne.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
-                T.showShort(getContext(), "zero");
+                T.showShort(getContext(), "zero");//
             }
 
             @Override
