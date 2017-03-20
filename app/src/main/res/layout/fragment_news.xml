@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#1E1D23"
+              android:orientation="vertical"
+              tools:context="com.yxk.tjm.tianjiumeng.news.NewsFragment">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#201f25"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="资讯"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/tv_broadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:drawableLeft="@drawable/gonggao"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            />
+
+        <com.sunfusheng.marqueeview.MarqueeView
+            android:id="@+id/marqueeView"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/tv_broadcast"
+            app:mvAnimDuration="1000"
+            app:mvInterval="2000"
+            app:mvSingleLine="true"
+            app:mvTextColor="#767677"
+            app:mvTextSize="14sp"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

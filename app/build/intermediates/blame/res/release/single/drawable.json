@@ -1,0 +1,286 @@
+[
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_home.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_gray_round_rectangle_20.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_gray_round_rectangle_20.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\sample_footer_loading.png",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\cc1699d219efabfe39f26c0354e973675c557ebd\\output\\res\\drawable\\sample_footer_loading.png"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_round_spec.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_round_spec.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_gray_common_stroke.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_gray_common_stroke.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_red.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_red.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_black_round.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_black_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_seekbar_track_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_address_rb.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_address_rb.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\black_background.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\67aeb7203bbadaac954dd0856744313b08e65745\\output\\res\\drawable\\black_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_vector_test.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_vector_test.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\mis_action_btn.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\\output\\res\\drawable\\mis_action_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_seekbar_tick_mark_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\rating_bar.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\rating_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_red_stroke.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_red_stroke.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\design_password_eye.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\design_password_eye.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\white_radius.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\67aeb7203bbadaac954dd0856744313b08e65745\\output\\res\\drawable\\white_radius.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_red_round.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_red_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\design_fab_background.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\design_fab_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_orange_round_stroke.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_orange_round_stroke.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_go_search_api_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_text_cursor_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_shopcar.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_shopcar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_select.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_select.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_red_round_stroke.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_red_round_stroke.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_gray_round_rectangle_search.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_gray_round_rectangle_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\navigation_empty_icon.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\navigation_empty_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_shopcart_check.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_shopcart_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_up_down.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_up_down.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_news.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_news.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\scan_light.png",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\99b5e18bb280eee0cb44743d5666ff2897095393\\output\\res\\drawable\\scan_light.png"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_gray_line.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_gray_line.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\shape_round_login.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_round_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\gray_radius.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\67aeb7203bbadaac954dd0856744313b08e65745\\output\\res\\drawable\\gray_radius.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\selector_open.xml",
+        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_open.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\design_snackbar_background.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_clear_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\release\\drawable\\sample_footer_loading_progress.xml",
+        "source": "C:\\Users\\ningfei\\.android\\build-cache\\cc1699d219efabfe39f26c0354e973675c557ebd\\output\\res\\drawable\\sample_footer_loading_progress.xml"
+    }
+]

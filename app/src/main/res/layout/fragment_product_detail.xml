@@ -1,0 +1,211 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_common"
+              android:orientation="vertical"
+              tools:context="com.yxk.tjm.tianjiumeng.home.fragment.ProductDetailFragment">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#32303c"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="商品评价"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/more"
+            android:text="全部"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#32303c"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <com.yxk.tjm.tianjiumeng.custom.CircleImageView
+            android:id="@+id/img_client_head"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/pic_a"
+            />
+
+        <TextView
+            android:id="@+id/tv_client_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/img_client_head"
+            android:text="张先生"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_client_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/img_client_head"
+            android:text="ID:122***112"
+            android:textColor="#8a8a8a"
+            android:textSize="10sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/tv_client_name"
+            android:text="2017-2-5 10:01"
+            android:textColor="#8a8a8a"
+            android:textSize="10sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_client_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_client_head"
+            android:layout_marginTop="13dp"
+            android:text="春节期间买了6瓶酒，家里来了亲戚一起喝点，都觉得还行，好喝不上头。哈哈我觉得物美价廉。家人开心就好"
+            android:textColor="#cccccc"
+            android:textSize="12sp"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_client_comment"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/manyi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recycler"
+            android:layout_marginTop="10dp"
+            android:text="商品满意度"
+            android:textColor="#cccccc"
+            android:textSize="12sp"
+            />
+
+        <RatingBar
+            android:id="@+id/rc_rate"
+            style="@style/fiveRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/manyi"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/manyi"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="4"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/manyi"
+            android:layout_marginTop="10dp"
+            android:background="#1e1d23"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/official_response"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客服回复："
+                android:textColor="#fff"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/official_response"
+                android:text="感谢您的细心回复，祝您生活愉快。"
+                android:textColor="#8a8a8a"
+                android:textSize="12sp"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_picture"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/pic_350w_1"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#28272f"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tuijian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:text="为您推荐"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tuijian"
+            android:layout_toLeftOf="@id/tuijian"
+            android:src="@drawable/icon_tuijian"
+            />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_recommond"
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

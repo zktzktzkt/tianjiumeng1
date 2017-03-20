@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="com.yxk.tjm.tianjiumeng.my.activity.ImmediateAppraiseActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#201f25"
+        app:navigationIcon="@drawable/iocn_back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="评价"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/gray_common"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/bianji"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_common"
+            android:gravity="start"
+            android:hint="请简要描述您所购买商品的评价"
+            android:padding="5dp"
+            android:textColorHint="@color/tabTextColor"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray_common"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="商品满意度"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            />
+
+        <RatingBar
+            android:id="@+id/ratingbar"
+            style="@style/fiveRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:rating="5"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/shape_red_round"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        />
+
+
+</LinearLayout>

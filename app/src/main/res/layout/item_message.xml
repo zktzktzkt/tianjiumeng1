@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@color/gray_common"
+                android:orientation="vertical">
+
+    <com.yxk.tjm.tianjiumeng.custom.CircleImageView
+        android:id="@+id/img_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/list_kefu"
+        />
+
+    <TextView
+        android:id="@id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/img_pic"
+        android:layout_toRightOf="@id/img_pic"
+        android:text="客服回复"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/img_pic"
+        android:text="描述信息描述信息描述信息描述信息描述信息"
+        android:textColor="@color/tabTextColor"
+        android:textSize="10sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/img_pic"
+        android:layout_marginRight="8dp"
+        android:text="2016-4-5"
+        android:textColor="@color/tabTextColor"
+        android:textSize="10sp"
+        />
+
+
+</RelativeLayout>

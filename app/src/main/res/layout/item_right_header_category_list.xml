@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#28272f">
+
+    <ImageView
+        android:id="@+id/img_pic"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/pic_a"
+        />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_pic"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="无铅水晶红酒杯"
+        android:textColor="#aaaaaa"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_name"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_name"
+        android:layout_margin="4dp"
+        android:layout_marginRight="11dp"
+        android:text="￥ 1999"
+        android:textColor="#ff0000"
+        android:textSize="14sp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_price"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/gouwuche_p"
+        android:visibility="gone"
+        />
+
+
+</RelativeLayout>

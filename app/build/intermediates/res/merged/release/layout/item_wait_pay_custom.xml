@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="10dp"
+              android:background="@color/gray_common"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:text="2016.5.20"
+            android:textColor="@color/tabTextColor"
+            android:textSize="11sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right"
+            android:text="待付款"
+            android:textColor="@color/red_ff0000"
+            android:textSize="11sp"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/lineColor"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_pic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/pic_b"
+            />
+
+        <TextView
+            android:id="@+id/tv_return_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="16dp"
+            android:layout_toRightOf="@id/img_pic"
+            android:text="尺寸：20x30cm"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_base"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_return_percent"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/img_pic"
+            android:text="材质：水晶"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_base"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/img_pic"
+            android:text="数量：20"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_detai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_num"
+            android:layout_below="@id/tv_num"
+            android:layout_marginTop="10dp"
+            android:text="详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍"
+            android:textColor="@color/tabTextColor"
+            android:textSize="10sp"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/lineColor"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right">
+
+        <Button
+            android:id="@+id/btn_see"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/tv_detai"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_orange_round_stroke"
+            android:text="查看合同"
+            android:textColor="@color/orange"
+            android:textSize="14sp"
+            />
+
+        <Button
+            android:id="@+id/btn_pay"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/tv_detai"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_red_stroke"
+            android:text="立即付款"
+            android:textColor="@color/red_ff0000"
+            android:textSize="14sp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

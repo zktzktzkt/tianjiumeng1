@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yxk.tjm.tianjiumeng"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="25" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:name="com.yxk.tjm.tianjiumeng.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.yxk.tjm.tianjiumeng.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.yxk.tjm.tianjiumeng.MainActivity"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.activity.LoginActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.activity.RegistActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.activity.ForgetPwdActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.CrystalHouseActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.HotStrugActivity" >
+        </activity>
+        <activity
+            android:name="com.yxk.tjm.tianjiumeng.home.activity.MyCustomActivity"
+            android:windowSoftInputMode="stateHidden|adjustUnspecified" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.TemplateActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.HotStrugDetailActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.news.activity.NewsDetailActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.CommissionActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.ReturnMoneyDetailActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.WaitPayActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.WaitShipActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.WaitGetActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.SaleAfterActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.MessageActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.CollectActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.CrystalDetailActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.ShareActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.CustomActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.MyInfoActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.AddressActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.AddAddressActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.AccountSafeActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.RechargeActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.CardActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.MyCommissionActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.MyCrystalActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.MyWaitAppraiseActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.MySettingActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.ClientFeedbackActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.activity.SubmitOrderActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.category.activity.RightHeaderListActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.ImmediateAppraiseActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.SearchActivity" />
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.TJMHouseActivity" >
+        </activity>
+        <activity
+            android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+    </application>
+
+</manifest>

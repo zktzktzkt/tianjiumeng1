@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.yxk.tjm.tianjiumeng.activity.SubmitOrderActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#201f25"
+            app:navigationIcon="@drawable/iocn_back">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="提交订单"
+                android:textColor="#fff"
+                android:textSize="20sp"/>
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:id="@+id/rl_person_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_common"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/tv_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收货人：贾少女"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_toRightOf="@id/tv_person"
+                android:text="电话：1888888888"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_person"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/icon_weizhi"
+                android:drawablePadding="5dp"
+                android:text="北京丰台纪家庙地铁天瑞大厦401"
+                android:textColor="@color/tabTextColor"
+                android:textSize="13sp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/tv_address"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/more"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_common"
+            android:padding="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/img_pic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/pic_c"/>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/img_pic"
+                android:text="水晶威士忌酒杯 8只装"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/img_pic"
+                android:text="数量：200个"
+                android:textColor="@color/tabTextColor"
+                android:textSize="13sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_num"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@id/img_pic"
+                android:text="$ 888"
+                android:textColor="@color/red_ff0000"
+                android:textSize="15sp"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_common"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="运 费"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_freight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="0元"
+                android:textColor="@color/tabTextColor"
+                android:textSize="15sp"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/lineColor"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/gray_common"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="优惠券"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_discount_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="￥ 20元"
+                android:textColor="@color/red_ff0000"
+                android:textSize="15sp"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/lineColor"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/gray_common"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="可用水晶钻"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+            <CheckBox
+                android:id="@+id/cb_cystal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:button="@drawable/selector_select"
+                android:drawablePadding="10dp"
+                android:text="20个"
+                android:textColor="@color/tabTextColor"
+                android:textSize="15sp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_common"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="开发票5%"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                />
+
+
+            <CheckBox
+                android:id="@+id/cb_invoice"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:button="@drawable/selector_open"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/gray_common">
+
+        <TextView
+            android:id="@+id/heji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="合计："
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/tv_all_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/heji"
+            android:text="0.0元"
+            android:textColor="@color/red_ff0000"
+            />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/red_ff0000"
+            android:text="提交(0)"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+</RelativeLayout>
