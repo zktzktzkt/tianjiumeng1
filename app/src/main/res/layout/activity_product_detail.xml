@@ -90,11 +90,11 @@
                     android:src="@drawable/pic_a"/>
 
                 <RelativeLayout
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#28272f">
+                    android:background="#28272f"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
 
                     <TextView
                         android:id="@+id/tv_title"
@@ -133,11 +133,11 @@
 
                     <TextView
                         android:id="@+id/tv_symbol"
-                        android:layout_toRightOf="@id/tv_ms_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_introduce"
                         android:layout_marginTop="20dp"
+                        android:layout_toRightOf="@id/tv_ms_price"
                         android:text="￥"
                         android:textColor="#ff0000"
                         android:textSize="13sp"
@@ -147,8 +147,8 @@
                         android:id="@+id/tv_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/tv_symbol"
                         android:layout_alignBottom="@id/tv_symbol"
+                        android:layout_toRightOf="@id/tv_symbol"
                         android:text="499"
                         android:textColor="#ff0000"
                         android:textSize="17sp"
@@ -170,8 +170,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/tv_price"
-                        android:layout_toRightOf="@id/tv_price"
                         android:layout_marginLeft="6dp"
+                        android:layout_toRightOf="@id/tv_price"
                         android:src="@drawable/biaoqian_yhq"
                         />
 
@@ -193,15 +193,15 @@
                         android:layout_alignParentRight="true"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="3dp"
-                        app:isShowTimeBgBorder="true"
                         app:isHideTimeBackground="false"
                         app:isShowDay="false"
                         app:isShowHour="true"
                         app:isShowMillisecond="true"
                         app:isShowMinute="true"
                         app:isShowSecond="true"
-                        app:suffixGravity="center"
+                        app:isShowTimeBgBorder="true"
                         app:isShowTimeBgDivisionLine="false"
+                        app:suffixGravity="center"
                         app:suffixLRMargin="2dp"
                         app:suffixTextColor="@color/gray_444444"
                         app:suffixTextSize="18sp"

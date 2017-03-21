@@ -15,8 +15,10 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.sunfusheng.marqueeview.MarqueeView;
 import com.yxk.tjm.tianjiumeng.R;
+import com.yxk.tjm.tianjiumeng.custom.CustomLoadMoreView;
 import com.yxk.tjm.tianjiumeng.news.activity.NewsDetailActivity;
 import com.yxk.tjm.tianjiumeng.news.bean.NewsBean;
+import com.yxk.tjm.tianjiumeng.utils.T;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class NewsFragment extends Fragment {
 
     private MarqueeView marqueeView;
     private RecyclerView recycler;
+    private List<NewsBean> newsBeanList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +44,7 @@ public class NewsFragment extends Fragment {
     }
 
     private void initData() {
-        List<NewsBean> newsBeanList = new ArrayList<>();
+        newsBeanList = new ArrayList<>();
         newsBeanList.add(new NewsBean(R.drawable.pic_news_1, "一年一度的元宵节在北京玉渊潭公园举行一年一度的元宵节在北京玉渊潭公园举行一年一度的元宵节在北京玉渊潭公园举行", "2016-11-4"));
         newsBeanList.add(new NewsBean(R.drawable.pic_news_2, "一年一度的元宵节在北京玉渊潭公园举行", "2016-11-4"));
         newsBeanList.add(new NewsBean(R.drawable.pic_news_2, "一年一度的元宵节在北京玉渊潭公园举行", "2016-11-4"));
@@ -59,13 +62,9 @@ public class NewsFragment extends Fragment {
         marqueeView.startWithList(marqueeList);
 
         recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        recycler.setAdapter(new BaseQuickAdapter<NewsBean, BaseViewHolder>(R.layout.item_news, newsBeanList) {
-            @Override
-            protected void convert(BaseViewHolder helper, NewsBean item) {
-                helper.setText(R.id.tv_title, item.getTitle());
-                helper.setImageResource(R.id.img_pic, item.getResPicId());
-            }
-        });
+        NewsAdapter newsAdapter = new NewsAdapter();
+        newsAdapter.setLoadMoreView(new CustomLoadMoreView());
+        recycler.setAdapter(newsAdapter);
         recycler.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -73,6 +72,17 @@ public class NewsFragment extends Fragment {
             }
         });
 
+        newsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+            @Override
+            public void onLoadMoreRequested() {
+                T.showShort(getContext(), "LoadMoreListener");
+            }
+        }, recycler);
+
+        //newsAdapter.setEnableLoadMore(true);
+       // newsAdapter.loadMoreComplete();
+       // newsAdapter.loadMoreFail();
+        newsAdapter.loadMoreEnd(false);
     }
 
     @Override
@@ -85,6 +95,19 @@ public class NewsFragment extends Fragment {
     public void onStop() {
         super.onStop();
         marqueeView.stopFlipping();
+    }
+
+    public class NewsAdapter extends BaseQuickAdapter<NewsBean, BaseViewHolder> {
+
+        public NewsAdapter() {
+            super(R.layout.item_news, newsBeanList);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder helper, NewsBean item) {
+            helper.setText(R.id.tv_title, item.getTitle());
+            helper.setImageResource(R.id.img_pic, item.getResPicId());
+        }
     }
 
 }

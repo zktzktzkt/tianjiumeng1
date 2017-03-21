@@ -1,6 +1,7 @@
 package com.yxk.tjm.tianjiumeng.home;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -136,8 +137,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         mRecyclerComeMarket.setAdapter(new BaseQuickAdapter<FlashSaleBean, BaseViewHolder>(R.layout.item_new_come_market, list) {
             @Override
             protected void convert(BaseViewHolder helper, FlashSaleBean item) {
-                // helper.getLayoutPosition()  //获取当前position
                 helper.setImageResource(R.id.image_pic, item.getResImage());
+                TextView tv_original_price = helper.getView(R.id.tv_original_price);
+                tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);  //添加删除线
             }
         });
 

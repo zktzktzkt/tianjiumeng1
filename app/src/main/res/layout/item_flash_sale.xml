@@ -67,27 +67,6 @@
         android:src="@drawable/miaosha"
         />
 
-    <!--  <cn.iwgang.countdownview.CountdownView
-          android:id="@+id/cv_countdownView"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/tv_price"
-          android:layout_centerHorizontal="true"
-          android:layout_gravity="center_horizontal"
-          app:isHideTimeBackground="false"
-          app:isShowDay="false"
-          app:isShowHour="true"
-          app:isShowMillisecond="false"
-          app:isShowMinute="true"
-          app:isShowSecond="true"
-          app:isShowTimeBgDivisionLine="false"
-          app:suffixGravity="center"
-          app:suffixTextColor="#000000"
-          app:suffixTextSize="20sp"
-          app:timeBgColor="#FF5000"
-          app:timeTextColor="#FFFFFF"
-          app:timeTextSize="10sp"/>-->
-
     <cn.iwgang.countdownview.CountdownView
         android:id="@+id/cv_countdownView"
         android:layout_width="wrap_content"

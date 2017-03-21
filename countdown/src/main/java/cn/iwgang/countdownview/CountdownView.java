@@ -281,7 +281,7 @@ public class CountdownView extends View {
 
         if (!mCountdown.isConvertDaysToHours) {
             day = (int) (ms / (1000 * 60 * 60 * 24));
-            //hour = (int) ((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+           // hour = (int) ((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             hour = (int) (ms / (1000 * 60 * 60));
         } else {
             hour = (int) (ms / (1000 * 60 * 60));

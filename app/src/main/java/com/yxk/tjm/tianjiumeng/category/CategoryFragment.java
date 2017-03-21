@@ -2,6 +2,7 @@ package com.yxk.tjm.tianjiumeng.category;
 
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -117,12 +119,14 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         rightList1.add(new RightCategoryBean1(R.drawable.pic_b, "白兰地"));
 
         recycler_right_common.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        recycler_right_common.setAdapter(new BaseQuickAdapter<RightCategoryBean1, BaseViewHolder>(R.layout.item_right_header_category, rightList1) {
+        recycler_right_common.setAdapter(new BaseQuickAdapter<RightCategoryBean1, BaseViewHolder>(R.layout.item_right_common_category, rightList1) {
             @Override
             protected void convert(BaseViewHolder helper, RightCategoryBean1 item) {
                 // helper.getLayoutPosition()  //获取当前position
                 helper.setImageResource(R.id.img_pic, item.getResImage());
                 helper.setText(R.id.tv_name, item.getName());
+                TextView tv_original_price = helper.getView(R.id.tv_original_price);
+                tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);  //添加删除线
             }
         });
 

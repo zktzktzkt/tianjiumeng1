@@ -18,6 +18,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import cn.iwgang.countdownview.CountdownView;
+import cn.iwgang.countdownview.DynamicConfig;
 
 /**
  * Created by ningfei on 2017/3/20.
@@ -30,6 +31,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     private Timer mTimer;
     List<FlashSaleBean> list;
     FlashSaleBean flashSaleBean;
+    private DynamicConfig.Builder builder = new DynamicConfig.Builder();
 
     public FlashSaleAdapter() {
         this.mCountdownVHList = new SparseArray<>();
@@ -43,14 +45,14 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     @Override
     public void onBindViewHolder(FlashSaleAdapter.MyHolder holder, int position) {
         Glide.with(App.getAppContext()).load(list.get(position).getResImage()).into(holder.image_pic);
+        flashSaleBean = list.get(position);
 
         //-----------------------------------
-        flashSaleBean = list.get(position);
         //000
         flashSaleBean.setCountdown_id(position);
         //001
         flashSaleBean.setCountdown_0(System.currentTimeMillis());
-        flashSaleBean.setCountdown_endTime(System.currentTimeMillis() + 120 * 60 * 60 * 1000);
+        flashSaleBean.setCountdown_endTime(System.currentTimeMillis() + 1 * 60 * 60 * 1000);
         //002
         holder.bindData(flashSaleBean);  //4. 需要Countdown_endTime和countdown_0
         //003 处理倒计时
@@ -62,6 +64,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         //004
         startRefreshTime();  //需要mCountdownVHList
         //-------------------------------------
+
 
     }
 
@@ -185,9 +188,17 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
                         // 倒计时结束
                         myHolder.getBean().setCountdown_0(0);
                         mCountdownVHList.remove(key);
-
                         //notifyDataSetChanged();
+
                     } else {
+                        if (flashSaleBean.getCountdown_endTime() - System.currentTimeMillis() < (long) (1 * 60 * 60 * 1000)) {
+                            builder.setTimeTextColor(App.getAppContext().getResources().getColor(R.color.red_ff0000));
+                            myHolder.mCvCountdownView.dynamicShow(builder.build());
+                        } else {
+                            builder.setTimeTextColor(App.getAppContext().getResources().getColor(R.color.white));
+                            myHolder.mCvCountdownView.dynamicShow(builder.build());
+                        }
+
                         myHolder.refreshTime(currentTime);
                     }
 
