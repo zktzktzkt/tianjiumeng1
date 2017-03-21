@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.iwgang.countdownview.CountdownView;
+import cn.iwgang.countdownview.DynamicConfig;
 
 public class ProductDetailActivity extends BaseActivity implements View.OnClickListener {
 
@@ -145,6 +146,18 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
             ms_price.setVisibility(View.VISIBLE);
             cv_countdownView.start(5 * 60 * 1000);
             cv_countdownView.setVisibility(View.VISIBLE);
+
+            DynamicConfig.Builder builder = new DynamicConfig.Builder();
+            builder.setTimeTextColor(getResources().getColor(R.color.white));
+            final DynamicConfig build = builder.build();
+            cv_countdownView.setOnCountdownIntervalListener(50, new CountdownView.OnCountdownIntervalListener() {
+                @Override
+                public void onInterval(CountdownView cv, long remainTime) {
+                    if (System.currentTimeMillis() < System.currentTimeMillis() + (long) (4 * 60 * 1000)) {
+                        cv_countdownView.dynamicShow(build);
+                    }
+                }
+            });
             cv_countdownView.setOnCountdownEndListener(new CountdownView.OnCountdownEndListener() {
                 @Override
                 public void onEnd(CountdownView cv) {

@@ -31,10 +31,29 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     private Timer mTimer;
     List<FlashSaleBean> list;
     FlashSaleBean flashSaleBean;
-    private DynamicConfig.Builder builder = new DynamicConfig.Builder();
+    private final DynamicConfig.Builder builder;
+    private DynamicConfig build;
+    private int RED = 0;
+    private int WHITE = 1;
 
     public FlashSaleAdapter() {
         this.mCountdownVHList = new SparseArray<>();
+
+        builder = new DynamicConfig.Builder();
+    }
+
+    private DynamicConfig getDynamicConfigState(int state) {
+        if (state == RED) {
+            builder.setTimeTextColor(App.getAppContext().getResources().getColor(R.color.red_ff0000));
+        } else if (state == WHITE) {
+            builder.setTimeTextColor(App.getAppContext().getResources().getColor(R.color.white));
+        }
+
+        if (build != null) {
+            return this.build;
+        } else {
+            return builder.build();
+        }
     }
 
     @Override
@@ -47,7 +66,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         Glide.with(App.getAppContext()).load(list.get(position).getResImage()).into(holder.image_pic);
         flashSaleBean = list.get(position);
 
-        //-----------------------------------
+        //-------------（固定用法）----------------------
         //000
         flashSaleBean.setCountdown_id(position);
         //001
@@ -63,7 +82,8 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         }
         //004
         startRefreshTime();  //需要mCountdownVHList
-        //-------------------------------------
+
+        //----------------END---------------------
 
 
     }
@@ -87,6 +107,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         void onItemClick(int position);
     }
 
+
     //===============================================================================================
 
     public class MyHolder extends RecyclerView.ViewHolder {
@@ -108,7 +129,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         }
 
         /**
-         * 绑定数据
+         * （原）绑定数据
          *
          * @param itemInfo
          */
@@ -123,7 +144,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         }
 
         /**
-         * 更新时间
+         * （原）更新时间
          */
         public void refreshTime(long curTimeMillis) {   //2.
             if (null == mItemInfo || mItemInfo.getCountdown_0() <= 0)
@@ -131,12 +152,23 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
             mCvCountdownView.updateShow(mItemInfo.getCountdown_endTime() - curTimeMillis);
         }
 
+        /**
+         * （原）
+         *
+         * @return
+         */
         public FlashSaleBean getBean() {  //3.
             return mItemInfo;
         }
     }
 
     //================================================================================
+
+    /**
+     * （原）
+     *
+     * @param holder
+     */
     @Override
     public void onViewRecycled(FlashSaleAdapter.MyHolder holder) {  //6.
         super.onViewRecycled(holder);
@@ -148,7 +180,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     }
 
     /**
-     * 开始倒计时
+     * （原）开始倒计时
      */
     public void startRefreshTime() {
         if (!isCancel)
@@ -169,7 +201,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     }
 
     /**
-     * 每隔10毫秒执行一遍该Runnable，执行间隔在Timer设置
+     * （原）每隔10毫秒执行一遍该Runnable，执行间隔在Timer设置
      */
     private Runnable mRefreshTimeRunnable = new Runnable() {   //7.
         @Override
@@ -192,11 +224,9 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
 
                     } else {
                         if (flashSaleBean.getCountdown_endTime() - System.currentTimeMillis() < (long) (1 * 60 * 60 * 1000)) {
-                            builder.setTimeTextColor(App.getAppContext().getResources().getColor(R.color.red_ff0000));
-                            myHolder.mCvCountdownView.dynamicShow(builder.build());
+                            myHolder.mCvCountdownView.dynamicShow(getDynamicConfigState(RED));
                         } else {
-                            builder.setTimeTextColor(App.getAppContext().getResources().getColor(R.color.white));
-                            myHolder.mCvCountdownView.dynamicShow(builder.build());
+                            myHolder.mCvCountdownView.dynamicShow(getDynamicConfigState(WHITE));
                         }
 
                         myHolder.refreshTime(currentTime);
