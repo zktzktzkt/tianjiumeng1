@@ -66,7 +66,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         Glide.with(App.getAppContext()).load(list.get(position).getResImage()).into(holder.image_pic);
         flashSaleBean = list.get(position);
 
-        //-------------（固定用法）----------------------
+        //============（固定用法）==================
         //000
         flashSaleBean.setCountdown_id(position);
         //001
@@ -82,8 +82,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         }
         //004
         startRefreshTime();  //需要mCountdownVHList
-
-        //----------------END---------------------
+        //===================END=====================
 
 
     }

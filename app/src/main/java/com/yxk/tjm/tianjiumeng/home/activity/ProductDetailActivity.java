@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.custom.AutoHeightViewPager;
@@ -71,6 +72,10 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     private TextView ms_price;
     private CountdownView cv_countdownView;
     private String flashSale;
+    private int RED = 0;
+    private int WHITE = 1;
+    private  DynamicConfig.Builder builder;
+    private DynamicConfig build;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +144,8 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     }
 
     private void initData() {
+        builder = new DynamicConfig.Builder();
+
         if (TextUtils.isEmpty(flashSale)) {
             ms_price.setVisibility(View.GONE);
             cv_countdownView.setVisibility(View.GONE);
@@ -147,14 +154,13 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
             cv_countdownView.start(5 * 60 * 1000);
             cv_countdownView.setVisibility(View.VISIBLE);
 
-            DynamicConfig.Builder builder = new DynamicConfig.Builder();
-            builder.setTimeTextColor(getResources().getColor(R.color.white));
-            final DynamicConfig build = builder.build();
             cv_countdownView.setOnCountdownIntervalListener(50, new CountdownView.OnCountdownIntervalListener() {
                 @Override
                 public void onInterval(CountdownView cv, long remainTime) {
-                    if (System.currentTimeMillis() < System.currentTimeMillis() + (long) (4 * 60 * 1000)) {
-                        cv_countdownView.dynamicShow(build);
+                    if (System.currentTimeMillis() < System.currentTimeMillis() + (long) (60 * 60 * 1000)) {
+                        cv_countdownView.dynamicShow(getDynamicConfigState(RED));
+                    }else {
+                        cv_countdownView.dynamicShow(getDynamicConfigState(WHITE));
                     }
                 }
             });
@@ -170,6 +176,25 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
 
         mViewPager.setAdapter(fragmentPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    /**
+     * 获取设置倒计时的单例
+     * @param state
+     * @return
+     */
+    private DynamicConfig getDynamicConfigState(int state) {
+        if (state == RED) {
+            builder.setTimeTextColor(App.getAppContext().getResources().getColor(R.color.red_ff0000));
+        } else if (state == WHITE) {
+            builder.setTimeTextColor(App.getAppContext().getResources().getColor(R.color.white));
+        }
+
+        if (build != null) {
+            return this.build;
+        } else {
+            return builder.build();
+        }
     }
 
     private void setToolbarNavigationClick() {
