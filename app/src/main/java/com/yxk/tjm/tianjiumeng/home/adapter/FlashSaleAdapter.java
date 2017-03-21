@@ -50,7 +50,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         flashSaleBean.setCountdown_id(position);
         //001
         flashSaleBean.setCountdown_0(System.currentTimeMillis());
-        flashSaleBean.setCountdown_endTime(System.currentTimeMillis() + 50 * 10 * 1000);
+        flashSaleBean.setCountdown_endTime(System.currentTimeMillis() + 120 * 60 * 60 * 1000);
         //002
         holder.bindData(flashSaleBean);  //4. 需要Countdown_endTime和countdown_0
         //003 处理倒计时

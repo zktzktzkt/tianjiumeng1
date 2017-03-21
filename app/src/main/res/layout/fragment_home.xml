@@ -139,7 +139,8 @@
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_come_market"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:background="@color/background"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/iv_new_big_pic"
                     android:layout_margin="10dp"
                     />
@@ -188,6 +189,7 @@
                     android:id="@+id/recycler_flash_sale"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/background"
                     android:layout_below="@id/ll_flash_sale"
                     android:layout_margin="5dp"/>
 

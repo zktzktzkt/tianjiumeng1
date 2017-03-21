@@ -90,6 +90,8 @@
                     android:src="@drawable/pic_a"/>
 
                 <RelativeLayout
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#28272f">
@@ -98,7 +100,6 @@
                         android:id="@+id/tv_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="15dp"
                         android:text="高脚杯红酒杯无铅玻璃（2只装）"
                         android:textColor="#fff"
@@ -111,7 +112,6 @@
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@id/tv_title"
                         android:layout_below="@id/tv_title"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="12dp"
                         android:ellipsize="end"
                         android:maxLines="2"
@@ -121,11 +121,22 @@
                         />
 
                     <TextView
+                        android:id="@+id/ms_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_introduce"
+                        android:layout_marginTop="20dp"
+                        android:text="秒杀价 "
+                        android:textColor="#ff0000"
+                        android:textSize="17sp"
+                        />
+
+                    <TextView
                         android:id="@+id/tv_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/tv_introduce"
                         android:layout_below="@id/tv_introduce"
+                        android:layout_toRightOf="@id/ms_price"
                         android:layout_marginTop="20dp"
                         android:text="￥499"
                         android:textColor="#ff0000"
@@ -136,12 +147,10 @@
                         android:id="@+id/tv_original_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/tv_price"
                         android:layout_below="@id/tv_price"
                         android:layout_marginBottom="3dp"
-                        android:layout_marginLeft="2dp"
                         android:layout_marginTop="3dp"
-                        android:text="原价￥899"
+                        android:text="参考价￥899"
                         android:textColor="@color/tabTextColor"
                         android:textSize="11sp"
                         />
@@ -150,7 +159,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/tv_price"
-                        android:layout_toRightOf="@id/tv_original_price"
+                        android:layout_toRightOf="@id/tv_price"
+                        android:layout_marginLeft="6dp"
                         android:src="@drawable/biaoqian_yhq"
                         />
 
@@ -159,7 +169,6 @@
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/tv_original_price"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
                         android:text="库存：200"
                         android:textColor="#8a8a8a"
                         android:textSize="11sp"
@@ -172,27 +181,26 @@
                         android:layout_alignBottom="@id/tv_price"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginRight="10dp"
                         android:layout_marginTop="3dp"
+                        app:isShowTimeBgBorder="true"
                         app:isHideTimeBackground="false"
                         app:isShowDay="false"
                         app:isShowHour="true"
-                        app:isShowMillisecond="false"
+                        app:isShowMillisecond="true"
                         app:isShowMinute="true"
                         app:isShowSecond="true"
-                        app:isShowTimeBgBorder="true"
-                        app:isShowTimeBgDivisionLine="false"
                         app:suffixGravity="center"
-                        app:suffixLRMargin="5dp"
-                        app:suffixTextColor="@color/red_ff0000"
-                        app:suffixTextSize="10sp"
-                        app:timeBgBorderColor="@color/red_ff0000"
+                        app:isShowTimeBgDivisionLine="false"
+                        app:suffixLRMargin="2dp"
+                        app:suffixTextColor="@color/gray_444444"
+                        app:suffixTextSize="18sp"
+                        app:timeBgBorderColor="@color/gray_444444"
                         app:timeBgBorderRadius="1dp"
                         app:timeBgBorderSize="1dp"
-                        app:timeBgColor="@color/gray_common"
+                        app:timeBgColor="@color/gray_444444"
                         app:timeBgRadius="0dp"
                         app:timeBgSize="20dp"
-                        app:timeTextColor="@color/red_ff0000"
+                        app:timeTextColor="@color/white"
                         app:timeTextSize="14sp"/>
                 </RelativeLayout>
 

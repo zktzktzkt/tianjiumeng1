@@ -67,6 +67,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     private View rebateView;
     private TextView tv_content;
     private TextView tv_rebate_info;
+    private TextView ms_price;
     private CountdownView cv_countdownView;
     private String flashSale;
 
@@ -122,6 +123,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         tv_money_day = (TextView) findViewById(R.id.tv_money_day);
         tv_money_percent = (TextView) findViewById(R.id.tv_money_percent);
         tv_rebate_info = (TextView) findViewById(R.id.tv_rebate_info);
+        ms_price = (TextView) findViewById(R.id.ms_price);
         cv_countdownView = (CountdownView) findViewById(R.id.cv_countdownView);
 
         setToolbarNavigationClick();
@@ -139,7 +141,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         if (TextUtils.isEmpty(flashSale)) {
             cv_countdownView.setVisibility(View.GONE);
         } else {
-            cv_countdownView.start(5* 60 * 1000);
+            cv_countdownView.start(5 * 60 * 1000);
             cv_countdownView.setVisibility(View.VISIBLE);
             cv_countdownView.setOnCountdownEndListener(new CountdownView.OnCountdownEndListener() {
                 @Override
@@ -223,6 +225,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                 dialog.show();*/
                 showBottomPopupWindow();
                 break;
+
             case R.id.btn_buy:
                 BottomPop.COMMON = BottomPop.BUY;
                 showBottomPopupWindow();
