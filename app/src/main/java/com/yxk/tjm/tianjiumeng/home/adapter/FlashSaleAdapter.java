@@ -33,8 +33,8 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     FlashSaleBean flashSaleBean;
     private final DynamicConfig.Builder builder;
     private DynamicConfig build;
-    private int RED = 0;
-    private int WHITE = 1;
+    private final int RED = 0;
+    private final int WHITE = 1;
 
     public FlashSaleAdapter() {
         this.mCountdownVHList = new SparseArray<>();

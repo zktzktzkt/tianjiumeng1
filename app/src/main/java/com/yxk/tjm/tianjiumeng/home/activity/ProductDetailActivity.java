@@ -72,8 +72,8 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     private TextView ms_price;
     private CountdownView cv_countdownView;
     private String flashSale;
-    private int RED = 0;
-    private int WHITE = 1;
+    private final int RED = 0;
+    private final int WHITE = 1;
     private  DynamicConfig.Builder builder;
     private DynamicConfig build;
 
@@ -288,12 +288,6 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
             case R.id.tv_money_day:
                 COMMON = DAY;
                 judgeRebateVisible();
-              /*  customPopWindow = new CustomPopWindow.PopupWindowBuilder(this)
-                        .setView(R.layout.pop_rebate_day)
-                        .setFocusable(true)
-                        .setOutsideTouchable(true)
-                        .create()
-                        .showAsDropDown(tv_money_day, 0, 10);*/
                 break;
         }
     }
