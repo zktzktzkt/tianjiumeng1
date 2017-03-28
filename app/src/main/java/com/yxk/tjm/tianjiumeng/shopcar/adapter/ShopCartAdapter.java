@@ -99,7 +99,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
         tv_all_price.setText("" + getTotalPrice());
     }
 
-    private void showCheckedCount() {
+    public void showCheckedCount() {
         btn_account.setText("结算(" + computeCheckedCount() + ")");
     }
 

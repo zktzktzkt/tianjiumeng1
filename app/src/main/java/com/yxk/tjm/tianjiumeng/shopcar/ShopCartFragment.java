@@ -143,6 +143,7 @@ public class ShopCartFragment extends Fragment {
                         checkbox.setChecked(true);
                         shopCartAdapter.notifyDataSetChanged();
                         shopCartAdapter.showTotalPrice();
+                        shopCartAdapter.showCheckedCount();
                         break;
                 }
             }
