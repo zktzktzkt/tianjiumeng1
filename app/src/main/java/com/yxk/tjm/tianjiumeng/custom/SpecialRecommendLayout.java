@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.yxk.tjm.tianjiumeng.App;
@@ -26,6 +27,18 @@ public class SpecialRecommendLayout extends RelativeLayout {
     ImageView ivPic2;
     @BindView(R.id.iv_pic_3)
     ImageView ivPic3;
+    @BindView(R.id.tv_price_1)
+    TextView tvPrice1;
+    @BindView(R.id.tv_price_2)
+    TextView tvPrice2;
+    @BindView(R.id.tv_price_3)
+    TextView tvPrice3;
+    @BindView(R.id.tv_top_title)
+    TextView tvTopTitle_zero;
+    @BindView(R.id.iv_image)
+    ImageView ivImage_zero;
+    @BindView(R.id.tv_bottom_title)
+    TextView tvBottomTitle_zero;
 
     public SpecialRecommendLayout(Context context) {
         this(context, null);
@@ -64,18 +77,27 @@ public class SpecialRecommendLayout extends RelativeLayout {
         }
     }
 
-    public void setIvPic1(int resid) {
+    public void setZeroData(String topTitle, String picStr, String bottomTitle){
+        tvTopTitle_zero.setText(topTitle);
+        Glide.with(App.getAppContext()).load(picStr).into(ivImage_zero);
+        tvBottomTitle_zero.setText(bottomTitle);
+    }
+
+    public void setIvPic1(String resid, String price) {
         Glide.with(App.getAppContext()).load(resid).into(ivPic1);
+        tvPrice1.setText(price);
     }
 
 
-    public void setIvPic2(int resid) {
+    public void setIvPic2(String resid, String price) {
         Glide.with(App.getAppContext()).load(resid).into(ivPic2);
+        tvPrice2.setText(price);
     }
 
 
-    public void setIvPic3(int resid) {
+    public void setIvPic3(String resid, String price) {
         Glide.with(App.getAppContext()).load(resid).into(ivPic3);
+        tvPrice3.setText(price);
     }
 
     OnItemClickListener onItemClickListener;

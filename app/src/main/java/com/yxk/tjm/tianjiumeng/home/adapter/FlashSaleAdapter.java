@@ -1,5 +1,6 @@
 package com.yxk.tjm.tianjiumeng.home.adapter;
 
+import android.graphics.Paint;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
@@ -7,11 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
-import com.yxk.tjm.tianjiumeng.home.bean.FlashSaleBean;
+import com.yxk.tjm.tianjiumeng.home.bean.HomeBean;
 
 import java.util.List;
 import java.util.Timer;
@@ -29,8 +31,8 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     private Handler mHandler = new Handler();
     private boolean isCancel = true;
     private Timer mTimer;
-    List<FlashSaleBean> list;
-    FlashSaleBean flashSaleBean;
+    List<HomeBean.TimedSaleBean> list;
+    HomeBean.TimedSaleBean flashSaleBean;
     private final DynamicConfig.Builder builder;
     private DynamicConfig build;
     private final int RED = 0;
@@ -63,7 +65,6 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
 
     @Override
     public void onBindViewHolder(FlashSaleAdapter.MyHolder holder, int position) {
-        Glide.with(App.getAppContext()).load(list.get(position).getResImage()).into(holder.image_pic);
         flashSaleBean = list.get(position);
 
         //============（固定用法）==================
@@ -71,7 +72,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         flashSaleBean.setCountdown_id(position);
         //001
         flashSaleBean.setCountdown_0(System.currentTimeMillis());
-        flashSaleBean.setCountdown_endTime(System.currentTimeMillis() + 1 * 60 * 60 * 1000);
+        flashSaleBean.setCountdown_endTime(System.currentTimeMillis() + (flashSaleBean.getFailureTime() - System.currentTimeMillis()));
         //002
         holder.bindData(flashSaleBean);  //4. 需要Countdown_endTime和countdown_0
         //003 处理倒计时
@@ -84,6 +85,11 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         startRefreshTime();  //需要mCountdownVHList
         //===================END=====================
 
+        holder.tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);  //添加删除线
+        Glide.with(App.getAppContext()).load(list.get(position).getShowpic()).into(holder.image_pic);
+        holder.tv_title.setText(flashSaleBean.getName());
+        holder.tv_price.setText("￥" + flashSaleBean.getNowprice());
+        holder.tv_original_price.setText("￥" + flashSaleBean.getOrgnprice());
 
     }
 
@@ -92,7 +98,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
         return list == null ? 0 : list.size();
     }
 
-    public void setMatchData(List<FlashSaleBean> list) {
+    public void setMatchData(List<HomeBean.TimedSaleBean> list) {
         this.list = list;
     }
 
@@ -112,8 +118,11 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     public class MyHolder extends RecyclerView.ViewHolder {
 
         private final CountdownView mCvCountdownView;
-        FlashSaleBean mItemInfo;
+        HomeBean.TimedSaleBean mItemInfo;
         private final ImageView image_pic;
+        private final TextView tv_title;
+        private final TextView tv_price;
+        private final TextView tv_original_price;
 
         public MyHolder(View itemView) {
             super(itemView);
@@ -125,6 +134,9 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
             });
             mCvCountdownView = (CountdownView) itemView.findViewById(R.id.cv_countdownView);
             image_pic = (ImageView) itemView.findViewById(R.id.image_pic);
+            tv_title = (TextView) itemView.findViewById(R.id.tv_title);
+            tv_price = (TextView) itemView.findViewById(R.id.tv_price);
+            tv_original_price = (TextView) itemView.findViewById(R.id.tv_original_price);
         }
 
         /**
@@ -132,7 +144,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
          *
          * @param itemInfo
          */
-        public void bindData(FlashSaleBean itemInfo) {  //1.
+        public void bindData(HomeBean.TimedSaleBean itemInfo) {  //1.
             mItemInfo = itemInfo;
 
             if (itemInfo.getCountdown_0() > 0) {
@@ -156,7 +168,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
          *
          * @return
          */
-        public FlashSaleBean getBean() {  //3.
+        public HomeBean.TimedSaleBean getBean() {  //3.
             return mItemInfo;
         }
     }
@@ -172,7 +184,7 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     public void onViewRecycled(FlashSaleAdapter.MyHolder holder) {  //6.
         super.onViewRecycled(holder);
 
-        FlashSaleBean flashSaleBean = holder.getBean();
+        HomeBean.TimedSaleBean flashSaleBean = holder.getBean();
         if (null != flashSaleBean && flashSaleBean.getCountdown_0() > 0) {
             mCountdownVHList.remove(flashSaleBean.getCountdown_id());
         }

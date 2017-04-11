@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
-import com.yxk.tjm.tianjiumeng.category.bean.LeftCategoryBean;
+import com.yxk.tjm.tianjiumeng.category.bean.CategoryBean;
 
 import java.util.List;
 
@@ -18,10 +18,10 @@ import java.util.List;
  */
 
 public class LeftCategoryAdapter extends RecyclerView.Adapter<LeftCategoryAdapter.MyHolder> {
-    List<LeftCategoryBean> leftList;
+    List<CategoryBean.TypeListBean> leftList;
     public int selectPos = 0;
 
-    public LeftCategoryAdapter(List<LeftCategoryBean> leftList) {
+    public LeftCategoryAdapter(List<CategoryBean.TypeListBean> leftList) {
         this.leftList = leftList;
     }
 
@@ -33,7 +33,7 @@ public class LeftCategoryAdapter extends RecyclerView.Adapter<LeftCategoryAdapte
 
     @Override
     public void onBindViewHolder(LeftCategoryAdapter.MyHolder holder, int position) {
-        holder.tv_left_item.setText(leftList.get(position).getLeftItem());
+        holder.tv_left_item.setText(leftList.get(position).getTypeName());
 
         if (selectPos == position) {
             holder.tv_left_item.setSelected(true);
@@ -42,6 +42,9 @@ public class LeftCategoryAdapter extends RecyclerView.Adapter<LeftCategoryAdapte
             holder.tv_left_item.setSelected(false);
             holder.linear_left_item.setBackgroundColor(App.getAppContext().getResources().getColor(R.color.background));
         }
+
+        //-------------------
+
 
     }
 

@@ -11,4 +11,6 @@
 
     <string name="rebate_percent">返利比例是指成功购买商品后，会按照购买价钱的百分比，以水晶钻的形式返利到您的账户，您可用于重复消费</string>
     <string name="rebate_day">返利周期是指成功购买商品后，会按照购买周期的天数，以水晶钻的形式每天返利，直到返利结束。您可用于重复消费</string>
+
+    <string name="RMB">¥</string>
 </resources>

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
+import com.yxk.tjm.tianjiumeng.home.bean.ProductInnerDetailBean;
 
 import java.util.List;
 
@@ -19,9 +20,7 @@ import java.util.List;
  */
 
 public class RecommendForYouAdapter extends RecyclerView.Adapter<RecommendForYouAdapter.MyHolder> {
-    //List<String> paths;
-    // TODO: 2017/3/9 为了测试用这个res id，正式情况用string的路径
-    List<Integer> paths;
+    List<ProductInnerDetailBean.CnnmdForYouBean> mDatas;
 
     @Override
     public RecommendForYouAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -31,21 +30,21 @@ public class RecommendForYouAdapter extends RecyclerView.Adapter<RecommendForYou
 
     @Override
     public void onBindViewHolder(RecommendForYouAdapter.MyHolder holder, int position) {
-        Glide.with(App.getAppContext()).load(paths.get(position)).into(holder.img_pic);
+        Glide.with(App.getAppContext()).load(mDatas.get(position).getShowpic()).into(holder.img_pic);
         holder.tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+        holder.tv_name.setText(mDatas.get(position).getName());
+        holder.tv_price.setText("¥" + mDatas.get(position).getNowprice());
+        holder.tv_original_price.setText("¥" + mDatas.get(position).getOrgnprice());
     }
 
     @Override
     public int getItemCount() {
-        return paths == null ? 0 : paths.size();
+        return mDatas == null ? 0 : mDatas.size();
     }
 
-   /* public void setMatchData(List<String> paths) {
-        this.paths = paths;
-    }*/
 
-    public void setMatchData(List<Integer> paths) {
-        this.paths = paths;
+    public void setMatchData(List<ProductInnerDetailBean.CnnmdForYouBean> datas) {
+        this.mDatas = datas;
     }
 
 
@@ -63,11 +62,15 @@ public class RecommendForYouAdapter extends RecyclerView.Adapter<RecommendForYou
 
         private final ImageView img_pic;
         private final TextView tv_original_price;
+        private final TextView tv_name;
+        private final TextView tv_price;
 
         public MyHolder(View itemView) {
             super(itemView);
             img_pic = (ImageView) itemView.findViewById(R.id.img_pic);
             tv_original_price = (TextView) itemView.findViewById(R.id.tv_original_price);
+            tv_name = (TextView) itemView.findViewById(R.id.tv_name);
+            tv_price = (TextView) itemView.findViewById(R.id.tv_price);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

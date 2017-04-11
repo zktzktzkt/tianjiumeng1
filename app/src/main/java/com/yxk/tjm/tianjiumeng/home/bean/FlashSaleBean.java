@@ -6,17 +6,7 @@ package com.yxk.tjm.tianjiumeng.home.bean;
  */
 
 public class FlashSaleBean {
-    private int resImage;
-
-    public int getResImage() {
-        return resImage;
-    }
-
-    public FlashSaleBean(int resImage) {
-        this.resImage = resImage;
-    }
-
-    //倒计时相关
+    //倒计时相关----------------start-------------------------
     private long countdown_0;
     private long  countdown_endTime;
     private int countdown_id;
@@ -44,6 +34,5 @@ public class FlashSaleBean {
     public void setCountdown_0(long countdown_0) {
         this.countdown_0 = countdown_0;
     }
-
-
+    //倒计时相关----------------end-------------------------
 }

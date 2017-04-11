@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
 import com.yxk.tjm.tianjiumeng.App;
@@ -29,20 +31,26 @@ import com.yxk.tjm.tianjiumeng.custom.AutoHeightViewPager;
 import com.yxk.tjm.tianjiumeng.custom.BottomPop;
 import com.yxk.tjm.tianjiumeng.custom.CustomPopWindow;
 import com.yxk.tjm.tianjiumeng.custom.MyNestedScrollView;
+import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeann;
 import com.yxk.tjm.tianjiumeng.home.fragment.DesignIdeaFragment;
 import com.yxk.tjm.tianjiumeng.home.fragment.ProductDetailFragment;
 import com.yxk.tjm.tianjiumeng.home.fragment.StandardFragment;
+import com.yxk.tjm.tianjiumeng.network.Url;
 import com.yxk.tjm.tianjiumeng.utils.GlideImageLoader;
 import com.yxk.tjm.tianjiumeng.utils.T;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.iwgang.countdownview.CountdownView;
 import cn.iwgang.countdownview.DynamicConfig;
+import okhttp3.Call;
 
 public class ProductDetailActivity extends BaseActivity implements View.OnClickListener {
 
+    private static final String TAG = "ProductDetailActivity ";
     private TextView mTvTitle;
     private TextView mTvIntroduce;
     private TextView mTvPrice;
@@ -59,7 +67,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     private TextView mTvCollect;
     private TextView mTvAddShopcart;
     private Button mBtnBuy;
-    private List<Integer> images;
+    private List<String> images;
     private RelativeLayout relative_bottom;
     private TextView tv_original_price;
     private TextView tv_money_day;
@@ -72,10 +80,12 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     private TextView ms_price;
     private CountdownView cv_countdownView;
     private String flashSale;
+    private String productId;
     private final int RED = 0;
     private final int WHITE = 1;
-    private  DynamicConfig.Builder builder;
+    private DynamicConfig.Builder builder;
     private DynamicConfig build;
+    private ProductDetailBeann productDetailBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,28 +94,53 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         layoutInflater = LayoutInflater.from(this);
 
         flashSale = getIntent().getStringExtra("flashSale");
+        productId = getIntent().getStringExtra("productId");
 
         fragments = new ArrayList<>();
-        fragments.add(new ProductDetailFragment());
-        fragments.add(new DesignIdeaFragment());
-        fragments.add(new StandardFragment());
+
+        Bundle bundle = new Bundle();
+        bundle.putString("productId", String.valueOf(productId));
+
+        ProductDetailFragment productDetailFragment = new ProductDetailFragment();
+        productDetailFragment.setArguments(bundle);
+
+        DesignIdeaFragment designIdeaFragment = new DesignIdeaFragment();
+        designIdeaFragment.setArguments(bundle);
+
+        StandardFragment standardFragment = new StandardFragment();
+        standardFragment.setArguments(bundle);
+
+        fragments.add(productDetailFragment);
+        fragments.add(designIdeaFragment);
+        fragments.add(standardFragment);
 
         titles = new ArrayList<>();
         titles.add("商品详情");
         titles.add("设计理念");
         titles.add("商品规格");
 
-        images = new ArrayList<>();
-        images.add(R.drawable.pic_350w_1);
-        images.add(R.drawable.pic_350w_2);
-        images.add(R.drawable.pic_350w_3);
-
         initView();
+
+        //判断是不是限时特卖，如果是，就显示倒计时
         if (TextUtils.isEmpty(flashSale)) {
+            ms_price.setVisibility(View.GONE);
             cv_countdownView.setVisibility(View.GONE);
         } else {
+            ms_price.setVisibility(View.VISIBLE);
             cv_countdownView.setVisibility(View.VISIBLE);
+            setCountdownView();
         }
+
+
+   /*     if (TextUtils.isEmpty(flashSale)) {
+            cv_countdownView.setVisibility(View.GONE);
+        } else {
+            ms_price.setVisibility(View.VISIBLE);
+            cv_countdownView.start(5 * 60 * 1000);
+            cv_countdownView.setVisibility(View.VISIBLE);
+
+        }
+        */
         initData();
     }
 
@@ -141,45 +176,79 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         tv_money_percent.setOnClickListener(this);
 
         tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);  //添加删除线
+
     }
 
     private void initData() {
-        builder = new DynamicConfig.Builder();
+        OkHttpUtils.get()
+                .url(Url.DETAIL_PAGE)
+                .addParams("productId", productId)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
 
-        if (TextUtils.isEmpty(flashSale)) {
-            ms_price.setVisibility(View.GONE);
-            cv_countdownView.setVisibility(View.GONE);
-        } else {
-            ms_price.setVisibility(View.VISIBLE);
-            cv_countdownView.start(5 * 60 * 1000);
-            cv_countdownView.setVisibility(View.VISIBLE);
-
-            cv_countdownView.setOnCountdownIntervalListener(50, new CountdownView.OnCountdownIntervalListener() {
-                @Override
-                public void onInterval(CountdownView cv, long remainTime) {
-                    if (System.currentTimeMillis() < System.currentTimeMillis() + (long) (60 * 60 * 1000)) {
-                        cv_countdownView.dynamicShow(getDynamicConfigState(RED));
-                    }else {
-                        cv_countdownView.dynamicShow(getDynamicConfigState(WHITE));
                     }
-                }
-            });
-            cv_countdownView.setOnCountdownEndListener(new CountdownView.OnCountdownEndListener() {
-                @Override
-                public void onEnd(CountdownView cv) {
-                    finish();
-                }
-            });
-        }
 
-        initBanner();
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e(TAG, "initData() response:" + response);
+                        Gson gson = new Gson();
+                        productDetailBean = gson.fromJson(response, ProductDetailBeann.class);
+
+                        initBanner();
+
+                        setProductInfo();
+
+                    }
+                });
+
 
         mViewPager.setAdapter(fragmentPagerAdapter);
+        mViewPager.setOffscreenPageLimit(2);
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
     /**
+     * 设置商品的数据
+     */
+    private void setProductInfo() {
+        mTvTitle.setText(productDetailBean.getProductDetail().getName());
+        mTvIntroduce.setText(productDetailBean.getProductDetail().getDescription());
+        mTvPrice.setText(productDetailBean.getProductDetail().getNowprice()+"");
+        tv_original_price.setText("参考价¥" + productDetailBean.getProductDetail().getOrgnprice());
+        tv_money_percent.setText("返利比例：" + productDetailBean.getProductDetail().getFeedbackrate() + "%");
+        tv_money_day.setText("返利周期：" + productDetailBean.getProductDetail().getFeedbacktime() + "天");
+    }
+
+    /**
+     * 设置如果是限时特卖点进去的倒计时
+     */
+    private void setCountdownView() {
+        builder = new DynamicConfig.Builder();
+
+        cv_countdownView.setOnCountdownIntervalListener(50, new CountdownView.OnCountdownIntervalListener() {
+            @Override
+            public void onInterval(CountdownView cv, long remainTime) {
+                if (System.currentTimeMillis() < System.currentTimeMillis() + (long) (60 * 60 * 1000)) {
+                    cv_countdownView.dynamicShow(getDynamicConfigState(RED));
+                } else {
+                    cv_countdownView.dynamicShow(getDynamicConfigState(WHITE));
+                }
+            }
+        });
+        cv_countdownView.setOnCountdownEndListener(new CountdownView.OnCountdownEndListener() {
+            @Override
+            public void onEnd(CountdownView cv) {
+                finish();
+            }
+        });
+    }
+
+
+    /**
      * 获取设置倒计时的单例
+     *
      * @param state
      * @return
      */
@@ -219,7 +288,15 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         mToolbar.getBackground().setAlpha(255);
     }
 
+    /**
+     * 设置轮播图
+     */
     private void initBanner() {
+        images = new ArrayList<>();
+        for (int i = 0; i < productDetailBean.getCrclphotos().size(); i++) {
+            images.add(productDetailBean.getCrclphotos().get(i).getGoodsPic());
+        }
+
         //设置图片加载器
         mBanner.setImageLoader(new GlideImageLoader());
         mBanner.setImages(images);
@@ -319,7 +396,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     }
 
     private void showBottomPopupWindow() {
-        BottomPop bottomPop = new BottomPop(this);
+        BottomPop bottomPop = new BottomPop(this, productDetailBean.getHWs());
         //      设置Popupwindow显示位置（从底部弹出）
         bottomPop.showAtLocation(findViewById(R.id.my_nested_scroll), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
         Window window = getWindow();

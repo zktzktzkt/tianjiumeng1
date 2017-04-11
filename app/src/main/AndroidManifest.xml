@@ -93,6 +93,8 @@
         <activity android:name=".home.activity.SearchActivity"/>
         <activity android:name=".my.activity.TJMHouseActivity">
         </activity>
+        <activity android:name=".home.activity.AllAppraiseActivity">
+        </activity>
     </application>
 
 </manifest>

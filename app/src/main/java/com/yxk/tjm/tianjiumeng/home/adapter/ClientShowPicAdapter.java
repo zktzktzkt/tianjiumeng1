@@ -17,9 +17,9 @@ import java.util.List;
  */
 
 public class ClientShowPicAdapter extends RecyclerView.Adapter<ClientShowPicAdapter.MyHolder> {
-    //List<String> paths;
+    //List<String> mDatas;
     // TODO: 2017/3/9 为了测试用这个res id，正式情况用string的路径
-    List<Integer> paths;
+    List<String> paths;
 
     @Override
     public ClientShowPicAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -37,11 +37,11 @@ public class ClientShowPicAdapter extends RecyclerView.Adapter<ClientShowPicAdap
         return paths == null ? 0 : paths.size();
     }
 
-   /* public void setMatchData(List<String> paths) {
-        this.paths = paths;
+   /* public void setMatchData(List<String> mDatas) {
+        this.mDatas = mDatas;
     }*/
 
-    public void setMatchData(List<Integer> paths) {
+    public void setMatchData(List<String> paths) {
         this.paths = paths;
     }
 

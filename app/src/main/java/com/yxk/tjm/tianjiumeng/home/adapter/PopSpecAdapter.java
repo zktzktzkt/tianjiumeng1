@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
-import com.yxk.tjm.tianjiumeng.home.bean.PopSpecBean;
+import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeann;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  */
 
 public class PopSpecAdapter extends RecyclerView.Adapter<PopSpecAdapter.MyHolder> {
-    private List<PopSpecBean> specs;
+    private List<ProductDetailBeann.HWsBean> mDatas;
 
     private int lastPos = -1;
 
@@ -29,9 +29,9 @@ public class PopSpecAdapter extends RecyclerView.Adapter<PopSpecAdapter.MyHolder
 
     @Override
     public void onBindViewHolder(final PopSpecAdapter.MyHolder holder, final int position) {
-        holder.tv_spec.setText(specs.get(position).getSpecStr());
+        holder.tv_spec.setText(mDatas.get(position).getGoodsHeight() + "x" + mDatas.get(position).getGoodsWide());
 
-        if (specs.get(position).isSelected()) {
+        if (mDatas.get(position).isSelected()) {
             holder.tv_spec.setSelected(true);
             holder.tv_spec.setTextColor(App.getAppContext().getResources().getColor(R.color.white));
         } else {
@@ -51,11 +51,11 @@ public class PopSpecAdapter extends RecyclerView.Adapter<PopSpecAdapter.MyHolder
 
     @Override
     public int getItemCount() {
-        return specs == null ? 0 : specs.size();
+        return mDatas == null ? 0 : mDatas.size();
     }
 
-    public void setMatchData(List<PopSpecBean> specs) {
-        this.specs = specs;
+    public void setMatchData(List<ProductDetailBeann.HWsBean> datas) {
+        this.mDatas = datas;
     }
 
     public int getLastPos() {

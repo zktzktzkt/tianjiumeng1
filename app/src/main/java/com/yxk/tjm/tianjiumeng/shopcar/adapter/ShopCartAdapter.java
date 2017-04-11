@@ -111,6 +111,10 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
             @Override
             public void onClick(View view) {
                 removeItem();
+                // TODO: 2017/4/5 结算数量为0的时候显示另一个界面
+                if(computeCheckedCount() <= 0){
+
+                }
             }
         });
     }

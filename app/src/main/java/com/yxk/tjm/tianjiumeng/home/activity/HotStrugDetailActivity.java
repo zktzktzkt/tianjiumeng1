@@ -4,16 +4,11 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.youth.banner.Banner;
@@ -21,14 +16,11 @@ import com.youth.banner.Transformer;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.custom.AutoHeightViewPager;
-import com.yxk.tjm.tianjiumeng.custom.BottomPop;
 import com.yxk.tjm.tianjiumeng.custom.MyNestedScrollView;
-import com.yxk.tjm.tianjiumeng.home.adapter.RecommendForYouAdapter;
 import com.yxk.tjm.tianjiumeng.home.fragment.ProductDetailFragment;
 import com.yxk.tjm.tianjiumeng.utils.GlideImageLoader;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class HotStrugDetailActivity extends BaseActivity implements View.OnClickListener {
@@ -93,7 +85,7 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
     private void initData() {
         initBanner();
 
-        initRecommendForYouRecycler();
+        //initRecommendForYouRecycler();
         mViewPager.setAdapter(fragmentPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
     }
@@ -107,12 +99,12 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
         });
     }
 
-    private void initRecommendForYouRecycler() {
+ /*   private void initRecommendForYouRecycler() {
         mRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         RecommendForYouAdapter recommendForYouAdapter = new RecommendForYouAdapter();
         recommendForYouAdapter.setMatchData(Arrays.asList(R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a));
         mRecycler.setAdapter(recommendForYouAdapter);
-    }
+    }*/
 
     private void initBanner() {
         //设置图片加载器
@@ -140,12 +132,12 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_buy:
-                showBottomPopupWindow();
+               // showBottomPopupWindow();
                 break;
         }
     }
 
-    private void showBottomPopupWindow() {
+   /* private void showBottomPopupWindow() {
         BottomPop bottomPop = new BottomPop(this);
         //      设置Popupwindow显示位置（从底部弹出）
         bottomPop.showAtLocation(findViewById(R.id.my_nested_scroll), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
@@ -164,7 +156,7 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
                 window.setAttributes(wl);
             }
         });
-    }
+    }*/
 
     private FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
         @Override

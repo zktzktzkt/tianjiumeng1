@@ -7,11 +7,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
-import com.yxk.tjm.tianjiumeng.my.bean.WaitPayBean;
+import com.yxk.tjm.tianjiumeng.shopcar.adapter.AddressAdapter;
+import com.yxk.tjm.tianjiumeng.shopcar.bean.AddressBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,21 +35,16 @@ public class AddressActivity extends BaseActivity {
         ButterKnife.bind(this);
         setToolbarNavigationClick();
 
-        List<WaitPayBean> list = new ArrayList<>();
-        list.add(new WaitPayBean());
-        list.add(new WaitPayBean());
-        list.add(new WaitPayBean());
-        list.add(new WaitPayBean());
-        list.add(new WaitPayBean());
-        list.add(new WaitPayBean());
+        List<AddressBean> list = new ArrayList<>();
+        list.add(new AddressBean());
+        list.add(new AddressBean());
+        list.add(new AddressBean());
+        list.add(new AddressBean());
+        list.add(new AddressBean());
+        list.add(new AddressBean());
 
         recycler = (RecyclerView) findViewById(R.id.recycler);
-        recycler.setAdapter(new BaseQuickAdapter<WaitPayBean, BaseViewHolder>(R.layout.item_address, list) {
-            @Override
-            protected void convert(BaseViewHolder helper, WaitPayBean item) {
-
-            }
-        });
+        recycler.setAdapter(new AddressAdapter(list));
     }
 
     private void setToolbarNavigationClick() {

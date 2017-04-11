@@ -13,10 +13,9 @@ import android.widget.PopupWindow;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.home.adapter.PopSpecAdapter;
-import com.yxk.tjm.tianjiumeng.home.bean.PopSpecBean;
+import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeann;
 import com.yxk.tjm.tianjiumeng.utils.T;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,11 +30,13 @@ public class BottomPop extends PopupWindow {
     private  View view;
     private final RecyclerView recycler;
     private final Button btn_confirm;
+    List<ProductDetailBeann.HWsBean> hWsBeanList;
 
-    public BottomPop(Context context) {
+    public BottomPop(Context context, List<ProductDetailBeann.HWsBean> hWsBeanList) {
         super(context);
         view = View.inflate(context, R.layout.dialog_spec, null);
         setContentView(view);
+        this.hWsBeanList = hWsBeanList;
 
         recycler = (RecyclerView) view.findViewById(R.id.recycler);
         btn_confirm = (Button) view.findViewById(R.id.btn_confirm);
@@ -66,17 +67,10 @@ public class BottomPop extends PopupWindow {
     }
 
     private void initRecyclerData(Context context) {
-        final List<PopSpecBean> list = new ArrayList<>();
-        list.add(new PopSpecBean("20x30cm"));
-        list.add(new PopSpecBean("20x30cm"));
-        list.add(new PopSpecBean("20x30cm"));
-        list.add(new PopSpecBean("20x30cm"));
-        list.add(new PopSpecBean("20x30cm"));
-        list.add(new PopSpecBean("20x30cm"));
 
         recycler.setLayoutManager(new GridLayoutManager(context, 4));
         final PopSpecAdapter popSpecAdapter = new PopSpecAdapter();
-        popSpecAdapter.setMatchData(list);
+        popSpecAdapter.setMatchData(hWsBeanList);
         recycler.setAdapter(popSpecAdapter);
 
         popSpecAdapter.setOnItemClickListener(new PopSpecAdapter.OnItemClickListener() {
@@ -84,14 +78,14 @@ public class BottomPop extends PopupWindow {
             public void onItemClick(int position) {
                 if (position != popSpecAdapter.getLastPos()) {
                     if (popSpecAdapter.getLastPos() != -1) {
-                        list.get(popSpecAdapter.getLastPos()).setSelected(false);
+                        hWsBeanList.get(popSpecAdapter.getLastPos()).setSelected(false);
                     }
                 }
 
-                if (list.get(position).isSelected()) {
-                    list.get(position).setSelected(false);
+                if (hWsBeanList.get(position).isSelected()) {
+                    hWsBeanList.get(position).setSelected(false);
                 } else {
-                    list.get(position).setSelected(true);
+                    hWsBeanList.get(position).setSelected(true);
                 }
 
                 popSpecAdapter.notifyDataSetChanged();

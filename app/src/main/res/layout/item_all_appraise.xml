@@ -1,52 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="10dp"
               android:background="@color/gray_common"
-              android:orientation="vertical"
-              tools:context="com.yxk.tjm.tianjiumeng.home.fragment.ProductDetailFragment">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#32303c"
-        />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="商品评价"
-            android:textColor="#fff"
-            android:textSize="13sp"
-            />
-
-        <TextView
-            android:id="@+id/tv_all_appraise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:drawablePadding="5dp"
-            android:drawableRight="@drawable/more"
-            android:text="全部"
-            android:textColor="#fff"
-            android:textSize="13sp"
-            />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#32303c"
-        />
+              android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -75,7 +33,6 @@
             />
 
         <TextView
-            android:id="@+id/tv_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_client_name"
@@ -88,7 +45,6 @@
             />
 
         <TextView
-            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -144,6 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@id/manyi"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="#1e1d23"
             android:padding="10dp">
@@ -158,7 +115,6 @@
                 />
 
             <TextView
-                android:id="@+id/tv_client_result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/official_response"
@@ -169,47 +125,4 @@
         </RelativeLayout>
 
     </RelativeLayout>
-
-    <ImageView
-        android:id="@+id/img_picture"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/pic_350w_1"
-        />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="#28272f"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:id="@+id/tuijian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:text="为您推荐"
-            android:textColor="#fff"
-            android:textSize="13sp"
-            />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/tuijian"
-            android:layout_toLeftOf="@id/tuijian"
-            android:src="@drawable/icon_tuijian"
-            />
-    </RelativeLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_recommond"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background"/>
-
 </LinearLayout>
