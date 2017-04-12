@@ -14,7 +14,7 @@ import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.my.bean.ReturnningMoneyBean;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,11 +53,11 @@ public class WaitReplyFragment extends Fragment {
             public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (view.getId()) {
                     case R.id.btn_switch_crystal:
-                        T.showShort(App.getAppContext(), "修改定制");
+                        To.showShort(App.getAppContext(), "修改定制");
                         break;
 
                     case R.id.btn_get_money:
-                        T.showShort(App.getAppContext(), "取消定制");
+                        To.showShort(App.getAppContext(), "取消定制");
                         break;
                 }
             }

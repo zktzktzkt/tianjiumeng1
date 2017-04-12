@@ -9,6 +9,8 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.custom.AmountView;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopCartBean;
@@ -20,14 +22,14 @@ import java.util.List;
  */
 
 public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHolder> {
-    List<ShopCartBean> datas;
+    List<ShopCartBean.BuyitemBean> datas;
     CheckBox checkboxAll;
     TextView tv_all_price;
     Button btn_account;
     CheckBox checkbox_edit;
     Button btn_delete;
 
-    public ShopCartAdapter(List<ShopCartBean> datas, CheckBox checkbox, TextView tv_all_price, Button btn_account, CheckBox checkbox_edit, Button btn_delete) {
+    public ShopCartAdapter(List<ShopCartBean.BuyitemBean> datas, CheckBox checkbox, TextView tv_all_price, Button btn_account, CheckBox checkbox_edit, Button btn_delete) {
         this.datas = datas;
         this.checkboxAll = checkbox;
         this.tv_all_price = tv_all_price;
@@ -62,13 +64,12 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
     @Override
     public void onBindViewHolder(final ShopCartAdapter.MyHolder holder, final int position) {
         holder.itemView.setTag(position);
-
-        holder.tv_title.setText(datas.get(position).getTitle());
-        holder.img_pic.setImageResource(datas.get(position).getPicUrl());
+        holder.tv_title.setText(datas.get(position).getProduct().getName());
+        Glide.with(App.getAppContext()).load(datas.get(position).getProduct().getShowpic()).into(holder.img_pic);
         holder.checkbox_child.setChecked(datas.get(position).isChecked());
-        holder.tv_price.setText("$ " + datas.get(position).getPrice());
-        holder.amount_view.etAmount.setText(datas.get(position).getNumber() + "");
-        holder.amount_view.etAmount.setTag(position);
+        holder.tv_price.setText("¥ " + datas.get(position).getProduct().getNowprice());
+        holder.amount_view.etAmount.setText(datas.get(position).getBuyCart().getGoodsAccant() + "");
+       // holder.amount_view.etAmount.setTag(position);
 
         holder.amount_view.setOnAmountChangeListener(new AmountView.OnAmountChangeListener() {
             @Override
@@ -154,7 +155,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
      * 设置列表整体的选择状态
      */
     private void listCheckboxState(boolean state) {
-        for (ShopCartBean shopCartBean : datas) {
+        for (ShopCartBean.BuyitemBean shopCartBean : datas) {
             shopCartBean.setChecked(state);
         }
     }
@@ -165,7 +166,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
     private int computeCheckedCount() {
         int count = 0;
         if (datas != null && datas.size() > 0) {
-            for (ShopCartBean shopCartBean : datas) {
+            for (ShopCartBean.BuyitemBean shopCartBean : datas) {
                 if (shopCartBean.isChecked()) {
                     count++;
                 }
@@ -182,9 +183,9 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
     private double getTotalPrice() {
         double totalPrice = 0.0;
         if (datas != null && datas.size() > 0) {
-            for (ShopCartBean shopCartBean : datas) {
+            for (ShopCartBean.BuyitemBean shopCartBean : datas) {
                 if (shopCartBean.isChecked()) {
-                    totalPrice += Double.valueOf(shopCartBean.getPrice()) * Double.valueOf(shopCartBean.getNumber());
+                    totalPrice += Double.valueOf(shopCartBean.getNumber()) * Double.valueOf(shopCartBean.getProduct().getNowprice());
                 }
             }
         }
@@ -225,7 +226,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
      * 设置全选按钮是否选中
      */
     private void showCheckAllIsChecked() {
-        for (ShopCartBean shopCartBean : datas) {
+        for (ShopCartBean.BuyitemBean shopCartBean : datas) {
             if (!shopCartBean.isChecked()) {
                 checkboxAll.setChecked(false);
                 checkbox_edit.setChecked(false);

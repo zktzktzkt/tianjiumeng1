@@ -24,7 +24,7 @@ import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.custom.CustomPopWindow;
 import com.yxk.tjm.tianjiumeng.home.adapter.MyCustomAdapter;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import java.util.ArrayList;
 
@@ -205,7 +205,7 @@ public class MyCustomActivity extends BaseActivity implements View.OnClickListen
                 break;
 
             case R.id.btn_submit:
-                T.showShort(this, "提交");
+                To.showShort(this, "提交");
                 break;
 
             case R.id.tv_boli:

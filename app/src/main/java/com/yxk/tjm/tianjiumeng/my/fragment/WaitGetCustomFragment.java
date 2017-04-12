@@ -14,7 +14,7 @@ import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.my.bean.WaitPayBean;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,11 +58,11 @@ public class WaitGetCustomFragment extends Fragment {
             public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (view.getId()) {
                     case R.id.btn_see:
-                        T.showShort(App.getAppContext(), "查看物流");
+                        To.showShort(App.getAppContext(), "查看物流");
                         break;
 
                     case R.id.btn_pay:
-                        T.showShort(App.getAppContext(), "确认收货");
+                        To.showShort(App.getAppContext(), "确认收货");
                         break;
                 }
             }

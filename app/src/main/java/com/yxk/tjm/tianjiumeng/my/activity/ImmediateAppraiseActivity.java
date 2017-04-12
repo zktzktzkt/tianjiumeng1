@@ -8,7 +8,7 @@ import android.widget.RatingBar;
 
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +43,6 @@ public class ImmediateAppraiseActivity extends BaseActivity {
 
     @OnClick(R.id.btn_submit)
     public void onClick() {
-        T.showShort(this, "提交");
+        To.showShort(this, "提交");
     }
 }

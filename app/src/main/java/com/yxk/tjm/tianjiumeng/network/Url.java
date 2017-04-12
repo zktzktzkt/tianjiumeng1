@@ -47,4 +47,14 @@ public class Url {
      * 详情页->商品规格
      */
     public static final String DETAIL_PAGE_STANDARD = BASE_URL + "/qryproductSuit";
+
+    /**
+     * 购物车
+     */
+    public static final String SHOPCAR = BASE_URL + "/BuyCart/getItem";
+
+    /**
+     * 加入购物车
+     */
+    public static final String DETAIL_ADD_SHOPCAR = BASE_URL + "/BuyCart/insertItem";
 }

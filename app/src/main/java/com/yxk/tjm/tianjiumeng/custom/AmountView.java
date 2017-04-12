@@ -87,6 +87,10 @@ public class AmountView extends RelativeLayout implements View.OnClickListener, 
         this.goods_storage = goods_storage;
     }
 
+    public String getEditContent(){
+        return etAmount.getText().toString().trim();
+    }
+
     @Override
     public void onClick(View v) {
         int i = v.getId();

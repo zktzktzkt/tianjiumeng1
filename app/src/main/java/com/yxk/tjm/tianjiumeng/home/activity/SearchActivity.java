@@ -13,7 +13,7 @@ import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.home.bean.SearchBean;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,7 @@ public class SearchActivity extends BaseActivity {
             public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (view.getId()) {
                     case R.id.tv_text:
-                        T.showShort(getApplicationContext(), list.get(position).getItem());
+                        To.showShort(getApplicationContext(), list.get(position).getItem());
                         break;
                 }
             }

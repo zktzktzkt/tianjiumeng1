@@ -24,7 +24,7 @@ import com.yxk.tjm.tianjiumeng.custom.CustomLoadMoreView;
 import com.yxk.tjm.tianjiumeng.network.Url;
 import com.yxk.tjm.tianjiumeng.news.activity.NewsDetailActivity;
 import com.yxk.tjm.tianjiumeng.news.bean.NewsBean;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -96,7 +96,7 @@ public class NewsFragment extends Fragment {
         newsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
-                T.showShort(getContext(), "LoadMoreListener");
+                To.showShort(getContext(), "LoadMoreListener");
             }
         }, recycler);
 

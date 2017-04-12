@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -14,32 +15,47 @@ import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.home.adapter.PopSpecAdapter;
 import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeann;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.utils.To;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONObject;
 
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.MediaType;
 
 /**
  * Created by ningfei on 2017/3/9.
  */
 
-public class BottomPop extends PopupWindow {
+public class BottomPop<T> extends PopupWindow {
     public static final String ADD_SHOP_CART = "ADD_SHOP_CART";
     public static final String BUY = "BUY";
-    public static  String COMMON = "COMMON";
+    public static String COMMON = "COMMON";
 
-    private  View view;
+    private View view;
     private final RecyclerView recycler;
     private final Button btn_confirm;
     List<ProductDetailBeann.HWsBean> hWsBeanList;
 
-    public BottomPop(Context context, List<ProductDetailBeann.HWsBean> hWsBeanList) {
+    String productId;
+    int nowprice;
+    private final AmountView amount_view;
+
+    public BottomPop(Context context, List<T> list, String productId, int nowprice) {
         super(context);
         view = View.inflate(context, R.layout.dialog_spec, null);
         setContentView(view);
-        this.hWsBeanList = hWsBeanList;
+        this.hWsBeanList = (List<ProductDetailBeann.HWsBean>) list;
+        this.productId = productId;
+        this.nowprice = nowprice;
 
         recycler = (RecyclerView) view.findViewById(R.id.recycler);
         btn_confirm = (Button) view.findViewById(R.id.btn_confirm);
+        amount_view = (AmountView) view.findViewById(R.id.amount_view);
 
         config();
 
@@ -55,16 +71,62 @@ public class BottomPop extends PopupWindow {
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(COMMON == BUY){
-                    T.showShort(App.getAppContext(), "购买");
+                if (COMMON == BUY) {
+                    addNetShopcart();
+                    To.showShort(App.getAppContext(), "购买");
                     dismiss();
-                }else if(COMMON == ADD_SHOP_CART){
-                    T.showShort(App.getAppContext(), "加购物车");
-                    dismiss();
+                } else if (COMMON == ADD_SHOP_CART) {
+                    addNetShopcart();
                 }
             }
         });
     }
+
+    /**
+     * 加入购物车
+     */
+    private void addNetShopcart() {
+        try {
+            String goodsHW = "";
+            for (int i = 0; i < hWsBeanList.size(); i++) {
+                if (hWsBeanList.get(i).isSelected()) {
+                    goodsHW = hWsBeanList.get(i).getGoodsHeight() + "x" + hWsBeanList.get(i).getGoodsWide();
+                }
+            }
+            JSONObject jo = new JSONObject();
+            jo.put("goodsId", Integer.parseInt(productId));//商品Id
+            jo.put("userId", 1);//购买者的id(int)
+            jo.put("goodsAccant", Integer.parseInt(amount_view.getEditContent()));//商品数量(int)
+            jo.put("goodsPrice", nowprice);//商品单价(int)
+            jo.put("goodsHW", goodsHW);//商品的宽*高
+
+            Log.e("BottomPop", "addNetShopcart()" + jo.toString());
+
+            OkHttpUtils
+                    .postString()
+                    .content(jo.toString())
+                    .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                    .url(Url.DETAIL_ADD_SHOPCAR)
+                    .build()
+                    .execute(new StringCallback() {
+                        @Override
+                        public void onError(Call call, Exception e, int id) {
+                            Log.e("addNetShopcart", " Exception: " + e);
+                        }
+
+                        @Override
+                        public void onResponse(String response, int id) {
+                            Log.e("addNetShopcart", " response: " + response);
+                            To.showShort(App.getAppContext(), "加购物车成功");
+                            dismiss();
+                        }
+                    });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     private void initRecyclerData(Context context) {
 

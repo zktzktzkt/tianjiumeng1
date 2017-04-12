@@ -1,19 +1,19 @@
 package com.yxk.tjm.tianjiumeng.utils;
 
 import android.content.Context;
-import android.widget.Toast;
 
 /**
  * Created by ningfei on 2017/3/16.
  */
 
-public class T {
-    private T() {
+public class To {
+    private To() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
     public static boolean isShow = true;
+
 
     /**
      * 短时间显示Toast
@@ -23,7 +23,7 @@ public class T {
      */
     public static void showShort(Context context, CharSequence message) {
         if (isShow)
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            android.widget.Toast.makeText(context, message, android.widget.Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -34,7 +34,7 @@ public class T {
      */
     public static void showShort(Context context, int message) {
         if (isShow)
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            android.widget.Toast.makeText(context, message, android.widget.Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -45,7 +45,7 @@ public class T {
      */
     public static void showLong(Context context, CharSequence message) {
         if (isShow)
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            android.widget.Toast.makeText(context, message, android.widget.Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -56,7 +56,7 @@ public class T {
      */
     public static void showLong(Context context, int message) {
         if (isShow)
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            android.widget.Toast.makeText(context, message, android.widget.Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -68,7 +68,7 @@ public class T {
      */
     public static void show(Context context, CharSequence message, int duration) {
         if (isShow)
-            Toast.makeText(context, message, duration).show();
+            android.widget.Toast.makeText(context, message, duration).show();
     }
 
     /**
@@ -80,6 +80,6 @@ public class T {
      */
     public static void show(Context context, int message, int duration) {
         if (isShow)
-            Toast.makeText(context, message, duration).show();
+            android.widget.Toast.makeText(context, message, duration).show();
     }
 }

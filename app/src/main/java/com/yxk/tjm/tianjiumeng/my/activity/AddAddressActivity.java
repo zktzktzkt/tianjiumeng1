@@ -6,12 +6,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lljjcoder.citypickerview.widget.CityPicker;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +46,7 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
 
     @OnClick(R.id.btn_add_address)
     public void onClick() {
-        T.showShort(getApplicationContext(), "保存");
+        To.showShort(getApplicationContext(), "保存");
     }
 
     @Override
@@ -84,7 +83,7 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
 
             @Override
             public void onCancel() {
-                Toast.makeText(AddAddressActivity.this, "已取消", Toast.LENGTH_LONG).show();
+                android.widget.Toast.makeText(AddAddressActivity.this, "已取消", android.widget.Toast.LENGTH_LONG).show();
             }
         });
     }

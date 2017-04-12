@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.my.activity.AddressActivity;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,7 +79,7 @@ public class SubmitOrderActivity extends BaseActivity {
                 startActivity(new Intent(SubmitOrderActivity.this, AddressActivity.class));
                 break;
             case R.id.btn_submit:
-                T.showShort(getApplicationContext(), "提交");
+                To.showShort(getApplicationContext(), "提交");
                 break;
         }
     }

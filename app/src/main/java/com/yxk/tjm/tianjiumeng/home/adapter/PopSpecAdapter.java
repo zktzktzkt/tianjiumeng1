@@ -16,7 +16,7 @@ import java.util.List;
  * Created by ningfei on 2017/3/9.
  */
 
-public class PopSpecAdapter extends RecyclerView.Adapter<PopSpecAdapter.MyHolder> {
+public class PopSpecAdapter<T> extends RecyclerView.Adapter<PopSpecAdapter.MyHolder> {
     private List<ProductDetailBeann.HWsBean> mDatas;
 
     private int lastPos = -1;
@@ -54,8 +54,8 @@ public class PopSpecAdapter extends RecyclerView.Adapter<PopSpecAdapter.MyHolder
         return mDatas == null ? 0 : mDatas.size();
     }
 
-    public void setMatchData(List<ProductDetailBeann.HWsBean> datas) {
-        this.mDatas = datas;
+    public void setMatchData(List<T> datas) {
+        this.mDatas = (List<ProductDetailBeann.HWsBean>)datas;
     }
 
     public int getLastPos() {

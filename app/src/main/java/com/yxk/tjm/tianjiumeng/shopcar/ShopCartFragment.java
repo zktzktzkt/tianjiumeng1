@@ -15,14 +15,19 @@ import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.SubmitOrderActivity;
 import com.yxk.tjm.tianjiumeng.custom.MyToolbar;
+import com.yxk.tjm.tianjiumeng.network.Url;
 import com.yxk.tjm.tianjiumeng.shopcar.adapter.ShopCartAdapter;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopCartBean;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 
 public class ShopCartFragment extends Fragment {
@@ -35,9 +40,9 @@ public class ShopCartFragment extends Fragment {
     private MyToolbar mToolbar;
     private RelativeLayout relative_edit;
     private RelativeLayout relative;
-    private List<ShopCartBean> list;
     private ShopCartAdapter shopCartAdapter;
     private CheckBox checkbox_edit;
+    public ShopCartBean shopCartBean;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,24 +92,27 @@ public class ShopCartFragment extends Fragment {
         }
     }
 
-
     private void initData() {
-        list = new ArrayList<>();
-        list.add(new ShopCartBean(R.drawable.pic_a, "无铅机制一体红酒杯 1只装", "1"));
-        list.add(new ShopCartBean(R.drawable.pic_b, "无铅机制一体红酒杯 2只装", "2"));
-        list.add(new ShopCartBean(R.drawable.pic_c, "无铅机制一体红酒杯 3只装", "3"));
-        list.add(new ShopCartBean(R.drawable.pic_a, "无铅机制一体红酒杯 4只装", "4"));
-        list.add(new ShopCartBean(R.drawable.pic_b, "无铅机制一体红酒杯 5只装", "5"));
-        list.add(new ShopCartBean(R.drawable.pic_c, "无铅机制一体红酒杯 6只装", "6"));
-        list.add(new ShopCartBean(R.drawable.pic_a, "无铅机制一体红酒杯 7只装", "7"));
-        list.add(new ShopCartBean(R.drawable.pic_b, "无铅机制一体红酒杯 8只装", "8"));
-        list.add(new ShopCartBean(R.drawable.pic_c, "无铅机制一体红酒杯 9只装", "9"));
-        list.add(new ShopCartBean(R.drawable.pic_c, "无铅机制一体红酒杯 10只装", "10"));
-        list.add(new ShopCartBean(R.drawable.pic_a, "无铅机制一体红酒杯 11只装", "11"));
-        list.add(new ShopCartBean(R.drawable.pic_b, "无铅机制一体红酒杯 12只装", "12"));
-        list.add(new ShopCartBean(R.drawable.pic_c, "无铅机制一体红酒杯 13只装", "13"));
+        OkHttpUtils
+                .get()
+                .url(Url.SHOPCAR)
+                .addParams("userId", "1")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
 
-        initRecyclerView(list);
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Gson gson = new Gson();
+                        shopCartBean = gson.fromJson(response, ShopCartBean.class);
+
+                        initRecyclerView(shopCartBean.getBuyitem());
+
+                    }
+                });
 
         toolbarEditClickListener();
 
@@ -115,7 +123,7 @@ public class ShopCartFragment extends Fragment {
 
     }
 
-    private void initRecyclerView(List<ShopCartBean> list) {
+    private void initRecyclerView(List<ShopCartBean.BuyitemBean> list) {
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         shopCartAdapter = new ShopCartAdapter(list, checkbox, tv_all_price, btn_account, checkbox_edit, btn_delete);
         recycler.setAdapter(shopCartAdapter);
@@ -130,7 +138,7 @@ public class ShopCartFragment extends Fragment {
                     case MyToolbar.EDIT_TAG:
                         relative.setVisibility(View.GONE);
                         relative_edit.setVisibility(View.VISIBLE);
-                        listCheckboxState(false);
+                        listCheckboxState(false, ShopCartFragment.this.shopCartBean.getBuyitem());
                         checkbox_edit.setChecked(false);
                         shopCartAdapter.notifyDataSetChanged();
                         break;
@@ -139,7 +147,7 @@ public class ShopCartFragment extends Fragment {
                     case MyToolbar.OK_TAG:
                         relative.setVisibility(View.VISIBLE);
                         relative_edit.setVisibility(View.GONE);
-                        listCheckboxState(true);
+                        listCheckboxState(true, ShopCartFragment.this.shopCartBean.getBuyitem());
                         checkbox.setChecked(true);
                         shopCartAdapter.notifyDataSetChanged();
                         shopCartAdapter.showTotalPrice();
@@ -150,8 +158,8 @@ public class ShopCartFragment extends Fragment {
         });
     }
 
-    private void listCheckboxState(boolean state) {
-        for (ShopCartBean shopCartBean : list) {
+    private void listCheckboxState(boolean state, List<ShopCartBean.BuyitemBean> buyitem) {
+        for (ShopCartBean.BuyitemBean shopCartBean : buyitem) {
             shopCartBean.setChecked(state);
         }
     }

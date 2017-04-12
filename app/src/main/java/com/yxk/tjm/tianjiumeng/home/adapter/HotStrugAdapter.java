@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 /**
  * Created by ningfei on 2017/3/8.
@@ -26,7 +26,7 @@ public class HotStrugAdapter extends RecyclerView.Adapter<HotStrugAdapter.MyHold
         holder.btn_buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                T.showShort(App.getAppContext(), "算我一份");
+                To.showShort(App.getAppContext(), "算我一份");
             }
         });
 

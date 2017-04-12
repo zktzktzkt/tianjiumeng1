@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,7 +63,7 @@ public class RechargeActivity extends BaseActivity {
                 break;
 
             case R.id.btn_recharge:
-                T.showShort(getApplicationContext(), "充值");
+                To.showShort(getApplicationContext(), "充值");
                 break;
         }
     }

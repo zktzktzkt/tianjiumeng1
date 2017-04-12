@@ -34,7 +34,7 @@ import com.yxk.tjm.tianjiumeng.home.adapter.FlashSaleAdapter;
 import com.yxk.tjm.tianjiumeng.home.bean.HomeBean;
 import com.yxk.tjm.tianjiumeng.network.Url;
 import com.yxk.tjm.tianjiumeng.utils.GlideImageLoader;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -138,7 +138,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(getActivity(), "网络错误:" + e, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "网络错误:" + e, android.widget.Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -216,6 +216,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             public void onItemClick(int position) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
                 intent.putExtra("flashSale", "flashSale");
+                intent.putExtra("productId", "1");
                 startActivity(intent);
             }
         });
@@ -242,7 +243,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         specialOne.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
-                T.showShort(getContext(), "zero");//
+                To.showShort(getContext(), "zero");//
             }
 
             @Override
@@ -276,7 +277,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         specialTwo.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
-                T.showShort(getContext(), "zero");
+                To.showShort(getContext(), "zero");
             }
 
             @Override
@@ -310,7 +311,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         specialThree.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
-                T.showShort(getContext(), "zero");
+                To.showShort(getContext(), "zero");
             }
 
             @Override

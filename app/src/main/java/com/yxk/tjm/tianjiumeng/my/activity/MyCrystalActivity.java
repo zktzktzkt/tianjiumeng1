@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
-import com.yxk.tjm.tianjiumeng.utils.T;
+import com.yxk.tjm.tianjiumeng.utils.To;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +40,6 @@ public class MyCrystalActivity extends BaseActivity {
 
     @OnClick(R.id.btn_submit)
     public void onClick() {
-        T.showShort(getApplicationContext(), "确认转换");
+        To.showShort(getApplicationContext(), "确认转换");
     }
 }
