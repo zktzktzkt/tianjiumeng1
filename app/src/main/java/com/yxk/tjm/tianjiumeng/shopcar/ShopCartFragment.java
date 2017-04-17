@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +18,10 @@ import com.google.gson.Gson;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.SubmitOrderActivity;
 import com.yxk.tjm.tianjiumeng.custom.MyToolbar;
-import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.shopcar.adapter.ShopCartAdapter;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopCartBean;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -58,7 +58,7 @@ public class ShopCartFragment extends Fragment {
         relative = (RelativeLayout) view.findViewById(R.id.relative);
         checkbox_edit = (CheckBox) view.findViewById(R.id.checkbox_edit);
 
-        Log.e("fragmentVisible", "onCreatView");
+        LogUtil.e("ShopCartFragment ", "onCreatView");
         return view;
     }
 
@@ -69,6 +69,8 @@ public class ShopCartFragment extends Fragment {
         initData();
 
         btnAccountListener();
+
+        LogUtil.e("ShopCartFragment ", "onActivityCreated");
     }
 
     private void btnAccountListener() {
@@ -88,14 +90,18 @@ public class ShopCartFragment extends Fragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if (!hidden) {
+        if (!hidden && isResumed()) {
+            LogUtil.e("ShopCartFragment ", "onHiddenChanged");
+            initData();
+
+            btnAccountListener();
         }
     }
 
     private void initData() {
         OkHttpUtils
                 .get()
-                .url(Url.SHOPCAR)
+                .url(ApiConstants.SHOPCAR)
                 .addParams("userId", "1")
                 .build()
                 .execute(new StringCallback() {
@@ -110,16 +116,9 @@ public class ShopCartFragment extends Fragment {
                         shopCartBean = gson.fromJson(response, ShopCartBean.class);
 
                         initRecyclerView(shopCartBean.getBuyitem());
-
+                        toolbarEditClickListener();
                     }
                 });
-
-        toolbarEditClickListener();
-
-        btnDeleteClickListener();
-    }
-
-    private void btnDeleteClickListener() {
 
     }
 

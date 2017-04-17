@@ -1,6 +1,7 @@
 package com.yxk.tjm.tianjiumeng.shopcar.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +11,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.custom.AmountView;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopCartBean;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.MediaType;
 
 /**
  * Created by ningfei on 2017/3/10.
@@ -53,7 +62,6 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
     }
 
 
-
     @Override
     public ShopCartAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_shopcart, parent, false);
@@ -69,7 +77,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
         holder.checkbox_child.setChecked(datas.get(position).isChecked());
         holder.tv_price.setText("¥ " + datas.get(position).getProduct().getNowprice());
         holder.amount_view.etAmount.setText(datas.get(position).getBuyCart().getGoodsAccant() + "");
-       // holder.amount_view.etAmount.setTag(position);
+        // holder.amount_view.etAmount.setTag(position);
 
         holder.amount_view.setOnAmountChangeListener(new AmountView.OnAmountChangeListener() {
             @Override
@@ -77,6 +85,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
                 if ((Integer) holder.itemView.getTag() == position) {
                     datas.get(position).setNumber(amount);
                     showTotalPrice();
+                    updateCountToNet(amount, datas.get(position).getBuyCart().getBuyCartId());// TODO: 2017/4/14 调用了两次，待处理
                 }
             }
         });
@@ -85,7 +94,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
             @Override
             public void onClick(View view) {
                 //设置取反状态
-                datas.get(position).setChecked(!datas.get(position).isChecked());
+                datas.get(position).setChecked(!datas.get(holder.getLayoutPosition()).isChecked());
                 //计算总价格
                 showTotalPrice();
                 //计算结算的数量
@@ -94,6 +103,25 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
                 showCheckAllIsChecked();
             }
         });
+    }
+
+    private void updateCountToNet(int amount, int buyCartId) {
+        OkHttpUtils.post()
+                .url(ApiConstants.SHOPCAR_UPDATE)
+                .addParams("goodsAccant", amount + "")
+                .addParams("buyCartId", buyCartId + "")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e("ShopCartAdapter ", "updateCountToNet Exception:" + e);
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e("ShopCartAdapter ", "updateCountToNet response:" + response);
+                    }
+                });
     }
 
     public void showTotalPrice() {
@@ -113,7 +141,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
             public void onClick(View view) {
                 removeItem();
                 // TODO: 2017/4/5 结算数量为0的时候显示另一个界面
-                if(computeCheckedCount() <= 0){
+                if (computeCheckedCount() <= 0) {
 
                 }
             }
@@ -124,14 +152,49 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
      * 删除条目
      */
     private void removeItem() {
-        for (int i = 0; i < datas.size(); i++) {
+        JsonObject jo = null;
+        JsonArray ja = new JsonArray();
+
+        for (int i = 0, len = datas.size(); i < len; i++) {
             if (datas.get(i).isChecked()) {
-                datas.remove(i);
+                jo = new JsonObject();
+                jo.addProperty("buyCartId", datas.get(i).getBuyCart().getBuyCartId() + "");
+                ja.add(jo);
+                //----------------------
                 notifyItemRemoved(i);
+                datas.remove(i);
+                len--;
                 i--;
-                notifyItemRangeChanged(i, getItemCount());
+                notifyItemRangeChanged(0, getItemCount()); //此处要从0开始刷新，否则刷新为范围不对，数组越界
+                //---------------------
             }
         }
+        deleteFromNetwork(ja.toString());
+    }
+
+    /**
+     * 从服务器根据id删除
+     *
+     * @param s
+     */
+    public void deleteFromNetwork(String s) {
+        Log.e("ShopCartAdapter ", "json " + s);
+        OkHttpUtils.postString()
+                .content(s)
+                .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                .url(ApiConstants.SHOPCAR_DELETE)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e("ShopCartAdapter ", "deleteFromNetwork() Exception" + e);
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e("ShopCartAdapter ", "deleteFromNetwork() response" + response);
+                    }
+                });
     }
 
     /**

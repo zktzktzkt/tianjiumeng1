@@ -4,14 +4,17 @@ package com.yxk.tjm.tianjiumeng.my;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.gson.Gson;
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
+import com.yxk.tjm.tianjiumeng.fragment.BaseFragment;
 import com.yxk.tjm.tianjiumeng.my.activity.CardActivity;
 import com.yxk.tjm.tianjiumeng.my.activity.CollectActivity;
 import com.yxk.tjm.tianjiumeng.my.activity.CommissionActivity;
@@ -31,11 +34,19 @@ import com.yxk.tjm.tianjiumeng.my.activity.TJMHouseActivity;
 import com.yxk.tjm.tianjiumeng.my.activity.WaitGetActivity;
 import com.yxk.tjm.tianjiumeng.my.activity.WaitPayActivity;
 import com.yxk.tjm.tianjiumeng.my.activity.WaitShipActivity;
+import com.yxk.tjm.tianjiumeng.my.bean.MyInfoBean;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
+import com.yxk.tjm.tianjiumeng.utils.UserUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import okhttp3.Call;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyFragment extends Fragment implements View.OnClickListener {
+public class MyFragment extends BaseFragment implements View.OnClickListener {
 
     private TextView tv_commission_detail;
     private TextView tv_return_money_detail;
@@ -56,12 +67,17 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     private TextView tv_setting;
     private ImageView img_head;
     private TextView tv_tjm_house;
+    private TextView tv_nick_name;
+    private TextView tv_rakeoff;
+    private TextView tv_jewel;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_my, container, false);
+    public int getLayoutResId() {
+        return R.layout.fragment_my;
+    }
 
+    @Override
+    public void initView(View view) {
         tv_commission_detail = (TextView) view.findViewById(R.id.tv_commission_detail);
         tv_return_money_detail = (TextView) view.findViewById(R.id.tv_return_money_detail);
         tv_wait_pay = (TextView) view.findViewById(R.id.tv_wait_pay);
@@ -80,6 +96,10 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         tv_appraise = (TextView) view.findViewById(R.id.tv_appraise);
         tv_setting = (TextView) view.findViewById(R.id.tv_setting);
         tv_tjm_house = (TextView) view.findViewById(R.id.tv_tjm_house);
+        tv_nick_name = (TextView) view.findViewById(R.id.tv_nick_name);
+        tv_rakeoff = (TextView) view.findViewById(R.id.tv_rakeoff);
+        tv_jewel = (TextView) view.findViewById(R.id.tv_jewel);
+        tv_nick_name = (TextView) view.findViewById(R.id.tv_nick_name);
         img_head = (ImageView) view.findViewById(R.id.img_head);
 
         tv_commission_detail.setOnClickListener(this);
@@ -101,8 +121,59 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         tv_setting.setOnClickListener(this);
         img_head.setOnClickListener(this);
         tv_tjm_house.setOnClickListener(this);
+    }
 
-        return view;
+    @Override
+    public void initData(Bundle savedInstanceState) {
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        initData();
+
+    }
+
+    private void initData() {
+        OkHttpUtils
+                .get()
+                .url(ApiConstants.MY_INFO)
+                .addParams("userId", UserUtil.getUserId(App.getAppContext()))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.e("MyFragment initData() :", response);
+                        MyInfoBean myInfoBean = new Gson().fromJson(response, MyInfoBean.class);
+                        Glide.with(App.getAppContext())
+                                .load(myInfoBean.getAvatar())
+                                .skipMemoryCache(true)
+                                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                .into(img_head);
+                        tv_nick_name.setText(myInfoBean.getNickname());
+                        tv_rakeoff.setText(myInfoBean.getRakeoff() + "");
+                        tv_jewel.setText(myInfoBean.getJewel() + "");
+                    }
+                });
+    }
+
+    /**
+     * 可见不可见状态改变时调用
+     *
+     * @param hidden 可见时为true
+     */
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden && isResumed()) {
+            initData();
+        }
     }
 
     @Override

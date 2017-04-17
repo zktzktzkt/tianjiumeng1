@@ -1,13 +1,17 @@
 package com.yxk.tjm.tianjiumeng.my.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
+import com.yxk.tjm.tianjiumeng.activity.LoginActivity;
+import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,7 +35,7 @@ public class MySettingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_setting);
         ButterKnife.bind(this);
-
+        App.getActivityManager().pushActivity(this);
         setToolbarNavigationClick();
     }
 
@@ -52,6 +56,9 @@ public class MySettingActivity extends BaseActivity {
             case R.id.rl_question:
                 break;
             case R.id.rl_quit:
+                UserUtil.setLoginState(getApplicationContext(), false);
+                App.getActivityManager().finishAllActivity();
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
     }

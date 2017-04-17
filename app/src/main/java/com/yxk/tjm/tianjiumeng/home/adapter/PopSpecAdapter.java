@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
-import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeann;
+import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeannn;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  */
 
 public class PopSpecAdapter<T> extends RecyclerView.Adapter<PopSpecAdapter.MyHolder> {
-    private List<ProductDetailBeann.HWsBean> mDatas;
+    private List<ProductDetailBeannn.HWsBean> mDatas;
 
     private int lastPos = -1;
 
@@ -55,7 +55,7 @@ public class PopSpecAdapter<T> extends RecyclerView.Adapter<PopSpecAdapter.MyHol
     }
 
     public void setMatchData(List<T> datas) {
-        this.mDatas = (List<ProductDetailBeann.HWsBean>)datas;
+        this.mDatas = (List<ProductDetailBeannn.HWsBean>)datas;
     }
 
     public int getLastPos() {

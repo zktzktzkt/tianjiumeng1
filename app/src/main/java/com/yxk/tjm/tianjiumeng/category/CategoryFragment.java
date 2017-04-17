@@ -4,13 +4,10 @@ package com.yxk.tjm.tianjiumeng.category;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,9 +21,10 @@ import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.category.activity.RightHeaderListActivity;
 import com.yxk.tjm.tianjiumeng.category.adapter.LeftCategoryAdapter;
 import com.yxk.tjm.tianjiumeng.category.bean.CategoryBean;
+import com.yxk.tjm.tianjiumeng.fragment.BaseFragment;
 import com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity;
 import com.yxk.tjm.tianjiumeng.home.activity.SearchActivity;
-import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.FullyGridLayoutManager;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -38,7 +36,7 @@ import okhttp3.Call;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CategoryFragment extends Fragment implements View.OnClickListener {
+public class CategoryFragment extends BaseFragment implements View.OnClickListener {
 
     private RecyclerView recycler_left;
     private RecyclerView recycler_right_header;
@@ -48,29 +46,43 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
     private RightHeaderAdapter rightHeaderAdapter;
     private RightCommonAdapter rightCommonAdapter;
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_category, container, false);
+    public int getLayoutResId() {
+        return R.layout.fragment_category;
+    }
+
+    @Override
+    public void initView(View view) {
         recycler_left = (RecyclerView) view.findViewById(R.id.recycler_left);
         recycler_right_header = (RecyclerView) view.findViewById(R.id.recycler_right_header);
         recycler_right_common = (RecyclerView) view.findViewById(R.id.recycler_right_common);
         rl_search = (RelativeLayout) view.findViewById(R.id.rl_search);
 
         rl_search.setOnClickListener(this);
-        return view;
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
+    public void initData(Bundle savedInstanceState) {
         initData();
+    }
+
+    /**
+     * 可见不可见状态改变时调用
+     *
+     * @param hidden 可见时为true
+     */
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden && isResumed()) {
+            initData();
+        }
     }
 
     private void initData() {
         OkHttpUtils.get()
-                .url(Url.CATEGORY)
+                .url(ApiConstants.CATEGORY)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -141,7 +153,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 leftCategoryAdapter.notifyDataSetChanged();
 
                 OkHttpUtils.get()
-                        .url(Url.CATEGORY)
+                        .url(ApiConstants.CATEGORY)
                         .addParams("typeId", String.valueOf(typeListBeanList.get(position).getTypeId()))
                         .build()
                         .execute(new StringCallback() {

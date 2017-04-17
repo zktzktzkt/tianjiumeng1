@@ -6,10 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 import com.yxk.tjm.tianjiumeng.R;
-import com.yxk.tjm.tianjiumeng.shopcar.bean.AddressBean;
+import com.yxk.tjm.tianjiumeng.my.bean.AddressBeannn;
 
 import java.util.List;
 
@@ -18,10 +19,10 @@ import java.util.List;
  */
 
 public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyHolder> {
-    List<AddressBean> mDatas;
+    List<AddressBeannn.AddressBean> mDatas;
     private int selectPos = -1;
 
-    public AddressAdapter(List<AddressBean> datas) {
+    public AddressAdapter(List<AddressBeannn.AddressBean> datas) {
         this.mDatas = datas;
     }
 
@@ -33,12 +34,16 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyHolder
     @Override
     public void onBindViewHolder(final AddressAdapter.MyHolder holder, final int position) {
         ((SwipeMenuLayout) holder.itemView).setIos(true).setLeftSwipe(true);//这句话关掉IOS阻塞式交互效果 并打开左滑
-
+        //----------------------------------------------
         if (selectPos == position) {
             holder.rb_def_addr.setChecked(true);
         } else {
             holder.rb_def_addr.setChecked(false);
         }
+        //---------------------------------------------
+        holder.tv_name.setText(mDatas.get(position).getAddrName());
+        holder.tv_address.setText(mDatas.get(position).getAddrProvice()+mDatas.get(position).getAddrCity()+mDatas.get(position).getAddrarea());
+        holder.tv_phone.setText(mDatas.get(position).getAddrTel());
 
         holder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,18 +64,24 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.MyHolder
 
     @Override
     public int getItemCount() {
-        return mDatas.size();
+        return mDatas == null ? 0 : mDatas.size();
     }
 
     public class MyHolder extends RecyclerView.ViewHolder {
 
         private final RadioButton rb_def_addr;
         private final Button btn_delete;
+        private final TextView tv_name;
+        private final TextView tv_phone;
+        private final TextView tv_address;
 
         public MyHolder(View itemView) {
             super(itemView);
             rb_def_addr = (RadioButton) itemView.findViewById(R.id.rb_def_addr);
             btn_delete = (Button) itemView.findViewById(R.id.btn_delete);
+            tv_name = (TextView) itemView.findViewById(R.id.tv_name);
+            tv_phone = (TextView) itemView.findViewById(R.id.tv_phone);
+            tv_address = (TextView) itemView.findViewById(R.id.tv_address);
         }
     }
 }

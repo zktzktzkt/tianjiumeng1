@@ -8,11 +8,11 @@
     android:orientation="vertical"
     tools:context="com.yxk.tjm.tianjiumeng.MainActivity">
 
-   <!-- <com.yxk.tjm.tianjiumeng.custom.NoScrollViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>-->
+    <!-- <com.yxk.tjm.tianjiumeng.custom.NoScrollViewPager
+         android:id="@+id/view_pager"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1"/>-->
 
     <FrameLayout
         android:id="@+id/fragment"
@@ -20,16 +20,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         />
-
-    <!-- <android.support.design.widget.TabLayout
-         android:id="@+id/tab_layout"
-         android:layout_width="match_parent"
-         android:layout_height="58dp"
-         app:tabBackground="@color/statusbarColor"
-         app:tabIndicatorHeight="0dp"
-         app:tabMode="fixed"
-         app:tabSelectedTextColor="@color/tabSelectTextColor"
-         app:tabTextColor="@color/tabTextColor"/>-->
 
     <View
         android:layout_width="match_parent"

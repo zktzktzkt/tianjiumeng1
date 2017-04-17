@@ -3,14 +3,11 @@ package com.yxk.tjm.tianjiumeng.news;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.format.DateUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -21,7 +18,8 @@ import com.google.gson.Gson;
 import com.sunfusheng.marqueeview.MarqueeView;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.custom.CustomLoadMoreView;
-import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.fragment.BaseFragment;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.news.activity.NewsDetailActivity;
 import com.yxk.tjm.tianjiumeng.news.bean.NewsBean;
 import com.yxk.tjm.tianjiumeng.utils.To;
@@ -36,26 +34,27 @@ import okhttp3.Call;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends BaseFragment {
 
     private MarqueeView marqueeView;
     private RecyclerView recycler;
     private NewsBean newsBean;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news, container, false);
-        marqueeView = (MarqueeView) view.findViewById(R.id.marqueeView);
-        recycler = (RecyclerView) view.findViewById(R.id.recycler);
-        return view;
+    public int getLayoutResId() {
+        return R.layout.fragment_news;
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void initView(View view) {
+        marqueeView = (MarqueeView) view.findViewById(R.id.marqueeView);
+        recycler = (RecyclerView) view.findViewById(R.id.recycler);
+    }
+
+    @Override
+    public void initData(Bundle savedInstanceState) {
         OkHttpUtils.get()
-                .url(Url.NEWS)
+                .url(ApiConstants.NEWS)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -70,8 +69,19 @@ public class NewsFragment extends Fragment {
                         initData();
                     }
                 });
+    }
 
-
+    /**
+     * 可见不可见状态改变时调用
+     *
+     * @param hidden 可见时为true
+     */
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden && isResumed()) {
+            initData();
+        }
     }
 
     private void initData() {

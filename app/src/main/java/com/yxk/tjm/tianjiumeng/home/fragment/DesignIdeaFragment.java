@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity;
 import com.yxk.tjm.tianjiumeng.home.bean.ProductInnerDesignBean;
-import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.ScreenUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -47,7 +48,6 @@ public class DesignIdeaFragment extends Fragment {
     private ImageView image;
     private String productId;
     private ProductInnerDesignBean productInnerDesignBean;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,7 +71,7 @@ public class DesignIdeaFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         OkHttpUtils.get()
-                .url(Url.DETAIL_PAGE_DESIGN)
+                .url(ApiConstants.DETAIL_PAGE_DESIGN)
                 .addParams("productId", productId)
                 .build()
                 .execute(new StringCallback() {
@@ -82,13 +82,12 @@ public class DesignIdeaFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        // Log.e(TAG, "onActivityCreated() response " + response);
+                        Log.e("DesignIdeaFragment ", "onActivityCreated() response " + response);
                         Gson gson = new Gson();
                         productInnerDesignBean = gson.fromJson(response, ProductInnerDesignBean.class);
 
                         setImagePic();
 
-                        initRecommendForYouRecycler();
                     }
                 });
     }
@@ -109,6 +108,9 @@ public class DesignIdeaFragment extends Fragment {
                             image.setLayoutParams(para);
                         }
                         Glide.with(App.getAppContext()).load(productInnerDesignBean.getDesignPics().getGoodsPic()).asBitmap().into(image);
+
+                        //加载列表（需要在设置完图片后在设置，否则可能出现goospic空指针）
+                        initRecommendForYouRecycler();
                     }
                 });
     }

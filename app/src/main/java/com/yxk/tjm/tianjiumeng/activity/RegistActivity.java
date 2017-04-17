@@ -12,9 +12,22 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.yxk.tjm.tianjiumeng.R;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.yxk.tjm.tianjiumeng.utils.MD5Util;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import okhttp3.Call;
 
 import static com.yxk.tjm.tianjiumeng.R.id.et_verification;
 
+
+/**
+ * 注册
+ */
 public class RegistActivity extends BaseActivity implements View.OnClickListener {
 
     private Toolbar mToolbar;
@@ -56,7 +69,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void submit() {
-        // validate
         String phone = mEtPhone.getText().toString().trim();
         if (TextUtils.isEmpty(phone)) {
             Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
@@ -70,14 +82,42 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         }
 
         String pwd = mEtPwd.getText().toString().trim();
-        if (TextUtils.isEmpty(pwd)) {
+        if (TextUtils.isEmpty(pwd) && pwd.length() < 6) {
             Toast.makeText(this, "请输入六位密码", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // TODO validate success, do something
+        String md5Pwd = MD5Util.MD5(pwd);
+        OkHttpUtils.post()
+                .url(ApiConstants.REGIST)
+                .addParams("userName", phone)
+                .addParams("passWord", md5Pwd)
+                .addParams("smscode", verification)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
 
+                    }
 
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e("RegistActivity ", "btn_regist response:" + response);
+                        try {
+                            JSONObject jo = new JSONObject(response);
+                            int success = (int) jo.get("success");
+                            if (success == 1) {
+                                Toast.makeText(RegistActivity.this, "该用户已注册！", Toast.LENGTH_SHORT).show();
+                            } else if (success == 0) {
+                                Toast.makeText(RegistActivity.this, "注册成功！", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
     }
 
     private CountDownTimer downTimer = new CountDownTimer(10 * 1000, 1000) {
@@ -107,8 +147,8 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
             case R.id.btn_get_verifi:
                 downTimer.start();
                 break;
-            case R.id.btn_ok:
-
+            case R.id.btn_regist:
+                submit();
                 break;
         }
     }

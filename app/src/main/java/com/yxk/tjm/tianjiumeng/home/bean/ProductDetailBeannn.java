@@ -6,7 +6,7 @@ import java.util.List;
  * Created by ningfei on 2017/4/11.
  */
 
-public class ProductDetailBeann {
+public class ProductDetailBeannn {
 
     /**
      * HWs : [{"goodsHeight":3,"goodsWide":4},{"goodsHeight":3,"goodsWide":3},{"goodsHeight":3,"goodsWide":4},{"goodsHeight":3,"goodsWide":5},{"goodsHeight":3,"goodsWide":6},{"goodsHeight":3,"goodsWide":7},{"goodsHeight":3,"goodsWide":8}]

@@ -14,8 +14,8 @@ import android.widget.PopupWindow;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.home.adapter.PopSpecAdapter;
-import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeann;
-import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeannn;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.To;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -39,7 +39,7 @@ public class BottomPop<T> extends PopupWindow {
     private View view;
     private final RecyclerView recycler;
     private final Button btn_confirm;
-    List<ProductDetailBeann.HWsBean> hWsBeanList;
+    List<ProductDetailBeannn.HWsBean> hWsBeanList;
 
     String productId;
     int nowprice;
@@ -49,7 +49,7 @@ public class BottomPop<T> extends PopupWindow {
         super(context);
         view = View.inflate(context, R.layout.dialog_spec, null);
         setContentView(view);
-        this.hWsBeanList = (List<ProductDetailBeann.HWsBean>) list;
+        this.hWsBeanList = (List<ProductDetailBeannn.HWsBean>) list;
         this.productId = productId;
         this.nowprice = nowprice;
 
@@ -106,7 +106,7 @@ public class BottomPop<T> extends PopupWindow {
                     .postString()
                     .content(jo.toString())
                     .mediaType(MediaType.parse("application/json; charset=utf-8"))
-                    .url(Url.DETAIL_ADD_SHOPCAR)
+                    .url(ApiConstants.DETAIL_ADD_SHOPCAR)
                     .build()
                     .execute(new StringCallback() {
                         @Override

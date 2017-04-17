@@ -3,7 +3,6 @@ package com.yxk.tjm.tianjiumeng.home;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,7 +31,7 @@ import com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity;
 import com.yxk.tjm.tianjiumeng.home.activity.SearchActivity;
 import com.yxk.tjm.tianjiumeng.home.adapter.FlashSaleAdapter;
 import com.yxk.tjm.tianjiumeng.home.bean.HomeBean;
-import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.GlideImageLoader;
 import com.yxk.tjm.tianjiumeng.utils.To;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -104,9 +103,22 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void initData(Bundle savedInstanceState) {
         initData();
+    }
+
+
+    /**
+     * 可见不可见状态改变时调用
+     *
+     * @param hidden 可见时为true
+     */
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden && isResumed()) {
+            initData();
+        }
     }
 
     /**
@@ -133,7 +145,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         swipe_refresh.setRefreshing(true);
         view_cover.setVisibility(View.VISIBLE);
         OkHttpUtils.get()
-                .url(Url.HOME)
+                .url(ApiConstants.HOME)
                 .build()
                 .execute(new StringCallback() {
                     @Override

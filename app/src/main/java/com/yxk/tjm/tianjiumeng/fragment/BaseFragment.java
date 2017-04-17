@@ -1,6 +1,7 @@
 package com.yxk.tjm.tianjiumeng.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,17 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        initData(savedInstanceState);
+    }
+
     public abstract int getLayoutResId();
 
     public abstract void initView(View view);
+
+    public abstract void initData(Bundle savedInstanceState);
 
 }

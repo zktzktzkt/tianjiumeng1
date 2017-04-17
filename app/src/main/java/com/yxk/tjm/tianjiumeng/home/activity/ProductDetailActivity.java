@@ -31,15 +31,19 @@ import com.yxk.tjm.tianjiumeng.custom.AutoHeightViewPager;
 import com.yxk.tjm.tianjiumeng.custom.BottomPop;
 import com.yxk.tjm.tianjiumeng.custom.CustomPopWindow;
 import com.yxk.tjm.tianjiumeng.custom.MyNestedScrollView;
-import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeann;
+import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeannn;
 import com.yxk.tjm.tianjiumeng.home.fragment.DesignIdeaFragment;
 import com.yxk.tjm.tianjiumeng.home.fragment.ProductDetailFragment;
 import com.yxk.tjm.tianjiumeng.home.fragment.StandardFragment;
-import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.GlideImageLoader;
 import com.yxk.tjm.tianjiumeng.utils.To;
+import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +52,9 @@ import cn.iwgang.countdownview.CountdownView;
 import cn.iwgang.countdownview.DynamicConfig;
 import okhttp3.Call;
 
+/**
+ * 商品详情页
+ */
 public class ProductDetailActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "ProductDetailActivity ";
@@ -85,7 +92,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     private final int WHITE = 1;
     private DynamicConfig.Builder builder;
     private DynamicConfig build;
-    private ProductDetailBeann productDetailBean;
+    private ProductDetailBeannn productDetailBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +127,6 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         titles.add("商品规格");
 
         initView();
-
 
    /*     if (TextUtils.isEmpty(flashSale)) {
             cv_countdownView.setVisibility(View.GONE);
@@ -194,7 +200,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         Log.e(TAG, "isnew : " + isnew);
 
         OkHttpUtils.get()
-                .url(Url.DETAIL_PAGE)
+                .url(ApiConstants.DETAIL_PAGE)
                 .addParams("productId", productId)
                 .addParams("isnew", String.valueOf(isnew))
                 .build()
@@ -208,7 +214,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                     public void onResponse(String response, int id) {
                         Log.e(TAG, "initData() response:" + response);
                         Gson gson = new Gson();
-                        productDetailBean = gson.fromJson(response, ProductDetailBeann.class);
+                        productDetailBean = gson.fromJson(response, ProductDetailBeannn.class);
 
                         initBanner();
 
@@ -373,7 +379,12 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                 break;
 
             case R.id.tv_collect:
-                To.showShort(getApplicationContext(), "收藏");
+                if(UserUtil.isLogin(getApplicationContext())){
+                    //收藏
+                    collect();
+                }else {
+                    To.showShort(ProductDetailActivity.this, "请先登录！");
+                }
                 break;
 
             case R.id.tv_add_shopcart:
@@ -391,6 +402,40 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                 judgeRebateVisible();
                 break;
         }
+    }
+
+    /**
+     * 收藏
+     */
+    private void collect() {
+        // TODO: 2017/4/14
+        OkHttpUtils.post()
+                .url(ApiConstants.DETAIL_PAGE_COLLECT)
+                .addParams("goodsId", productId)
+                .addParams("userId", UserUtil.getUserId(getApplicationContext()))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e(TAG, "collect() response:" + response);
+                        try {
+                            JSONObject jo = new JSONObject(response);
+                            if ((boolean) jo.get("success")) {
+                                To.showShort(getApplicationContext(), "收藏成功");
+                            } else {
+                                To.showShort(getApplicationContext(), "已收藏");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
     }
 
     /**

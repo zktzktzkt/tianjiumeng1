@@ -25,7 +25,7 @@ import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity;
 import com.yxk.tjm.tianjiumeng.home.bean.ProductInnerSuitBean;
-import com.yxk.tjm.tianjiumeng.network.Url;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.ScreenUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -69,7 +69,7 @@ public class StandardFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         OkHttpUtils.get()
-                .url(Url.DETAIL_PAGE_STANDARD)
+                .url(ApiConstants.DETAIL_PAGE_STANDARD)
                 .addParams("productId", productId)
                 .build()
                 .execute(new StringCallback() {
