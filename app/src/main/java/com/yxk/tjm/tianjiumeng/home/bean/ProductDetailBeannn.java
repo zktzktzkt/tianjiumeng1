@@ -166,6 +166,7 @@ public class ProductDetailBeannn {
 
         private int goodsHeight;
         private int goodsWide;
+        //--------------------------------------
         public boolean isSelected;
 
         public boolean isSelected() {
@@ -175,6 +176,7 @@ public class ProductDetailBeannn {
         public void setSelected(boolean selected) {
             isSelected = selected;
         }
+        //-------------------------------------------
         public int getGoodsHeight() {
             return goodsHeight;
         }

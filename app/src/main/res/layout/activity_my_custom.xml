@@ -180,6 +180,7 @@
                         />
 
                     <com.yxk.tjm.tianjiumeng.custom.AmountView
+                        android:id="@+id/amount_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"

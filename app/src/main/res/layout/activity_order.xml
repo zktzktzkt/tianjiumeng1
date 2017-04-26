@@ -79,6 +79,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_single"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -128,6 +129,37 @@
                 android:textColor="@color/red_ff0000"
                 android:textSize="15sp"
                 />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_amount"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_common"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="数量"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="232123123件"
+                android:textColor="@color/white"
+                />
+
         </RelativeLayout>
 
 

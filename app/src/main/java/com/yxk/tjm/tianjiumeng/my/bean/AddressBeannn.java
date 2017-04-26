@@ -49,6 +49,15 @@ public class AddressBeannn {
         private String addrTel;
         private String addrarea;
         private int userId;
+        private int isDefault;
+
+        public int getIsDefault() {
+            return isDefault;
+        }
+
+        public void setIsDefault(int isDefault) {
+            this.isDefault = isDefault;
+        }
 
         public String getAddrCity() {
             return addrCity;

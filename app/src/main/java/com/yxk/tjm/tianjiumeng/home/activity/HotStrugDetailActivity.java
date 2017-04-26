@@ -1,33 +1,53 @@
 package com.yxk.tjm.tianjiumeng.home.activity;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.custom.AutoHeightViewPager;
+import com.yxk.tjm.tianjiumeng.custom.BottomPopPinHuo;
 import com.yxk.tjm.tianjiumeng.custom.MyNestedScrollView;
+import com.yxk.tjm.tianjiumeng.home.bean.HotStrugDetailBean;
+import com.yxk.tjm.tianjiumeng.home.fragment.DesignIdeaFragment;
 import com.yxk.tjm.tianjiumeng.home.fragment.ProductDetailFragment;
+import com.yxk.tjm.tianjiumeng.home.fragment.StandardFragment;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.GlideImageLoader;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
 
 public class HotStrugDetailActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView mTvTitle;
     private TextView mTvIntroduce;
+    private TextView tv_tatalStore;
+    private TextView tv_original_price;
     private TextView mTvPrice;
+    private TextView tv_add_shopcart;
     private TabLayout mTabLayout;
     private AutoHeightViewPager mViewPager;
     private ImageView mImgPicture;
@@ -38,17 +58,37 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
     private MyNestedScrollView mMyNestedScroll;
     private Banner mBanner;
     private Button btn_buy;
-    private List<Integer> images;
+    private List<String> images;
+    private String productId;
+    private HotStrugDetailBean hotStrugDetailBean;
+    private SwipeRefreshLayout swipe_refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hot_strug_detail);
+        App.getActivityManager().pushActivity(this);
+
+        productId = getIntent().getStringExtra("productId");
 
         fragments = new ArrayList<>();
-        fragments.add(new ProductDetailFragment());
-        fragments.add(new ProductDetailFragment());
-        fragments.add(new ProductDetailFragment());
+
+        Bundle bundle = new Bundle();
+        bundle.putString("productId", String.valueOf(productId));
+
+        ProductDetailFragment productDetailFragment = new ProductDetailFragment();
+        productDetailFragment.setArguments(bundle);
+
+        DesignIdeaFragment designIdeaFragment = new DesignIdeaFragment();
+        designIdeaFragment.setArguments(bundle);
+
+        StandardFragment standardFragment = new StandardFragment();
+        standardFragment.setArguments(bundle);
+
+        fragments.add(productDetailFragment);
+        fragments.add(designIdeaFragment);
+        fragments.add(standardFragment);
+
 
         titles = new ArrayList<>();
         titles.add("商品详情");
@@ -56,10 +96,6 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
         titles.add("商品规格");
 
         images = new ArrayList<>();
-        images.add(R.drawable.pic_e);
-        images.add(R.drawable.pic_a);
-        images.add(R.drawable.pic_b);
-        images.add(R.drawable.pic_c);
 
         initView();
         initData();
@@ -68,7 +104,10 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
     private void initView() {
         mTvTitle = (TextView) findViewById(R.id.tv_title);
         mTvIntroduce = (TextView) findViewById(R.id.tv_introduce);
+        tv_tatalStore = (TextView) findViewById(R.id.tv_tatalStore);
         mTvPrice = (TextView) findViewById(R.id.tv_price);
+        tv_add_shopcart = (TextView) findViewById(R.id.tv_add_shopcart);
+        tv_original_price = (TextView) findViewById(R.id.tv_original_price);
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (AutoHeightViewPager) findViewById(R.id.view_pager);
         mImgPicture = (ImageView) findViewById(R.id.img_picture);
@@ -78,14 +117,51 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
         mMyNestedScroll = (MyNestedScrollView) findViewById(R.id.my_nested_scroll);
         mBanner = (Banner) findViewById(R.id.banner);
         btn_buy = (Button) findViewById(R.id.btn_buy);
+        swipe_refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+
+        tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);  //添加删除线
+
+        swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initData();
+            }
+        });
 
         btn_buy.setOnClickListener(this);
+        tv_add_shopcart.setOnClickListener(this);
     }
 
     private void initData() {
-        initBanner();
 
-        //initRecommendForYouRecycler();
+        OkHttpUtils.get()
+                .url(ApiConstants.HOME_PINHUO_DETAIL)
+                .addParams("productId", productId)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        hotStrugDetailBean = new Gson().fromJson(response, HotStrugDetailBean.class);
+                        mTvTitle.setText(hotStrugDetailBean.getProductDetail().getName());
+                        mTvIntroduce.setText(hotStrugDetailBean.getProductDetail().getDescription());
+                        tv_tatalStore.setText("库存：" + hotStrugDetailBean.getTatalStore());
+                        mTvPrice.setText(getResources().getString(R.string.RMB) + hotStrugDetailBean.getTatalStore());
+
+                        images.clear();
+                        for (int i = 0; i < hotStrugDetailBean.getCrclphotos().size(); i++) {
+                            images.add(hotStrugDetailBean.getCrclphotos().get(i).getGoodsPic());
+                        }
+                        initBanner(images);
+
+                        swipe_refresh.setRefreshing(false);
+                    }
+                });
+
         mViewPager.setAdapter(fragmentPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
     }
@@ -99,14 +175,7 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
         });
     }
 
- /*   private void initRecommendForYouRecycler() {
-        mRecycler.setLayoutManager(new GridLayoutManager(this, 2));
-        RecommendForYouAdapter recommendForYouAdapter = new RecommendForYouAdapter();
-        recommendForYouAdapter.setMatchData(Arrays.asList(R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a, R.drawable.pic_a));
-        mRecycler.setAdapter(recommendForYouAdapter);
-    }*/
-
-    private void initBanner() {
+    private void initBanner(List<String> images) {
         //设置图片加载器
         mBanner.setImageLoader(new GlideImageLoader());
         mBanner.setImages(images);
@@ -132,13 +201,19 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_buy:
-               // showBottomPopupWindow();
+                BottomPopPinHuo.COMMON = BottomPopPinHuo.BUY;
+                showBottomPopupWindow();
+                break;
+
+            case R.id.tv_add_shopcart:
+                BottomPopPinHuo.COMMON = BottomPopPinHuo.ADD_SHOP_CART;
+                showBottomPopupWindow();
                 break;
         }
     }
 
-   /* private void showBottomPopupWindow() {
-        BottomPop bottomPop = new BottomPop(this);
+    private void showBottomPopupWindow() {
+        BottomPopPinHuo bottomPop = new BottomPopPinHuo(this, hotStrugDetailBean.getHWs(), productId, hotStrugDetailBean.getProductDetail().getNowprice());
         //      设置Popupwindow显示位置（从底部弹出）
         bottomPop.showAtLocation(findViewById(R.id.my_nested_scroll), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 
@@ -156,7 +231,7 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
                 window.setAttributes(wl);
             }
         });
-    }*/
+    }
 
     private FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
         @Override

@@ -95,6 +95,17 @@
         </activity>
         <activity android:name=".home.activity.AllAppraiseActivity">
         </activity>
+        <activity
+            android:name=".shopcar.activity.PaySuccessActivity"
+            android:label="@string/title_activity_pay_success"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".shopcar.activity.PayFailedActivity">
+        </activity>
+        <activity android:name=".my.activity.SeeLogisticsActivity">
+        </activity>
+        <activity android:name=".shopcar.activity.PayWayActivity">
+        </activity>
     </application>
 
 </manifest>

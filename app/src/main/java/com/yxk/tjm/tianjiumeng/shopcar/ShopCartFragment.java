@@ -112,6 +112,7 @@ public class ShopCartFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
+                        LogUtil.e("ShopCartFragment ", "initData response:" + response);
                         Gson gson = new Gson();
                         shopCartBean = gson.fromJson(response, ShopCartBean.class);
 

@@ -17,6 +17,7 @@
         app:navigationIcon="@drawable/iocn_back">
 
         <TextView
+            android:id="@+id/tv_toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -26,6 +27,7 @@
     </android.support.v7.widget.Toolbar>
 
     <EditText
+        android:id="@+id/et_receiver"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@color/gray_common"
@@ -42,12 +44,14 @@
         />
 
     <EditText
+        android:id="@+id/et_tel"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@color/gray_common"
         android:hint="电 话"
         android:maxLines="2"
         android:paddingLeft="10dp"
+        android:inputType="number"
         android:textColor="@color/white"
         android:textColorHint="@color/tabTextColor"
         />
@@ -97,6 +101,7 @@
         />
 
     <EditText
+        android:id="@+id/et_detail_addr"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:background="@color/gray_common"

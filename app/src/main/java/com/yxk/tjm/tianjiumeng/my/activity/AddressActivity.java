@@ -14,6 +14,7 @@ import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.my.bean.AddressBeannn;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.shopcar.adapter.AddressAdapter;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -40,6 +41,12 @@ public class AddressActivity extends BaseActivity {
         ButterKnife.bind(this);
         setToolbarNavigationClick();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         initData();
     }
 
@@ -52,14 +59,16 @@ public class AddressActivity extends BaseActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        LogUtil.e("AddressActivity ","initData() Exception:"+e);
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
+                        LogUtil.e("AddressActivity ","initData() response:"+response);
+
                         addressBeannn = new Gson().fromJson(response, AddressBeannn.class);
                         recycler = (RecyclerView) findViewById(R.id.recycler);
-                        recycler.setAdapter(new AddressAdapter(addressBeannn.getAddress()));
+                        recycler.setAdapter(new AddressAdapter(addressBeannn.getAddress(), AddressActivity.this));
                     }
                 });
 

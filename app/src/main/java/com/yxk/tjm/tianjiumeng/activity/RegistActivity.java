@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.MD5Util;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -102,7 +102,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e("RegistActivity ", "btn_regist response:" + response);
+                        LogUtil.e("RegistActivity ", "btn_regist response:" + response);
                         try {
                             JSONObject jo = new JSONObject(response);
                             int success = (int) jo.get("success");
@@ -120,12 +120,12 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 });
     }
 
-    private CountDownTimer downTimer = new CountDownTimer(10 * 1000, 1000) {
+    private CountDownTimer downTimer = new CountDownTimer(60 * 1000, 1000) {
         @Override
         public void onTick(long l) {
             mBtnGetVerifi.setEnabled(false);
             mBtnGetVerifi.setText((l / 1000) + "秒");
-            Log.e("CountDownTimer", "倒计时");
+            LogUtil.e("CountDownTimer", "倒计时");
         }
 
         @Override
@@ -145,12 +145,79 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_get_verifi:
-                downTimer.start();
+                checkUserIsRegist();
                 break;
             case R.id.btn_regist:
                 submit();
                 break;
         }
+    }
+
+    /**
+     * 判断用户
+     */
+    private void checkUserIsRegist() {
+        String phone = mEtPhone.getText().toString().trim();
+        OkHttpUtils.get()
+                .url(ApiConstants.CHECK_USER)
+                .addParams("userName", phone)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.e("判断是否注册过 response: ", response);
+                        try {
+                            JSONObject jo = new JSONObject(response);
+                            if ((int) jo.get("success") == 0) {
+                                Toast.makeText(RegistActivity.this, "该用户已注册!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                sendVerification();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+    }
+
+    private void sendVerification() {
+        String phone = mEtPhone.getText().toString().trim();
+        if (TextUtils.isEmpty(phone)) {
+            Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        downTimer.start();
+
+        OkHttpUtils.get()
+                .url(ApiConstants.SEND_VERIFI_CODE)
+                .addParams("userName", phone)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.e("验证码response: ", response);
+                        try {
+                            JSONObject jo = new JSONObject(response);
+                            if ((int) jo.get("success") == 1) {
+                                Toast.makeText(RegistActivity.this, "获取验证码失败!", Toast.LENGTH_SHORT).show();
+                            } else if((int) jo.get("success") == 0) {
+                              //  mEtVerification.setText((String) jo.get("Vcode"));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
     }
 
 }

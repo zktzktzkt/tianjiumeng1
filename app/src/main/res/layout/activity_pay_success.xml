@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_common"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context="com.yxk.tjm.tianjiumeng.shopcar.activity.PaySuccessActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#201f25"
+        app:navigationIcon="@drawable/iocn_back"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="支付成功"
+            android:textColor="#fff"
+            android:textSize="20sp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/iv_seccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/pay_success"
+        />
+
+    <Button
+        android:id="@+id/btn_see"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@id/iv_seccess"
+        android:layout_below="@id/iv_seccess"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_orange_round_stroke"
+        android:text="查看订单"
+        android:textColor="#FE8A25"
+        android:textSize="14sp"
+        />
+
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_alignRight="@id/iv_seccess"
+        android:layout_below="@id/iv_seccess"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_orange_round_stroke"
+        android:text="返回首页"
+        android:textColor="@color/red_ff0000"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_return"
+        android:layout_marginTop="40dp"
+        android:text="重要提示：xxx不会以订单异常、系统升级等理由，要求你点击任何连接进行退款、重新支付、额外付款"
+        android:textColor="@color/tabTextColor"
+        android:textSize="13sp"
+        />
+
+</RelativeLayout>

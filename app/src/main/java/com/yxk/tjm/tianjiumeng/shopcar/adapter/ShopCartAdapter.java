@@ -18,6 +18,7 @@ import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.custom.AmountView;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopCartBean;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -77,7 +78,6 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
         holder.checkbox_child.setChecked(datas.get(position).isChecked());
         holder.tv_price.setText("¥ " + datas.get(position).getProduct().getNowprice());
         holder.amount_view.etAmount.setText(datas.get(position).getBuyCart().getGoodsAccant() + "");
-        // holder.amount_view.etAmount.setTag(position);
 
         holder.amount_view.setOnAmountChangeListener(new AmountView.OnAmountChangeListener() {
             @Override
@@ -114,12 +114,12 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Log.e("ShopCartAdapter ", "updateCountToNet Exception:" + e);
+                        LogUtil.e("ShopCartAdapter ", "updateCountToNet Exception:" + e);
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e("ShopCartAdapter ", "updateCountToNet response:" + response);
+                        LogUtil.e("ShopCartAdapter ", "updateCountToNet response:" + response);
                     }
                 });
     }

@@ -39,6 +39,7 @@ public class NewsFragment extends BaseFragment {
     private MarqueeView marqueeView;
     private RecyclerView recycler;
     private NewsBean newsBean;
+    private NewsAdapter newsAdapter;
 
     @Override
     public int getLayoutResId() {
@@ -53,6 +54,37 @@ public class NewsFragment extends BaseFragment {
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        setData();
+
+        recycler.addOnItemTouchListener(new OnItemClickListener() {
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(getActivity(), NewsDetailActivity.class));
+            }
+        });
+
+
+    }
+
+    /**
+     * 可见不可见状态改变时调用
+     *
+     * @param hidden 可见时为true
+     */
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden && isResumed()) {
+            setData();
+        } else {
+            marqueeView.stopFlipping();
+        }
+    }
+
+    /**
+     * 设置数据
+     */
+    private void setData() {
         OkHttpUtils.get()
                 .url(ApiConstants.NEWS)
                 .build()
@@ -66,54 +98,32 @@ public class NewsFragment extends BaseFragment {
                     public void onResponse(String response, int id) {
                         Gson gson = new Gson();
                         newsBean = gson.fromJson(response, NewsBean.class);
-                        initData();
+
+                        List<String> publiclist = new ArrayList<>();
+
+                        for (int i = 0; i < newsBean.getPubliclist().size(); i++) {
+                            publiclist.add(newsBean.getPubliclist().get(i).getPublicpic());
+                        }
+
+                        marqueeView.startWithList(publiclist);
+                        recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+                        newsAdapter = new NewsAdapter();
+                        newsAdapter.setLoadMoreView(new CustomLoadMoreView());
+                        recycler.setAdapter(newsAdapter);
+
+                        newsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+                            @Override
+                            public void onLoadMoreRequested() {
+                                To.showShort(getContext(), "LoadMoreListener");
+                            }
+                        }, recycler);
+
+                        //newsAdapter.setEnableLoadMore(true);
+                        // newsAdapter.loadMoreComplete();
+                        // newsAdapter.loadMoreFail();
+                        newsAdapter.loadMoreEnd(false);
                     }
                 });
-    }
-
-    /**
-     * 可见不可见状态改变时调用
-     *
-     * @param hidden 可见时为true
-     */
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if (!hidden && isResumed()) {
-            initData();
-        }
-    }
-
-    private void initData() {
-        List<String> publiclist = new ArrayList<>();
-        for (int i = 0; i < newsBean.getPubliclist().size(); i++) {
-            publiclist.add(newsBean.getPubliclist().get(i).getPublicpic());
-        }
-
-        marqueeView.startWithList(publiclist);
-
-        recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        NewsAdapter newsAdapter = new NewsAdapter();
-        newsAdapter.setLoadMoreView(new CustomLoadMoreView());
-        recycler.setAdapter(newsAdapter);
-        recycler.addOnItemTouchListener(new OnItemClickListener() {
-            @Override
-            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(getActivity(), NewsDetailActivity.class));
-            }
-        });
-
-        newsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
-            @Override
-            public void onLoadMoreRequested() {
-                To.showShort(getContext(), "LoadMoreListener");
-            }
-        }, recycler);
-
-        //newsAdapter.setEnableLoadMore(true);
-        // newsAdapter.loadMoreComplete();
-        // newsAdapter.loadMoreFail();
-        newsAdapter.loadMoreEnd(false);
     }
 
     @Override

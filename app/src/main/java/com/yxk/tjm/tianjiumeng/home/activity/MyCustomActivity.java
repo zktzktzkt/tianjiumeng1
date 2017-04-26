@@ -1,11 +1,16 @@
 package com.yxk.tjm.tianjiumeng.home.activity;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -13,26 +18,54 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
+import com.yxk.tjm.tianjiumeng.custom.AmountView;
 import com.yxk.tjm.tianjiumeng.custom.CustomPopWindow;
 import com.yxk.tjm.tianjiumeng.home.adapter.MyCustomAdapter;
+import com.yxk.tjm.tianjiumeng.home.bean.PopTextrueBean;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.yxk.tjm.tianjiumeng.utils.FileUtils;
+import com.yxk.tjm.tianjiumeng.utils.ImgUtil;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.To;
+import com.yxk.tjm.tianjiumeng.utils.UserUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import me.nereo.multi_image_selector.MultiImageSelector;
+import okhttp3.Call;
+import okhttp3.MediaType;
 
-public class MyCustomActivity extends BaseActivity implements View.OnClickListener {
+public class MyCustomActivity extends BaseActivity {
+    private static final String TAG = "MyCustomActivity ";
 
     private static final int REQUEST_IMAGE = 2;
     protected static final int REQUEST_STORAGE_READ_ACCESS_PERMISSION = 101;
@@ -48,26 +81,44 @@ public class MyCustomActivity extends BaseActivity implements View.OnClickListen
     Toolbar toolbar;
     @BindView(R.id.recycler)
     RecyclerView recycler;
+    @BindView(R.id.tv_product_pic)
+    TextView tvProductPic;
+    @BindView(R.id.tv_cm)
+    TextView tvCm;
+    @BindView(R.id.et_width)
+    EditText etWidth;
+    @BindView(R.id.et_height)
+    EditText etHeight;
+    @BindView(R.id.et_length)
+    EditText etLength;
+    @BindView(R.id.et_commodity_introduce)
+    EditText etCommodityIntroduce;
+    @BindView(R.id.amount_view)
+    AmountView amountView;
 
-    private Toolbar mToolbar;
-    private RecyclerView mRecycler;
     private ArrayList<String> mSelectPath;
     private MyCustomAdapter myCustomAdapter;
     private CustomPopWindow customPopWindow;
-    private TextView tv_boli;
-    private TextView tv_pt;
-    private TextView tv_crystal;
-    private TextView tv_shiying;
     private View contentView;
+    private List<PopTextrueBean> popTextrueBeanList;
+    private RecyclerView recycler_pop;
+    private ProgressDialog progressDialog;
+    private String tailorSize;
+    private String tailorMaterial;
+    private String tailorDecr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_custom);
+        App.getActivityManager().pushActivity(this);
+
         ButterKnife.bind(this);
 
-        linearTexture.setOnClickListener(this);
         setToolbarClick();
+
+        contentView = LayoutInflater.from(MyCustomActivity.this).inflate(R.layout.ppw_textrue, null);
+        recycler_pop = (RecyclerView) contentView.findViewById(R.id.recycler_pop);
 
         //材质pop点击事件
         handlePopClick();
@@ -76,6 +127,28 @@ public class MyCustomActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void initData() {
+        OkHttpUtils.get()
+                .url(ApiConstants.HOME_CUSTOM_TEXTRUE)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        popTextrueBeanList = new Gson().fromJson(response, new TypeToken<List<PopTextrueBean>>() {
+                        }.getType());
+                        recycler_pop.setAdapter(new BaseQuickAdapter<PopTextrueBean, BaseViewHolder>(R.layout.ppw_item_textrue, popTextrueBeanList) {
+                            @Override
+                            protected void convert(BaseViewHolder helper, PopTextrueBean item) {
+                                helper.setText(R.id.tv_textrue, item.getTailorMaterialName());
+                            }
+                        });
+                    }
+                });
+
         LinearLayoutManager layoutManager = new GridLayoutManager(this, 4);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recycler.setLayoutManager(layoutManager);
@@ -111,7 +184,6 @@ public class MyCustomActivity extends BaseActivity implements View.OnClickListen
             }
         });
     }
-
 
     private void pickImage() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN // Permission was added in API Level 16
@@ -179,20 +251,16 @@ public class MyCustomActivity extends BaseActivity implements View.OnClickListen
      * 材质popwindow点击事件
      */
     public void handlePopClick() {
-        contentView = LayoutInflater.from(this).inflate(R.layout.pop_textrue, null);
-
-        tv_boli = (TextView) contentView.findViewById(R.id.tv_boli);
-        tv_pt = (TextView) contentView.findViewById(R.id.tv_pt);
-        tv_crystal = (TextView) contentView.findViewById(R.id.tv_crystal);
-        tv_shiying = (TextView) contentView.findViewById(R.id.tv_shiying);
-
-        tv_boli.setOnClickListener(this);
-        tv_pt.setOnClickListener(this);
-        tv_crystal.setOnClickListener(this);
-        tv_shiying.setOnClickListener(this);
+        recycler_pop.addOnItemTouchListener(new OnItemClickListener() {
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                tvTextrue.setText(popTextrueBeanList.get(position).getTailorMaterialName());
+                customPopWindow.dissmiss();
+            }
+        });
     }
 
-    @Override
+    @OnClick({R.id.linear_texture, R.id.btn_submit})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linear_texture:
@@ -205,26 +273,164 @@ public class MyCustomActivity extends BaseActivity implements View.OnClickListen
                 break;
 
             case R.id.btn_submit:
-                To.showShort(this, "提交");
-                break;
-
-            case R.id.tv_boli:
-                tvTextrue.setText(tv_boli.getText().toString());
-                customPopWindow.dissmiss();
-                break;
-            case R.id.tv_pt:
-                tvTextrue.setText(tv_pt.getText().toString());
-                customPopWindow.dissmiss();
-                break;
-            case R.id.tv_crystal:
-                tvTextrue.setText(tv_crystal.getText().toString());
-                customPopWindow.dissmiss();
-                break;
-            case R.id.tv_shiying:
-                tvTextrue.setText(tv_shiying.getText().toString());
-                customPopWindow.dissmiss();
+                uploadImg();
                 break;
 
         }
     }
+
+    /**
+     * 提交
+     */
+    private void submit() {
+
+        JsonObject jo = new JsonObject();
+        jo.addProperty("userId", UserUtil.getUserId(App.getAppContext()));
+        jo.addProperty("tailorAmount", amountView.getEditContent());
+        jo.addProperty("tailorMaterial", tailorMaterial);
+        jo.addProperty("tailorSize", tailorSize);
+        jo.addProperty("tailorDecr", tailorDecr);
+        if (names != null && names.size() > 0) {
+            JsonArray ja = new JsonArray();
+            for (int i = 0; i < names.size(); i++) {
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("tailorPicId", names.get(i));
+                ja.add(jsonObject);
+            }
+            jo.add("tailorPics", ja);
+        }
+        LogUtil.e(TAG, "jo: " + jo.toString());
+        OkHttpUtils.postString()
+                .url(ApiConstants.HOME_CUSTOM_SUBMIT)
+                .content(jo.toString())
+                .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        LogUtil.e(TAG, "submit()  Exception: " + e);
+                        progressDialog.dismiss();
+                        To.showLong(App.getAppContext(), "上传失败了~");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.e(TAG, "submit(): " + response);
+                        progressDialog.dismiss();
+                        To.showLong(App.getAppContext(), "上传成功！");
+                        finish();
+                    }
+                });
+
+    }
+
+    /**
+     * 保存返回的值
+     */
+    private List<String> names = new ArrayList<String>();
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            String name = (String) msg.obj;
+            if (name.equals("上传完成")) {
+                submit();
+            } else if (name.equals("")) {
+                To.showLong(App.getAppContext(), "图片上传失败了..");
+            } else {
+                names.add(name);
+            }
+        }
+    };
+
+    /**
+     * 上传图片
+     */
+    private void uploadImg() {
+        String length = etLength.getText().toString().trim();
+        String width = etWidth.getText().toString().trim();
+        String height = etHeight.getText().toString().trim();
+
+        if (mSelectPath == null || mSelectPath.size() == 0) {
+            To.showShort(App.getAppContext(), "请选择商品相片!");
+            return;
+        }
+
+        tailorSize = length + "x" + width + "x" + height;
+        if (TextUtils.isEmpty(length) || TextUtils.isEmpty(width) || TextUtils.isEmpty(height)) {
+            To.showShort(App.getAppContext(), "长x宽x高不能为空!");
+            return;
+        }
+
+        tailorMaterial = tvTextrue.getText().toString().trim();
+        if (TextUtils.isEmpty(tailorMaterial)) {
+            To.showShort(App.getAppContext(), "材质不能为空!");
+            return;
+        }
+
+        tailorDecr = etCommodityIntroduce.getText().toString().trim();
+        if (TextUtils.isEmpty(tailorDecr)) {
+            To.showShort(App.getAppContext(), "商品详情介绍不能为空!");
+            return;
+        }
+
+        progressDialog = new ProgressDialog(MyCustomActivity.this);
+        progressDialog.setMessage("正在上传...");
+        progressDialog.show();
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                if (i == KeyEvent.KEYCODE_BACK) {
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        if (mSelectPath != null && mSelectPath.size() > 0) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i = 0; i < mSelectPath.size(); i++) {
+                        Bitmap bitmap = BitmapFactory.decodeFile(mSelectPath.get(i));
+                        Bitmap decodeBitmap = FileUtils.decodeSampledBitmapFromBitmap(bitmap, 300, 300);
+                        String path = saveFile(decodeBitmap, String.valueOf(System.currentTimeMillis()));
+                        Log.e("上传图片 picPath", path);
+                        String name = ImgUtil.uploadFile(ApiConstants.HOME_SUBMIT_IMG, path, "file");
+                        Log.e("上传图片 name:", name);
+                        Message message = Message.obtain();
+                        message.obj = name;
+                        handler.sendMessage(message);
+                    }
+                    Message msg = Message.obtain();
+                    msg.obj = "上传完成";
+                    handler.sendMessage(msg);
+                }
+            }).start();
+        } else {
+            submit();
+        }
+    }
+
+    /**
+     * 保存到文件中
+     *
+     * @param bitmap
+     * @param currentTime
+     * @return 文件路径
+     */
+    public String saveFile(Bitmap bitmap, String currentTime) {
+        try {
+            FileOutputStream outputStream = openFileOutput(currentTime + ".jpg", MODE_PRIVATE);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+            outputStream.close();
+            File file = new File(getFilesDir(), currentTime + ".jpg");
+            return file.getPath();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

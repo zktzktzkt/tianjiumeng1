@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -22,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.squareup.otto.Subscribe;
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
 import com.yxk.tjm.tianjiumeng.App;
@@ -31,12 +33,15 @@ import com.yxk.tjm.tianjiumeng.custom.AutoHeightViewPager;
 import com.yxk.tjm.tianjiumeng.custom.BottomPop;
 import com.yxk.tjm.tianjiumeng.custom.CustomPopWindow;
 import com.yxk.tjm.tianjiumeng.custom.MyNestedScrollView;
+import com.yxk.tjm.tianjiumeng.event.BusProvider;
+import com.yxk.tjm.tianjiumeng.event.EventOne;
 import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeannn;
 import com.yxk.tjm.tianjiumeng.home.fragment.DesignIdeaFragment;
 import com.yxk.tjm.tianjiumeng.home.fragment.ProductDetailFragment;
 import com.yxk.tjm.tianjiumeng.home.fragment.StandardFragment;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.GlideImageLoader;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.To;
 import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -93,11 +98,15 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     private DynamicConfig.Builder builder;
     private DynamicConfig build;
     private ProductDetailBeannn productDetailBean;
+    private SwipeRefreshLayout swipe_refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
+        App.getActivityManager().pushActivity(this);
+        BusProvider.getInstance().register(this);//订阅事件
+
         layoutInflater = LayoutInflater.from(this);
 
         flashSale = getIntent().getStringExtra("flashSale");
@@ -134,7 +143,6 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
             ms_price.setVisibility(View.VISIBLE);
             cv_countdownView.start(5 * 60 * 1000);
             cv_countdownView.setVisibility(View.VISIBLE);
-
         }
         */
         initData();
@@ -163,6 +171,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         ms_price = (TextView) findViewById(R.id.tv_ms_price);
         tv_total_store = (TextView) findViewById(R.id.tv_total_store);
         cv_countdownView = (CountdownView) findViewById(R.id.cv_countdownView);
+        swipe_refresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
 
         setToolbarNavigationClick();
         mRelativeProductSpec.setOnClickListener(this);
@@ -171,6 +180,13 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         mBtnBuy.setOnClickListener(this);
         tv_money_day.setOnClickListener(this);
         tv_money_percent.setOnClickListener(this);
+
+        swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initData();
+            }
+        });
 
         tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);  //添加删除线
 
@@ -207,12 +223,12 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Log.e(TAG, "initData() Exception:" + e);
+                        LogUtil.e(TAG, "initData() Exception:" + e);
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e(TAG, "initData() response:" + response);
+                        LogUtil.e(TAG, "initData() response:" + response);
                         Gson gson = new Gson();
                         productDetailBean = gson.fromJson(response, ProductDetailBeannn.class);
 
@@ -226,6 +242,8 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                             cv_countdownView.start(failureTime - System.currentTimeMillis());
                             setCountdownView(failureTime);
                         }
+
+                        swipe_refresh.setRefreshing(false);
 
                     }
                 });
@@ -314,7 +332,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        BusProvider.getInstance().unregister(this);//注销订阅
         cv_countdownView.stop();
     }
 
@@ -323,8 +341,10 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
      */
     private void initBanner() {
         List<String> images = new ArrayList<>();
-        for (int i = 0; i < productDetailBean.getCrclphotos().size(); i++) {
-            images.add(productDetailBean.getCrclphotos().get(i).getGoodsPic());
+        if (productDetailBean != null && productDetailBean.getCrclphotos().size() > 0) {
+            for (int i = 0; i < productDetailBean.getCrclphotos().size(); i++) {
+                images.add(productDetailBean.getCrclphotos().get(i).getGoodsPic());
+            }
         }
 
         //设置图片加载器
@@ -379,10 +399,10 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                 break;
 
             case R.id.tv_collect:
-                if(UserUtil.isLogin(getApplicationContext())){
+                if (UserUtil.isLogin(getApplicationContext())) {
                     //收藏
                     collect();
-                }else {
+                } else {
                     To.showShort(ProductDetailActivity.this, "请先登录！");
                 }
                 break;
@@ -422,7 +442,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e(TAG, "collect() response:" + response);
+                        LogUtil.e(TAG, "collect() response:" + response);
                         try {
                             JSONObject jo = new JSONObject(response);
                             if ((boolean) jo.get("success")) {
@@ -482,6 +502,16 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                 window.setAttributes(wl);
             }
         });
+    }
+
+    @Subscribe
+    public void EventOtto(EventOne eventOne) {
+        switch (eventOne.getEvent()) {
+            case "结束当前页面":
+                BusProvider.getInstance().post(new EventOne("切换到购物车"));
+                finish();
+                break;
+        }
     }
 
 

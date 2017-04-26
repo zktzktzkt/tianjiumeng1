@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.my.activity.AddressActivity;
-import com.yxk.tjm.tianjiumeng.utils.To;
+import com.yxk.tjm.tianjiumeng.shopcar.activity.PayWayActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +52,15 @@ public class SubmitOrderActivity extends BaseActivity {
     RelativeLayout rlPersonInfo;
     @BindView(R.id.heji)
     TextView heji;
+    //多个商品的时候显示件数
+    @BindView(R.id.tv_amount)
+    TextView tvAmount;
+    //多个商品的时候显示的布局
+    @BindView(R.id.rl_amount)
+    RelativeLayout rlAmount;
+    //单个商品时候显示的布局
+    @BindView(R.id.rl_single)
+    RelativeLayout rlSingle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +88,7 @@ public class SubmitOrderActivity extends BaseActivity {
                 startActivity(new Intent(SubmitOrderActivity.this, AddressActivity.class));
                 break;
             case R.id.btn_submit:
-                To.showShort(getApplicationContext(), "提交");
+                startActivity(new Intent(SubmitOrderActivity.this, PayWayActivity.class));
                 break;
         }
     }

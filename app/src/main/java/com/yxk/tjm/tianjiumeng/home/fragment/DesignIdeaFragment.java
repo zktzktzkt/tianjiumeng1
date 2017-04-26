@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +26,7 @@ import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity;
 import com.yxk.tjm.tianjiumeng.home.bean.ProductInnerDesignBean;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.ScreenUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -82,7 +82,7 @@ public class DesignIdeaFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e("DesignIdeaFragment ", "onActivityCreated() response " + response);
+                        LogUtil.e("DesignIdeaFragment ", "onActivityCreated() response " + response);
                         Gson gson = new Gson();
                         productInnerDesignBean = gson.fromJson(response, ProductInnerDesignBean.class);
 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:paddingLeft="15dp"
+              android:paddingRight="15dp">
+
+
+    <RelativeLayout
+        android:id="@+id/listitem_doing"
+        android:layout_width="20dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="11dp"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"/>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/headpoint"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/listitem_done"
+        android:layout_width="20dp"
+        android:layout_height="80dp"
+        android:visibility="visible">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/darker_gray"/>
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/normalpoint"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_t"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="11dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_accept_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="无信息"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/tv_accept_station"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="4dp"
+            android:text="无信息"
+            android:textSize="15sp"/>
+    </LinearLayout>
+</LinearLayout>

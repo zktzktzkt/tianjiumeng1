@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.custom.CircleImageView;
 import com.yxk.tjm.tianjiumeng.home.activity.AllAppraiseActivity;
@@ -25,6 +25,8 @@ import com.yxk.tjm.tianjiumeng.home.adapter.ClientShowPicAdapter;
 import com.yxk.tjm.tianjiumeng.home.adapter.RecommendForYouAdapter;
 import com.yxk.tjm.tianjiumeng.home.bean.ProductInnerDetailBean;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.yxk.tjm.tianjiumeng.utils.DateUtil;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -101,7 +103,7 @@ public class ProductDetailFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e(TAG, "onActivityCreated() response " + response);
+                        LogUtil.e(TAG, "onActivityCreated() response " + response);
                         Gson gson = new Gson();
                         productInnerDetailBean = gson.fromJson(response, ProductInnerDetailBean.class);
 
@@ -123,10 +125,10 @@ public class ProductDetailFragment extends Fragment {
         }
 
         //设置用户的信息
-        Glide.with(getActivity()).load(productInnerDetailBean.getReviewVO().getAvatar()).into(imgClientHead);
+        Glide.with(App.getAppContext()).load(productInnerDetailBean.getReviewVO().getAvatar()).into(imgClientHead);
         tvClientName.setText(productInnerDetailBean.getReviewVO().getRealname());
         tvId.setText(productInnerDetailBean.getReviewVO().getUserId()+"");
-        tvDate.setText(String.valueOf(productInnerDetailBean.getReviewVO().getReviewTime()));
+        tvDate.setText(DateUtil.longToString(productInnerDetailBean.getReviewVO().getReviewTime(), "yyyy-MM-dd"));
         tvClientComment.setText(productInnerDetailBean.getReviewVO().getReviewText());
         tvClientResult.setText(productInnerDetailBean.getReviewVO().getReplyText());
         ratingbar.setRating((long)productInnerDetailBean.getReviewVO().getSatisfyNo());

@@ -11,7 +11,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +43,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -161,11 +161,9 @@ public class MyInfoActivity extends BaseActivity {
                             e.printStackTrace();
                         }
 
-                        finish();
                     }
                 });
     }
-
 
     @OnClick({R.id.relative_head, R.id.relative_address, R.id.btn_save})
     public void onClick(View view) {
@@ -177,10 +175,12 @@ public class MyInfoActivity extends BaseActivity {
                 startActivity(new Intent(this, AddressActivity.class));
                 break;
             case R.id.btn_save:
-
-                /**先上传头像，之后再上传个人信息*/
-                uploadImg();
-
+                /**上传头像*/
+                if (headFile != null) {
+                    uploadImg();
+                }
+                //上传个人信息
+                submit();
                 break;
         }
     }
@@ -191,6 +191,7 @@ public class MyInfoActivity extends BaseActivity {
     private void uploadImg() {
         OkHttpUtils.post()//
                 .url(ApiConstants.MY_HEAD_UPDATE)
+                .addParams("userId", UserUtil.getUserId(App.getAppContext()))
                 .addFile("file", "img_head.jpg", headFile)//
                 .build()
                 .execute(new StringCallback() {
@@ -201,12 +202,10 @@ public class MyInfoActivity extends BaseActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e("上传头像response", " response:" + response);
+                        LogUtil.e("上传头像response", " response:" + response);
                         try {
                             JSONObject jo = new JSONObject(response);
                             Glide.with(App.getAppContext()).load((String) jo.get("avatarUrl")).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(ivHead);
-                            //上传个人信息
-                            submit();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -255,7 +254,12 @@ public class MyInfoActivity extends BaseActivity {
                     Bundle extras = data.getExtras();
                     if (extras != null) {
                         photo = extras.getParcelable("data");
-                        ivHead.setImageBitmap(photo);
+                        //ivHead.setImageBitmap(photo);
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        photo.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                        byte[] bytes = baos.toByteArray();
+                        Glide.with(this).load(bytes).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(ivHead);
+
                         photo = FileUtils.decodeSampledBitmapFromBitmap(photo, 70, 70);
                         try {
                             //把压缩图片保存到文件中

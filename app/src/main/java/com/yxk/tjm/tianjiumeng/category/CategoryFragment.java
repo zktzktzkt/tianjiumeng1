@@ -46,7 +46,6 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     private RightHeaderAdapter rightHeaderAdapter;
     private RightCommonAdapter rightCommonAdapter;
 
-
     @Override
     public int getLayoutResId() {
         return R.layout.fragment_category;
@@ -60,6 +59,23 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
         rl_search = (RelativeLayout) view.findViewById(R.id.rl_search);
 
         rl_search.setOnClickListener(this);
+
+        //点击事件必须放在oncreate里，否则在页面的每次初始化数据后，点击监听会重复创建，导致点一下出n个界面
+        recycler_right_header.addOnItemTouchListener(new OnItemClickListener() {
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(getActivity(), RightHeaderListActivity.class));
+            }
+        });
+
+        recycler_right_common.addOnItemTouchListener(new OnItemClickListener() {
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -100,44 +116,9 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
                         setRightHead(categoryBean.getBrandList());
 
                         setRightCommon(categoryBean.getProductList());
-
-                        recycler_right_header.addOnItemTouchListener(new OnItemClickListener() {
-                            @Override
-                            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                                startActivity(new Intent(getActivity(), RightHeaderListActivity.class));
-                            }
-                        });
-
-                        recycler_right_common.addOnItemTouchListener(new OnItemClickListener() {
-                            @Override
-                            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
-                            }
-                        });
                     }
                 });
     }
-
-    /**
-     * 设置右边列表的 热门品牌
-     */
-    private void setRightHead(List<CategoryBean.BrandListBean> productListBeanList) {
-        recycler_right_header.setLayoutManager(new FullyGridLayoutManager(getContext(), 3));
-        rightHeaderAdapter = new RightHeaderAdapter(R.layout.item_right_header_category, productListBeanList);
-        recycler_right_header.setAdapter(rightHeaderAdapter);
-    }
-
-    /**
-     * 设置右边列表的 热门单品
-     *
-     * @param productList
-     */
-    private void setRightCommon(List<CategoryBean.ProductListBean> productList) {
-        recycler_right_common.setLayoutManager(new FullyGridLayoutManager(getContext(), 3));
-        rightCommonAdapter = new RightCommonAdapter(R.layout.item_right_common_category, productList);
-        recycler_right_common.setAdapter(rightCommonAdapter);
-    }
-
 
     /**
      * 设置左边分类列表
@@ -146,6 +127,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
         recycler_left.setLayoutManager(new LinearLayoutManager(getContext()));
         final LeftCategoryAdapter leftCategoryAdapter = new LeftCategoryAdapter(typeListBeanList);
         recycler_left.setAdapter(leftCategoryAdapter);
+
         leftCategoryAdapter.setOnItemClickListener(new LeftCategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -164,7 +146,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
 
                             @Override
                             public void onResponse(String response, int id) {
-                              //  Log.e("response", response);
+                                //  LogUtil.e("response", response);
                                 Gson gson = new Gson();
                                 CategoryBean categoryBean = gson.fromJson(response, CategoryBean.class);
 
@@ -174,6 +156,16 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
                         });
             }
         });
+    }
+
+
+    /**
+     * 设置右边列表的 热门品牌
+     */
+    private void setRightHead(List<CategoryBean.BrandListBean> productListBeanList) {
+        recycler_right_header.setLayoutManager(new FullyGridLayoutManager(getContext(), 3));
+        rightHeaderAdapter = new RightHeaderAdapter(R.layout.item_right_header_category, productListBeanList);
+        recycler_right_header.setAdapter(rightHeaderAdapter);
     }
 
     /**
@@ -189,6 +181,17 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
             Glide.with(getActivity()).load(item.getBrandPic()).into((ImageView) helper.getView(R.id.img_pic));
             helper.setText(R.id.tv_name, item.getBrandName());
         }
+    }
+
+    /**
+     * 设置右边列表的 热门单品
+     *
+     * @param productList
+     */
+    private void setRightCommon(List<CategoryBean.ProductListBean> productList) {
+        recycler_right_common.setLayoutManager(new FullyGridLayoutManager(getContext(), 3));
+        rightCommonAdapter = new RightCommonAdapter(R.layout.item_right_common_category, productList);
+        recycler_right_common.setAdapter(rightCommonAdapter);
     }
 
     /**
@@ -211,7 +214,6 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     }
 
     @Override
-
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_search:

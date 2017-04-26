@@ -15,6 +15,7 @@
         >
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -57,7 +58,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_return_percent"
+            android:id="@+id/tv_return_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
@@ -69,10 +70,10 @@
             />
 
         <TextView
-            android:id="@+id/tv_base"
+            android:id="@+id/tv_texture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_return_percent"
+            android:layout_below="@id/tv_return_size"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/img_pic"
@@ -85,17 +86,17 @@
             android:id="@+id/tv_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_base"
+            android:layout_below="@id/tv_texture"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/img_pic"
             android:text="数量：20"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="12sp"
             />
 
         <TextView
-            android:id="@+id/tv_detai"
+            android:id="@+id/tv_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/tv_num"
@@ -125,7 +126,7 @@
             android:id="@+id/btn_cancel_pay"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:layout_below="@id/tv_detai"
+            android:layout_below="@id/tv_detail"
             android:layout_margin="8dp"
             android:background="@drawable/shape_orange_round_stroke"
             android:text="取消订单"
@@ -137,7 +138,7 @@
             android:id="@+id/btn_pay"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:layout_below="@id/tv_detai"
+            android:layout_below="@id/tv_detail"
             android:layout_margin="8dp"
             android:background="@drawable/shape_red_stroke"
             android:text="立即付款"

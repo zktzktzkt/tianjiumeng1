@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.my.fragment.PaySurplusCustomFragment;
@@ -28,6 +29,8 @@ public class CustomActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom);
+        App.getActivityManager().pushActivity(this);
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setToolbarNavigationClick();
         tablayout = (TabLayout) findViewById(R.id.tablayout);

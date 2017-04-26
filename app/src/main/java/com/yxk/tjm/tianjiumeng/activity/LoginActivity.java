@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +14,7 @@ import com.yxk.tjm.tianjiumeng.MainActivity;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.custom.CircleImageView;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.MD5Util;
 import com.yxk.tjm.tianjiumeng.utils.SPUtil;
 import com.yxk.tjm.tianjiumeng.utils.UserUtil;
@@ -104,7 +104,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e("LoginActivity ", "submit() response:" + response);
+                        LogUtil.e("LoginActivity ", "submit() response:" + response);
 
                         try {
                             JSONObject jo = new JSONObject(response);

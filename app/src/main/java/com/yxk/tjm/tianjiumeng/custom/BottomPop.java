@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -13,9 +13,12 @@ import android.widget.PopupWindow;
 
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
+import com.yxk.tjm.tianjiumeng.event.BusProvider;
+import com.yxk.tjm.tianjiumeng.event.EventOne;
 import com.yxk.tjm.tianjiumeng.home.adapter.PopSpecAdapter;
 import com.yxk.tjm.tianjiumeng.home.bean.ProductDetailBeannn;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.To;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -44,14 +47,22 @@ public class BottomPop<T> extends PopupWindow {
     String productId;
     int nowprice;
     private final AmountView amount_view;
+    Context context;
+
 
     public BottomPop(Context context, List<T> list, String productId, int nowprice) {
         super(context);
+        this.context = context;
         view = View.inflate(context, R.layout.dialog_spec, null);
         setContentView(view);
+
         this.hWsBeanList = (List<ProductDetailBeannn.HWsBean>) list;
         this.productId = productId;
         this.nowprice = nowprice;
+
+        for (int i = 0; i < hWsBeanList.size(); i++) {
+            hWsBeanList.get(i).setSelected(false);
+        }
 
         recycler = (RecyclerView) view.findViewById(R.id.recycler);
         btn_confirm = (Button) view.findViewById(R.id.btn_confirm);
@@ -59,11 +70,11 @@ public class BottomPop<T> extends PopupWindow {
 
         config();
 
-        initConfirmBtnListener();
-
         setTouchListener();
 
         initRecyclerData(context);
+
+        initConfirmBtnListener();
 
     }
 
@@ -73,9 +84,9 @@ public class BottomPop<T> extends PopupWindow {
             public void onClick(View view) {
                 if (COMMON == BUY) {
                     addNetShopcart();
-                    To.showShort(App.getAppContext(), "购买");
-                    dismiss();
+
                 } else if (COMMON == ADD_SHOP_CART) {
+
                     addNetShopcart();
                 }
             }
@@ -93,6 +104,10 @@ public class BottomPop<T> extends PopupWindow {
                     goodsHW = hWsBeanList.get(i).getGoodsHeight() + "x" + hWsBeanList.get(i).getGoodsWide();
                 }
             }
+            if (TextUtils.isEmpty(goodsHW)) {
+                To.showShort(context, "请选择产品规格！");
+                return;
+            }
             JSONObject jo = new JSONObject();
             jo.put("goodsId", Integer.parseInt(productId));//商品Id
             jo.put("userId", 1);//购买者的id(int)
@@ -100,7 +115,7 @@ public class BottomPop<T> extends PopupWindow {
             jo.put("goodsPrice", nowprice);//商品单价(int)
             jo.put("goodsHW", goodsHW);//商品的宽*高
 
-            Log.e("BottomPop", "addNetShopcart()" + jo.toString());
+            LogUtil.e("BottomPop", "addNetShopcart()" + jo.toString());
 
             OkHttpUtils
                     .postString()
@@ -111,13 +126,17 @@ public class BottomPop<T> extends PopupWindow {
                     .execute(new StringCallback() {
                         @Override
                         public void onError(Call call, Exception e, int id) {
-                            Log.e("addNetShopcart", " Exception: " + e);
+                            LogUtil.e("addNetShopcart", " Exception: " + e);
                         }
 
                         @Override
                         public void onResponse(String response, int id) {
-                            Log.e("addNetShopcart", " response: " + response);
-                            To.showShort(App.getAppContext(), "加购物车成功");
+                            LogUtil.e("addNetShopcart", " response: " + response);
+                            if (COMMON == BUY) {
+                                BusProvider.getInstance().post(new EventOne("结束当前页面"));
+                            } else {
+                                To.showShort(App.getAppContext(), "添加成功");
+                            }
                             dismiss();
                         }
                     });

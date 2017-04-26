@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 
@@ -34,6 +35,8 @@ public class MyCommissionActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_commission);
         ButterKnife.bind(this);
+        App.getActivityManager().pushActivity(this);
+
         setToolbarNavigationClick();
     }
 

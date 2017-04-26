@@ -6,11 +6,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.activity.LoginActivity;
+import com.yxk.tjm.tianjiumeng.utils.CacheUtil;
 import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 
 import butterknife.BindView;
@@ -37,6 +39,12 @@ public class MySettingActivity extends BaseActivity {
         ButterKnife.bind(this);
         App.getActivityManager().pushActivity(this);
         setToolbarNavigationClick();
+
+        try {
+            tvCache.setText(CacheUtil.getTotalCacheSize(App.getAppContext()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void setToolbarNavigationClick() {
@@ -52,6 +60,9 @@ public class MySettingActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.relative_clean_cache:
+                CacheUtil.clearAllCache(App.getAppContext());
+                tvCache.setText("0K");
+                Toast.makeText(App.getAppContext(), "缓存已清理", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.rl_question:
                 break;

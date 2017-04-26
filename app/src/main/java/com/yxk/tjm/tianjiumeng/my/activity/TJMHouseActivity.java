@@ -5,20 +5,24 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.google.gson.Gson;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.my.bean.TJMBean;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.news.activity.NewsDetailActivity;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
 
 public class TJMHouseActivity extends BaseActivity {
 
@@ -26,6 +30,7 @@ public class TJMHouseActivity extends BaseActivity {
     Toolbar toolbar;
     @BindView(R.id.recycler)
     RecyclerView recycler;
+    private TJMBean tjmBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +39,30 @@ public class TJMHouseActivity extends BaseActivity {
         ButterKnife.bind(this);
         setToolbarNavigationClick();
 
-        List<TJMBean> list = new ArrayList<>();
-        list.add(new TJMBean(R.drawable.pic_350w_1));
-        list.add(new TJMBean(R.drawable.pic_350w_2));
-        list.add(new TJMBean(R.drawable.pic_350w_3));
-        list.add(new TJMBean(R.drawable.pic_350w_1));
-        list.add(new TJMBean(R.drawable.pic_350w_2));
-        list.add(new TJMBean(R.drawable.pic_350w_3));
+        OkHttpUtils.get()
+                .url(ApiConstants.MY_TJM_HOUSE)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
 
-        recycler.setAdapter(new BaseQuickAdapter<TJMBean, BaseViewHolder>(R.layout.item_tjm_house, list) {
-            @Override
-            protected void convert(BaseViewHolder helper, TJMBean item) {
-                helper.setImageResource(R.id.img_pic, item.getImage());
-            }
-        });
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        tjmBean = new Gson().fromJson(response, TJMBean.class);
+
+                        recycler.setAdapter(new BaseQuickAdapter<TJMBean.DreamhousesBean, BaseViewHolder>(R.layout.item_tjm_house, tjmBean.getDreamhouses()) {
+                            @Override
+                            protected void convert(BaseViewHolder helper, TJMBean.DreamhousesBean item) {
+                                Glide.with(TJMHouseActivity.this).load(item.getHousePic()).into((ImageView) helper.getView(R.id.img_pic));
+                                helper.setText(R.id.tv_address, item.getHouseName());
+                                helper.setText(R.id.tv_person_info, item.getManager() + ":" + item.getManagerPhone());
+                            }
+                        });
+                    }
+                });
+
 
         recycler.addOnItemTouchListener(new OnItemClickListener() {
             @Override

@@ -17,9 +17,12 @@ import java.util.List;
  */
 
 public class PopSpecAdapter<T> extends RecyclerView.Adapter<PopSpecAdapter.MyHolder> {
+    public static final String PINHUO = "拼伙的规格";
+
     private List<ProductDetailBeannn.HWsBean> mDatas;
 
     private int lastPos = -1;
+
 
     @Override
     public PopSpecAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -38,15 +41,6 @@ public class PopSpecAdapter<T> extends RecyclerView.Adapter<PopSpecAdapter.MyHol
             holder.tv_spec.setSelected(false);
             holder.tv_spec.setTextColor(App.getAppContext().getResources().getColor(R.color.tabBg));
         }
-
-/*        holder.tv_spec.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(position);
-                }
-            }
-        });*/
     }
 
     @Override
@@ -55,7 +49,7 @@ public class PopSpecAdapter<T> extends RecyclerView.Adapter<PopSpecAdapter.MyHol
     }
 
     public void setMatchData(List<T> datas) {
-        this.mDatas = (List<ProductDetailBeannn.HWsBean>)datas;
+        this.mDatas = (List<ProductDetailBeannn.HWsBean>) datas;
     }
 
     public int getLastPos() {

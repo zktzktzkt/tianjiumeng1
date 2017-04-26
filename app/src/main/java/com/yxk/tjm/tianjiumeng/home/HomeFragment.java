@@ -100,13 +100,25 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             }
         });
 
+        //特别推荐点击
+        setSpecialClickListener();
+
+        //新品上市点击
+        mRecyclerComeMarket.addOnItemTouchListener(new OnItemClickListener() {
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", 1 + "");//String.valueOf(homeBean.getNewPro().get(position).getId())
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
         initData();
     }
-
 
     /**
      * 可见不可见状态改变时调用
@@ -150,7 +162,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(getActivity(), "网络错误:" + e, android.widget.Toast.LENGTH_SHORT).show();
+                        Toast.makeText(App.getAppContext(), "网络错误:" + e, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -168,7 +180,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                         //设置限时特卖
                         setFlashSale();
 
-                        //设置特别推荐的条目点击事件
+                        //设置特别推荐
                         setSpecial();
 
                         view_cover.setVisibility(View.GONE);
@@ -201,15 +213,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             }
         });
 
-        mRecyclerComeMarket.addOnItemTouchListener(new OnItemClickListener() {
-            @Override
-            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", 1+"");//String.valueOf(homeBean.getNewPro().get(position).getId())
-                startActivity(intent);
-            }
-        });
-
     }
 
     /**
@@ -238,20 +241,105 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
      * 设置特别推荐
      */
     private void setSpecial() {
-        specialOne.setIvPic1(homeBean.getHotcnnmd().get(0).get(1).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(0).get(1).getNowprice());
+        /**
+         * 第一行
+         * */
+        if (homeBean.getHotcnnmd() != null && homeBean.getHotcnnmd().size() >= 1) {
+            specialOne.setVisibility(View.VISIBLE);
+            specialTwo.setVisibility(View.GONE);
+            specialThree.setVisibility(View.GONE);
 
-        specialOne.setIvPic2(homeBean.getHotcnnmd().get(0).get(2).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(0).get(2).getNowprice());
+            if (homeBean.getHotcnnmd().get(0).size() >= 1 && homeBean.getHotcnnmd().get(0) != null) {
+                specialOne.setZeroData(homeBean.getHotcnnmd().get(0).get(0).getCategoryName(),
+                        homeBean.getHotcnnmd().get(0).get(0).getCategoryPic(),
+                        homeBean.getHotcnnmd().get(0).get(0).getCategoryDecr());
+            }
+            if (homeBean.getHotcnnmd().get(0).size() >= 2 && homeBean.getHotcnnmd().get(0) != null) {
+                specialOne.setIvPic1(homeBean.getHotcnnmd().get(0).get(1).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(0).get(1).getNowprice());
+            }
 
-        specialOne.setIvPic3(homeBean.getHotcnnmd().get(0).get(3).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(0).get(3).getNowprice());
+            if (homeBean.getHotcnnmd().get(0).size() >= 3 && homeBean.getHotcnnmd().get(0) != null) {
+                specialOne.setIvPic2(homeBean.getHotcnnmd().get(0).get(2).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(0).get(2).getNowprice());
+            }
 
-        specialOne.setZeroData(homeBean.getHotcnnmd().get(0).get(0).getCategoryName(),
-                homeBean.getHotcnnmd().get(0).get(0).getCategoryPic(),
-                homeBean.getHotcnnmd().get(0).get(0).getCategoryDecr());
+            if (homeBean.getHotcnnmd().get(0).size() >= 4 && homeBean.getHotcnnmd().get(0) != null) {
+                specialOne.setIvPic3(homeBean.getHotcnnmd().get(0).get(3).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(0).get(3).getNowprice());
+            }
+        }
 
 
+        /**
+         * 第二行
+         * */
+        if (homeBean.getHotcnnmd() != null && homeBean.getHotcnnmd().size() >= 2) {
+            specialOne.setVisibility(View.VISIBLE);
+            specialTwo.setVisibility(View.VISIBLE);
+            specialThree.setVisibility(View.GONE);
+
+            if (homeBean.getHotcnnmd().get(1).size() >= 1 && homeBean.getHotcnnmd().get(1) != null) {
+                specialTwo.setZeroData(homeBean.getHotcnnmd().get(1).get(0).getCategoryName(),
+                        homeBean.getHotcnnmd().get(1).get(0).getCategoryPic(),
+                        homeBean.getHotcnnmd().get(1).get(0).getCategoryDecr());
+            }
+            if (homeBean.getHotcnnmd().get(1).size() >= 2 && homeBean.getHotcnnmd().get(1) != null) {
+                specialTwo.setIvPic1(homeBean.getHotcnnmd().get(1).get(1).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(1).get(1).getNowprice());
+            }
+
+            if (homeBean.getHotcnnmd().get(1).size() >= 3 && homeBean.getHotcnnmd().get(1) != null) {
+                specialTwo.setIvPic2(homeBean.getHotcnnmd().get(1).get(2).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(1).get(2).getNowprice());
+            }
+
+            if (homeBean.getHotcnnmd().get(1).size() >= 4 && homeBean.getHotcnnmd().get(1) != null) {
+                specialTwo.setIvPic3(homeBean.getHotcnnmd().get(1).get(3).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(1).get(3).getNowprice());
+            }
+
+        }
+
+
+        /**
+         * 第三行
+         * */
+        if (homeBean.getHotcnnmd() != null && homeBean.getHotcnnmd().size() >= 3) {
+            specialOne.setVisibility(View.VISIBLE);
+            specialTwo.setVisibility(View.VISIBLE);
+            specialThree.setVisibility(View.VISIBLE);
+
+            if (homeBean.getHotcnnmd().get(2).size() >= 1 && homeBean.getHotcnnmd().get(2) != null) {
+                specialThree.setZeroData(homeBean.getHotcnnmd().get(2).get(0).getCategoryName(),
+                        homeBean.getHotcnnmd().get(2).get(0).getCategoryPic(),
+                        homeBean.getHotcnnmd().get(2).get(0).getCategoryDecr());
+            }
+            if (homeBean.getHotcnnmd().get(2).size() >= 2 && homeBean.getHotcnnmd().get(2) != null) {
+                specialThree.setIvPic1(homeBean.getHotcnnmd().get(2).get(1).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(2).get(1).getNowprice());
+            }
+            if (homeBean.getHotcnnmd().get(2).size() >= 3 && homeBean.getHotcnnmd().get(2) != null) {
+                specialThree.setIvPic2(homeBean.getHotcnnmd().get(2).get(2).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(2).get(2).getNowprice());
+            }
+            if (homeBean.getHotcnnmd().get(2).size() >= 4 && homeBean.getHotcnnmd().get(2) != null) {
+                specialThree.setIvPic3(homeBean.getHotcnnmd().get(2).get(3).getShowpic(),
+                        "¥" + homeBean.getHotcnnmd().get(2).get(3).getNowprice());
+            }
+
+        }
+
+    }
+
+    /**
+     * 设置特别推荐条目点击事件
+     */
+    private void setSpecialClickListener() {
+
+        /**
+         * 第一行
+         */
         specialOne.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
@@ -260,32 +348,29 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
             @Override
             public void onItemOneClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
 
             @Override
             public void onItemTwoClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
 
             @Override
             public void onItemThreeClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
         });
 
-        specialTwo.setIvPic1(homeBean.getHotcnnmd().get(1).get(1).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(1).get(1).getNowprice());
-
-        specialTwo.setIvPic2(homeBean.getHotcnnmd().get(1).get(2).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(1).get(2).getNowprice());
-
-        specialTwo.setIvPic3(homeBean.getHotcnnmd().get(1).get(3).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(1).get(3).getNowprice());
-
-        specialTwo.setZeroData(homeBean.getHotcnnmd().get(1).get(0).getCategoryName(),
-                homeBean.getHotcnnmd().get(1).get(0).getCategoryPic(),
-                homeBean.getHotcnnmd().get(1).get(0).getCategoryDecr());
+        /**
+         * 第二行
+         */
         specialTwo.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
@@ -294,32 +379,29 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
             @Override
             public void onItemOneClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
 
             @Override
             public void onItemTwoClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
 
             @Override
             public void onItemThreeClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
         });
 
-        specialThree.setIvPic1(homeBean.getHotcnnmd().get(2).get(1).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(2).get(1).getNowprice());
-
-        specialThree.setIvPic2(homeBean.getHotcnnmd().get(2).get(2).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(2).get(2).getNowprice());
-
-        specialThree.setIvPic3(homeBean.getHotcnnmd().get(2).get(3).getShowpic(),
-                "¥" + homeBean.getHotcnnmd().get(2).get(3).getNowprice());
-
-        specialThree.setZeroData(homeBean.getHotcnnmd().get(2).get(0).getCategoryName(),
-                homeBean.getHotcnnmd().get(2).get(0).getCategoryPic(),
-                homeBean.getHotcnnmd().get(2).get(0).getCategoryDecr());
+        /**
+         * 第三行
+         */
         specialThree.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
@@ -328,20 +410,27 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
             @Override
             public void onItemOneClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
 
             @Override
             public void onItemTwoClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
 
             @Override
             public void onItemThreeClick() {
-                startActivity(new Intent(getActivity(), ProductDetailActivity.class));
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                startActivity(intent);
             }
         });
     }
+
 
     @Override
     public void onClick(View view) {
