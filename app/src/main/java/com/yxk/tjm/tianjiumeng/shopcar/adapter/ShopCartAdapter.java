@@ -58,6 +58,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
 
         //设置总价格
         showTotalPrice();
+
         //设置选中的数量
         showCheckedCount();
     }
@@ -72,12 +73,19 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
 
     @Override
     public void onBindViewHolder(final ShopCartAdapter.MyHolder holder, final int position) {
+        //注意此处，要给每个item设置tag，不能给单独某个控件，否则出现Edittext数据错乱
         holder.itemView.setTag(position);
         holder.tv_title.setText(datas.get(position).getProduct().getName());
         Glide.with(App.getAppContext()).load(datas.get(position).getProduct().getShowpic()).into(holder.img_pic);
         holder.checkbox_child.setChecked(datas.get(position).isChecked());
-        holder.tv_price.setText("¥ " + datas.get(position).getProduct().getNowprice());
+        holder.tv_price.setText(App.getAppContext().getResources().getString(R.string.RMB) + datas.get(position).getProduct().getNowprice());
         holder.amount_view.etAmount.setText(datas.get(position).getBuyCart().getGoodsAccant() + "");
+
+        //由于页面切换到购物车时会重新创建Bean赋给Adapter，之前的Bean里的number自然就归零了，所以要重新计算总价格
+        if ((Integer) holder.itemView.getTag() == position) {
+            datas.get(position).setNumber(Integer.parseInt(holder.amount_view.getEditContent()));
+            showTotalPrice();
+        }
 
         holder.amount_view.setOnAmountChangeListener(new AmountView.OnAmountChangeListener() {
             @Override
@@ -187,12 +195,12 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Log.e("ShopCartAdapter ", "deleteFromNetwork() Exception" + e);
+                        LogUtil.e("ShopCartAdapter ", "deleteFromNetwork() Exception" + e);
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.e("ShopCartAdapter ", "deleteFromNetwork() response" + response);
+                        LogUtil.e("ShopCartAdapter ", "deleteFromNetwork() response" + response);
                     }
                 });
     }
@@ -226,7 +234,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
     /**
      * 计算结算的数量
      */
-    private int computeCheckedCount() {
+    public int computeCheckedCount() {
         int count = 0;
         if (datas != null && datas.size() > 0) {
             for (ShopCartBean.BuyitemBean shopCartBean : datas) {
@@ -243,7 +251,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
      *
      * @return
      */
-    private double getTotalPrice() {
+    public double getTotalPrice() {
         double totalPrice = 0.0;
         if (datas != null && datas.size() > 0) {
             for (ShopCartBean.BuyitemBean shopCartBean : datas) {

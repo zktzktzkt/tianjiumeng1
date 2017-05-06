@@ -35,8 +35,8 @@ public class RightCommonAdapter extends RecyclerView.Adapter<RightCommonAdapter.
     public void onBindViewHolder(RightCommonAdapter.MyHolder holder, int position) {
         Glide.with(App.getAppContext()).load(rightList.get(position).getShowpic()).into(holder.img_pic);
         holder.tv_name.setText(rightList.get(position).getName());
-        holder.tv_price.setText("¥" + rightList.get(position).getNowprice());
-        holder.tv_original_price.setText("¥" + rightList.get(position).getOrgnprice());
+        holder.tv_price.setText(App.getAppContext().getResources().getString(R.string.RMB) + rightList.get(position).getNowprice());
+        holder.tv_original_price.setText(App.getAppContext().getResources().getString(R.string.RMB) + rightList.get(position).getOrgnprice());
         holder.tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);  //添加删除线
     }
 

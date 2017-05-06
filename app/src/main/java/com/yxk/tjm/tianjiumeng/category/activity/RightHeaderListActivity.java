@@ -5,30 +5,39 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.category.bean.RightCategoryBean;
 import com.yxk.tjm.tianjiumeng.custom.MyRadioGroup;
 import com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
 
 import static com.yxk.tjm.tianjiumeng.R.id.rb_new_product;
 import static com.yxk.tjm.tianjiumeng.R.id.rb_price;
 import static com.yxk.tjm.tianjiumeng.R.id.rb_sale_amount;
 
 public class RightHeaderListActivity extends BaseActivity {
+    private static final String TAG = "RightHeaderListActivity ";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -46,6 +55,9 @@ public class RightHeaderListActivity extends BaseActivity {
     MyRadioGroup myRadioGroup;
     @BindView(R.id.recycler)
     RecyclerView recycler;
+    private int typeId;
+    private int brandId;
+    private List<RightCategoryBean> rightList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,48 +65,18 @@ public class RightHeaderListActivity extends BaseActivity {
         setContentView(R.layout.activity_right_header_list);
         ButterKnife.bind(this);
 
+        typeId = getIntent().getIntExtra("typeId", -1);
+        Log.e(TAG, "typeId:" + typeId);
+        brandId = getIntent().getIntExtra("brandId", -1);
+
         setToolbarNavigationClick();
 
-        myRadioGroup.setOnCheckedChangeListener(new MyRadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(MyRadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case rb_sale_amount:
-                        ivSaleAmount.setSelected(true);
-                        ivPrice.setSelected(false);
-                        break;
+        typeChecked();
 
-                    case rb_price:
-                        ivPrice.setSelected(true);
-                        ivSaleAmount.setSelected(false);
-                        break;
-
-                    case rb_new_product:
-                        ivPrice.setSelected(false);
-                        ivSaleAmount.setSelected(false);
-                        break;
-                }
-            }
-        });
-
-        List<RightCategoryBean> rightList = new ArrayList<>();
-        rightList.add(new RightCategoryBean(R.drawable.pic_a));
-        rightList.add(new RightCategoryBean(R.drawable.pic_b));
-        rightList.add(new RightCategoryBean(R.drawable.pic_c));
-        rightList.add(new RightCategoryBean(R.drawable.pic_e));
-        rightList.add(new RightCategoryBean(R.drawable.pic_d));
-        rightList.add(new RightCategoryBean(R.drawable.pic_g));
-        rightList.add(new RightCategoryBean(R.drawable.pic_f));
-        rightList.add(new RightCategoryBean(R.drawable.pic_c));
-        rightList.add(new RightCategoryBean(R.drawable.pic_b));
-        recycler.setLayoutManager(new GridLayoutManager(this, 2));
-        recycler.setAdapter(new BaseQuickAdapter<RightCategoryBean, BaseViewHolder>(R.layout.item_right_header_category_list, rightList) {
-            @Override
-            protected void convert(BaseViewHolder helper, RightCategoryBean item) {
-                // helper.getLayoutPosition()  //获取当前position
-                helper.setImageResource(R.id.img_pic, item.getResImage());
-            }
-        });
+        /**
+         * 初始化数据  // 1 是乱序显示，2是根据销量，3是根据价格，4是根据新品
+         * */
+        initData("1");
 
         recycler.addOnItemTouchListener(new OnItemClickListener() {
             @Override
@@ -103,6 +85,70 @@ public class RightHeaderListActivity extends BaseActivity {
             }
         });
     }
+
+    /**
+     * 根据选项排序
+     */
+    private void typeChecked() {
+        myRadioGroup.setOnCheckedChangeListener(new MyRadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(MyRadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case rb_sale_amount:
+                        initData("2");
+                        ivSaleAmount.setSelected(true);
+                        ivPrice.setSelected(false);
+                        break;
+
+                    case rb_price:
+                        initData("3");
+                        ivPrice.setSelected(true);
+                        ivSaleAmount.setSelected(false);
+                        break;
+
+                    case rb_new_product:
+                        initData("4");
+                        ivPrice.setSelected(false);
+                        ivSaleAmount.setSelected(false);
+                        break;
+                }
+            }
+        });
+    }
+
+    private void initData(String no) {
+        OkHttpUtils.get()
+                .url(ApiConstants.CATEGORY_LIST)
+                .addParams("no", no)  // 1 是乱序显示，2是根据销量，3是根据价格，4是根据新品
+                .addParams("typeId", typeId + "")
+                .addParams("brandId", brandId + "")
+                .addParams("pageNo", "1")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e(TAG, response);
+                        rightList = new Gson().fromJson(response, new TypeToken<List<RightCategoryBean>>() {
+                        }.getType());
+
+                        recycler.setLayoutManager(new GridLayoutManager(RightHeaderListActivity.this, 2));
+                        recycler.setAdapter(new BaseQuickAdapter<RightCategoryBean, BaseViewHolder>(R.layout.item_right_header_category_list, rightList) {
+                            @Override
+                            protected void convert(BaseViewHolder helper, RightCategoryBean item) {
+                                Glide.with(App.getAppContext()).load(item.getShowpic()).into((ImageView) helper.getView(R.id.img_pic));
+                                helper.setText(R.id.tv_name, item.getName());
+                                helper.setText(R.id.tv_price, getResources().getString(R.string.RMB) + item.getNowprice());
+                            }
+                        });
+                    }
+                });
+    }
+
 
     private void setToolbarNavigationClick() {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

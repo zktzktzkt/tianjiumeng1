@@ -138,8 +138,8 @@ public class DesignIdeaFragment extends Fragment {
         protected void convert(BaseViewHolder helper, ProductInnerDesignBean.CnnmdForYouBean item) {
             Glide.with(getActivity()).load(item.getShowpic()).into((ImageView) helper.getView(R.id.img_pic));
             helper.setText(R.id.tv_name, item.getName());
-            helper.setText(R.id.tv_price, "¥" + item.getNowprice());
-            helper.setText(R.id.tv_original_price, "¥" + item.getOrgnprice());
+            helper.setText(R.id.tv_price, getResources().getString(R.string.RMB) + item.getNowprice());
+            helper.setText(R.id.tv_original_price, getResources().getString(R.string.RMB) + item.getOrgnprice());
         }
     }
 }

@@ -77,7 +77,10 @@ public class ShopCartFragment extends Fragment {
         btn_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().startActivity(new Intent(getActivity(), SubmitOrderActivity.class));
+                Intent intent = new Intent(getActivity(), SubmitOrderActivity.class);
+                intent.putExtra("amount", shopCartAdapter.computeCheckedCount());
+                intent.putExtra("totalPrice", shopCartAdapter.getTotalPrice());
+                getActivity().startActivity(intent);
             }
         });
     }

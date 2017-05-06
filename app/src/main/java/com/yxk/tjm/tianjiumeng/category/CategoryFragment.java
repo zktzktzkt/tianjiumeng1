@@ -45,6 +45,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     private CategoryBean categoryBean;
     private RightHeaderAdapter rightHeaderAdapter;
     private RightCommonAdapter rightCommonAdapter;
+    private int typeId;
 
     @Override
     public int getLayoutResId() {
@@ -64,7 +65,10 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
         recycler_right_header.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(getActivity(), RightHeaderListActivity.class));
+                Intent intent = new Intent(getActivity(), RightHeaderListActivity.class);
+                intent.putExtra("typeId", typeId);
+                intent.putExtra("brandId", categoryBean.getBrandList().get(position).getBrandId());
+                startActivity(intent);
             }
         });
 
@@ -97,6 +101,8 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void initData() {
+        typeId = 1;
+
         OkHttpUtils.get()
                 .url(ApiConstants.CATEGORY)
                 .build()
@@ -131,6 +137,8 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
         leftCategoryAdapter.setOnItemClickListener(new LeftCategoryAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                typeId = typeListBeanList.get(position).getTypeId();
+
                 leftCategoryAdapter.selectPos = position;
                 leftCategoryAdapter.notifyDataSetChanged();
 
@@ -158,9 +166,8 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
         });
     }
 
-
     /**
-     * 设置右边列表的 热门品牌
+     * 热门品牌
      */
     private void setRightHead(List<CategoryBean.BrandListBean> productListBeanList) {
         recycler_right_header.setLayoutManager(new FullyGridLayoutManager(getContext(), 3));
@@ -169,7 +176,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     }
 
     /**
-     * 热门品牌 的Adapter
+     * 热门品牌
      */
     public class RightHeaderAdapter extends BaseQuickAdapter<CategoryBean.BrandListBean, BaseViewHolder> {
         public RightHeaderAdapter(int layoutResId, List<CategoryBean.BrandListBean> data) {
@@ -184,7 +191,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     }
 
     /**
-     * 设置右边列表的 热门单品
+     * 热门单品
      *
      * @param productList
      */
@@ -195,7 +202,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
     }
 
     /**
-     * 热门单品 的Adapter
+     * 热门单品
      */
     public class RightCommonAdapter extends BaseQuickAdapter<CategoryBean.ProductListBean, BaseViewHolder> {
         public RightCommonAdapter(int layoutResId, List<CategoryBean.ProductListBean> data) {
@@ -206,10 +213,10 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
         protected void convert(BaseViewHolder helper, CategoryBean.ProductListBean item) {
             Glide.with(getActivity()).load(item.getShowpic()).into((ImageView) helper.getView(R.id.img_pic));
             helper.setText(R.id.tv_name, item.getName());
-            helper.setText(R.id.tv_price, "¥" + item.getNowprice());
+            helper.setText(R.id.tv_price, getResources().getString(R.string.RMB) + item.getNowprice());
             TextView tv_original_price = helper.getView(R.id.tv_original_price);
             tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);  //添加删除线
-            tv_original_price.setText("¥" + item.getOrgnprice());
+            tv_original_price.setText(getResources().getString(R.string.RMB) + item.getOrgnprice());
         }
     }
 

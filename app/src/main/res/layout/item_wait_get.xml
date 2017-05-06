@@ -158,7 +158,7 @@
             />
 
         <Button
-            android:id="@+id/btn_pay"
+            android:id="@+id/btn_confirm"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_below="@id/tv_detail"

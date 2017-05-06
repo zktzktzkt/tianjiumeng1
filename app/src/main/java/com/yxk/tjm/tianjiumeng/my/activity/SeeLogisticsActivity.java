@@ -3,20 +3,27 @@ package com.yxk.tjm.tianjiumeng.my.activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
+import com.yxk.tjm.tianjiumeng.my.bean.LogistBean;
 import com.yxk.tjm.tianjiumeng.my.bean.TrackBean;
+import com.yxk.tjm.tianjiumeng.network.ApiConstants;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
 
 public class SeeLogisticsActivity extends BaseActivity {
 
@@ -24,8 +31,19 @@ public class SeeLogisticsActivity extends BaseActivity {
     ImageView ivPic;
     @BindView(R.id.recycler)
     RecyclerView recycler;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.tv_company)
+    TextView tvCompany;
+    @BindView(R.id.tv_company_no)
+    TextView tvCompanyNo;
+    @BindView(R.id.tv_company_phone)
+    TextView tvCompanyPhone;
+    @BindView(R.id.tv_state)
+    TextView tvState;
     private String company;
     private String company_code;
+    private String orderId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +51,37 @@ public class SeeLogisticsActivity extends BaseActivity {
         setContentView(R.layout.activity_see_logistics);
         ButterKnife.bind(this);
 
+        orderId = getIntent().getStringExtra("orderId");
 
-        /**请求数据获取物流公司和单号*/
-        getCompanyAndCode();
+        initData();
+
+        setToolbarNavigationClick();
+    }
+
+    private void initData() {
+        OkHttpUtils.get()
+                .url(ApiConstants.MY_QRY_LOGISTICS)
+                .addParams("orderId", orderId)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogistBean logistBean = new Gson().fromJson(response, LogistBean.class);
+                        company = logistBean.getDeliverCode();
+                        company_code = logistBean.getDeliverNo();
+
+                        tvCompany.setText(company);
+                        tvCompanyNo.setText(company_code);
+
+                        /**请求数据获取物流公司和单号*/
+                        getCompanyAndCode();
+                    }
+                });
     }
 
     private void getCompanyAndCode() {
@@ -48,14 +94,24 @@ public class SeeLogisticsActivity extends BaseActivity {
         api.SetResultCallListener(new KdniaoTrackQueryAPI.ResultCallListener() {
             @Override
             public void result(TrackBean bean) {
+                if (bean.getTraces().size() == 0 || bean.getTraces() == null) {
+                    tvState.setText("未查询到信息");
+                }
                 recycler.setAdapter(new MyAdapter(bean));
             }
         });
-
     }
 
+    private void setToolbarNavigationClick() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
 
-    class MyAdapter extends RecyclerView.Adapter<MyHolder> {
+    private class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         TrackBean trackBean;
 
         public MyAdapter(TrackBean trackBean) {
@@ -101,7 +157,6 @@ public class SeeLogisticsActivity extends BaseActivity {
         private RelativeLayout mListitem_done;
         private TextView tv_accept_time;
         private TextView tv_accept_station;
-
 
         public MyHolder(View itemView) {
             super(itemView);

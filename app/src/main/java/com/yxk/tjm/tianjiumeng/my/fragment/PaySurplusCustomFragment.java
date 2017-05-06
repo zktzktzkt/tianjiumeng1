@@ -83,7 +83,7 @@ public class PaySurplusCustomFragment extends Fragment {
             @Override
             public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (view.getId()) {
-                    case R.id.btn_get_money:
+                    case R.id.btn_cancel:
                         To.showShort(App.getAppContext(), "付尾款");
                         break;
                 }

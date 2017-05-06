@@ -70,7 +70,7 @@ public class MyCollectAdapter extends RecyclerView.Adapter<MyCollectAdapter.MyHo
 
         Glide.with(App.getAppContext()).load(datas.get(position).getProduct().getShowpic()).into(holder.img_pic);
         holder.tv_title.setText(datas.get(position).getProduct().getName());
-        holder.tv_price.setText("¥" + datas.get(position).getProduct().getNowprice());
+        holder.tv_price.setText(App.getAppContext().getResources().getString(R.string.RMB) + datas.get(position).getProduct().getNowprice());
 
         holder.checkbox_child.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -49,6 +49,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/iv_pic"
@@ -58,6 +59,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_company"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -68,6 +70,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_company_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -78,6 +81,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_company_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

@@ -14,7 +14,7 @@ public class ApiConstants {
     /**
      * 正式服务器
      */
-  //    public static final String BASE_URL = "http://139.199.104.48:8080/dreamSkyEverMavenWebapp";
+    //public static final String BASE_URL = "http://139.199.104.48:8080/dreamSkyEverMavenWebapp";
 
     /**
      * 登录
@@ -45,6 +45,16 @@ public class ApiConstants {
      * 首页
      */
     public static final String HOME = BASE_URL + "/qryhome";
+
+    /**
+     * 搜索
+     */
+    public static final String SEARCH = BASE_URL + "/qryhotKeywords";
+
+    /**
+     * 搜索查询的结果
+     */
+    public static final String SEARCH_QRY = BASE_URL + "/search";
 
     /**
      * 首页->水晶之屋
@@ -79,6 +89,11 @@ public class ApiConstants {
      * 分类
      */
     public static final String CATEGORY = BASE_URL + "/qryproductType";
+
+    /**
+     * 分类 -> 种类列表
+     */
+    public static final String CATEGORY_LIST = BASE_URL + "/qrytypeList";
 
     /**
      * 资讯
@@ -186,19 +201,44 @@ public class ApiConstants {
     public static final String MY_UPDATE_DELETE_ADDRESS = BASE_URL + "/updateaddrDef";
 
     /**
-     * 我的 -> 我的订单
+     * 我的 -> 我的订单 -> 查询物流信息
+     */
+    public static final String MY_QRY_LOGISTICS = BASE_URL + "/qryGoodsStream";
+
+    /**
+     * 我的 -> 我的订单 -> 确认收货
+     */
+    public static final String MY_CONFIRM_LOGISTICS = BASE_URL + "/confirmGoods";
+
+    /**
+     * 我的 -> 我的订单 -> 查询
      */
     public static final String MY_ORDER = BASE_URL + "/qryorder";
 
     /**
-     * 我的 -> 我的订单
+     * 我的 -> 我的订单 ->取消订单
      */
     public static final String MY_ORDER_CANCEL = BASE_URL + "/cancelorder";
+
+    /**
+     * 我的 -> 我的订单 ->立即评价 上传File
+     */
+    public static final String MY_ORDER_REVIEW_PIC = BASE_URL + "/reviewpic";
+
+    /**
+     * 我的 -> 我的订单 ->立即评价 上传所有数据
+     */
+    public static final String MY_ORDER_REVIEW_INFO = BASE_URL + "/reviewInfo";
 
     /**
      * 我的 -> 卡券包
      */
     public static final String MY_COUPON = BASE_URL + "/qryCoupon";
+
+    /**
+     * 我的 -> 消息
+     */
+    public static final String MY_MESSAGE = BASE_URL + "/qryreply";
 
     /**
      * 我的 -> 天久梦之家
@@ -224,5 +264,25 @@ public class ApiConstants {
      * 我的 -> 私人定制
      */
     public static final String MY_CUSTOM = BASE_URL + "/qrytailor";
+
+    /**
+     * 我的 -> 私人定制 -> 修改定制（查询）
+     */
+    public static final String MY_CUSTOM_QRY = BASE_URL + "/qrytailorDet";
+
+    /**
+     * 我的 -> 私人定制 -> 修改定制（修改）
+     */
+    public static final String MY_CUSTOM_UPDATE = BASE_URL + "/updtailor";
+
+    /**
+     * 我的 -> 私人定制 -> 取消定制
+     */
+    public static final String MY_CUSTOM_CANCEL = BASE_URL + "/deltailor";
+
+    /**
+     * 支付宝支付
+     */
+    public static final String ALIPAY_PAY = "http://localhost:8080/dreamSkyEverMavenWebapp/pay";
 
 }

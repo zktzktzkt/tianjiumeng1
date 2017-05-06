@@ -47,7 +47,7 @@ public class MyCustomAdapter extends RecyclerView.Adapter {
         } else if (holder instanceof MyHolder) {
             Glide.with(App.getAppContext())
                     .load(mPathList.get(position))
-                    .override(300, 300)
+                    .override(350, 350)
                     .into(((MyHolder) holder).img_pic);
         }
     }

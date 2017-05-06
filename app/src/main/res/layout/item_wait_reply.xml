@@ -137,7 +137,7 @@
         android:paddingTop="10dp">
 
         <Button
-            android:id="@+id/btn_get_money"
+            android:id="@+id/btn_cancel"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
@@ -152,9 +152,9 @@
             android:id="@+id/btn_switch_crystal"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:layout_alignBottom="@id/btn_get_money"
+            android:layout_alignBottom="@id/btn_cancel"
             android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@id/btn_get_money"
+            android:layout_toLeftOf="@id/btn_cancel"
             android:background="@drawable/shape_orange_round_stroke"
             android:text="修改定制"
             android:textColor="@color/orange"

@@ -243,7 +243,6 @@ public class MyCustomActivity extends BaseActivity {
                 myCustomAdapter.setMatchData(mSelectPath);
                 myCustomAdapter.notifyDataSetChanged();
             }
-
         }
     }
 

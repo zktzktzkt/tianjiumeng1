@@ -132,7 +132,6 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
         super.onResume();
 
         initData();
-
     }
 
     private void initData() {

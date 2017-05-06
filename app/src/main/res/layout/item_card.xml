@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="30dp"
-        android:text="¥"
+        android:text="@string/RMB"
         android:textColor="@color/red_ff0000"
         android:textSize="20sp"
         />

@@ -72,7 +72,7 @@ public class AlreadyReturnMoneyFragment extends Fragment {
                                 helper.setText(R.id.tv_orderId, "订单号：" + item.getOrderId());
                                 helper.setText(R.id.tv_return_price, "返利金额：" + item.getTtlfdbkAmount()+"元");
                                 helper.setText(R.id.tv_return_day, "已返天数：" + item.getFeedbackDays()+"天");
-                                helper.setText(R.id.tv_price, "¥" + item.getProductPrice());
+                                helper.setText(R.id.tv_price, getResources().getString(R.string.RMB) + item.getProductPrice());
                             }
                         });
                     }

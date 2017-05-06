@@ -34,7 +34,7 @@ public class CrystalHouseAdapter extends RecyclerView.Adapter<CrystalHouseAdapte
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
         holder.tv_name.setText(crystalHouseList.get(position).getName());
-        holder.tv_price.setText("¥"+crystalHouseList.get(position).getNowprice());
+        holder.tv_price.setText(App.getAppContext().getResources().getString(R.string.RMB)+crystalHouseList.get(position).getNowprice());
         Glide.with(App.getAppContext()).load(crystalHouseList.get(position).getShowpic()).into(holder.img_pic);
     }
 

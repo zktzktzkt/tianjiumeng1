@@ -33,8 +33,8 @@ public class RecommendForYouAdapter extends RecyclerView.Adapter<RecommendForYou
         Glide.with(App.getAppContext()).load(mDatas.get(position).getShowpic()).into(holder.img_pic);
         holder.tv_original_price.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         holder.tv_name.setText(mDatas.get(position).getName());
-        holder.tv_price.setText("¥" + mDatas.get(position).getNowprice());
-        holder.tv_original_price.setText("¥" + mDatas.get(position).getOrgnprice());
+        holder.tv_price.setText(App.getAppContext().getResources().getString(R.string.RMB) + mDatas.get(position).getNowprice());
+        holder.tv_original_price.setText(App.getAppContext().getResources().getString(R.string.RMB) + mDatas.get(position).getOrgnprice());
     }
 
     @Override

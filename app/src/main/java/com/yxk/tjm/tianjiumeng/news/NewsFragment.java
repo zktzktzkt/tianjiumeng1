@@ -22,9 +22,11 @@ import com.yxk.tjm.tianjiumeng.fragment.BaseFragment;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.news.activity.NewsDetailActivity;
 import com.yxk.tjm.tianjiumeng.news.bean.NewsBean;
-import com.yxk.tjm.tianjiumeng.utils.To;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,8 @@ public class NewsFragment extends BaseFragment {
     private RecyclerView recycler;
     private NewsBean newsBean;
     private NewsAdapter newsAdapter;
+    private int pageCount = 2;
+
 
     @Override
     public int getLayoutResId() {
@@ -85,13 +89,16 @@ public class NewsFragment extends BaseFragment {
      * 设置数据
      */
     private void setData() {
+        recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+
         OkHttpUtils.get()
-                .url(ApiConstants.NEWS)
+                .url(ApiConstants.NEWS_PAGE)
+                .addParams("pageNo", "1")
                 .build()
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        newsAdapter.loadMoreFail();
                     }
 
                     @Override
@@ -106,22 +113,51 @@ public class NewsFragment extends BaseFragment {
                         }
 
                         marqueeView.startWithList(publiclist);
-                        recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-                        newsAdapter = new NewsAdapter();
-                        newsAdapter.setLoadMoreView(new CustomLoadMoreView());
-                        recycler.setAdapter(newsAdapter);
 
+                        newsAdapter = new NewsAdapter();
+                        recycler.setAdapter(newsAdapter);
+                        newsAdapter.setLoadMoreView(new CustomLoadMoreView());
                         newsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
                             @Override
                             public void onLoadMoreRequested() {
-                                To.showShort(getContext(), "LoadMoreListener");
+                                loadMore(pageCount);
                             }
                         }, recycler);
+                    }
+                });
+    }
 
-                        //newsAdapter.setEnableLoadMore(true);
-                        // newsAdapter.loadMoreComplete();
-                        // newsAdapter.loadMoreFail();
-                        newsAdapter.loadMoreEnd(false);
+    /**
+     * 加载更多
+     *
+     * @param pageNo
+     */
+    private void loadMore(int pageNo) {
+        OkHttpUtils.get()
+                .url(ApiConstants.NEWS_PAGE)
+                .addParams("pageNo", pageNo + "")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        newsAdapter.loadMoreFail();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        NewsBean newsBean = new Gson().fromJson(response, NewsBean.class);
+                        try {
+                            JSONObject jo = new JSONObject(response);
+                            if ("[]".equals(jo.get("newslist").toString())) {
+                                newsAdapter.loadMoreEnd(false);
+                            } else {
+                                newsAdapter.addData(newsBean.getNewslist());
+                                pageCount++;
+                                newsAdapter.loadMoreComplete();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
     }

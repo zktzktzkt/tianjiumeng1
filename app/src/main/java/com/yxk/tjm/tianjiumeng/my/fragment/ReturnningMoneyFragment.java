@@ -68,7 +68,7 @@ public class ReturnningMoneyFragment extends Fragment {
                                 helper.setText(R.id.tv_return_cycle, "返利周期：" + item.getFeedbackTime() + "天");
                                 helper.setText(R.id.tv_return_money, item.getTtlfdbkAmount() + "元");
                                 helper.setText(R.id.tv_already_day, item.getFeedbackDays() + "天");
-                                helper.setText(R.id.tv_price, "¥" + item.getProductPrice());
+                                helper.setText(R.id.tv_price, getResources().getString(R.string.RMB) + item.getProductPrice());
                                 Glide.with(App.getAppContext()).load(item.getShowPic()).into((ImageView)helper.getView(R.id.img_pic));
                             }
                         });

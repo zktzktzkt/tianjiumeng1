@@ -256,7 +256,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
         mTvTitle.setText(productDetailBean.getProductDetail().getName());
         mTvIntroduce.setText(productDetailBean.getProductDetail().getDescription());
         mTvPrice.setText(productDetailBean.getProductDetail().getNowprice() + "");
-        tv_original_price.setText("参考价¥" + productDetailBean.getProductDetail().getOrgnprice());
+        tv_original_price.setText("参考价￥" + productDetailBean.getProductDetail().getOrgnprice());
         tv_money_percent.setText("返利比例：" + productDetailBean.getProductDetail().getFeedbackrate() + "%");
         tv_money_day.setText("返利周期：" + productDetailBean.getProductDetail().getFeedbacktime() + "天");
         tv_total_store.setText("库存：" + productDetailBean.getTatalStore());

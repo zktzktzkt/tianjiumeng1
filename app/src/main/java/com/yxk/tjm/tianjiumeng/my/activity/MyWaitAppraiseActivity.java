@@ -16,7 +16,6 @@ import com.google.gson.reflect.TypeToken;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
-import com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity;
 import com.yxk.tjm.tianjiumeng.my.bean.WaitPayBean;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.DateUtil;
@@ -67,6 +66,8 @@ public class MyWaitAppraiseActivity extends BaseActivity {
                         recycler.setAdapter(new BaseQuickAdapter<WaitPayBean, BaseViewHolder>(R.layout.item_wait_appraise, waitPayBeanList) {
                             @Override
                             protected void convert(BaseViewHolder helper, WaitPayBean item) {
+                                // helper.addOnClickListener(R.id.img_pic);
+                                helper.addOnClickListener(R.id.btn_appraise);
                                 Glide.with(App.getAppContext()).load(item.getGoodsShowpic()).into((ImageView) helper.getView(R.id.img_pic));
                                 helper.setText(R.id.tv_date, DateUtil.longToString(item.getCreateDate(), "yyyy.MM.dd"));
                                 helper.setText(R.id.tv_orderId, "订单号：" + item.getOrderId());
@@ -83,10 +84,13 @@ public class MyWaitAppraiseActivity extends BaseActivity {
             public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (view.getId()) {
                     case R.id.img_pic:
-                        startActivity(new Intent(MyWaitAppraiseActivity.this, ProductDetailActivity.class));
+                        //startActivity(new Intent(MyWaitAppraiseActivity.this, ProductDetailActivity.class));
                         break;
-                    case R.id.btn_get_money:
-                        startActivity(new Intent(MyWaitAppraiseActivity.this, ImmediateAppraiseActivity.class));
+                    case R.id.btn_appraise:
+                        Intent intent = new Intent(MyWaitAppraiseActivity.this, ImmediateAppraiseActivity.class);
+                        intent.putExtra("goodsId", waitPayBeanList.get(position).getGoodsId());
+                        intent.putExtra("orderId", waitPayBeanList.get(position).getOrderId());
+                        startActivity(intent);
                         break;
                 }
             }

@@ -37,7 +37,7 @@ public class WaitReturnMoneyAdapter extends RecyclerView.Adapter<WaitReturnMoney
         holder.tv_return_percent.setText("返利比例：" + waitReturnList.get(position).getFeedbackRate() + "%");
         holder.tv_return_cycle.setText("返利周期：" + waitReturnList.get(position).getFeedbackTime() + "天");
         holder.tv_orderId.setText("订单号：" + waitReturnList.get(position).getOrderId());
-        holder.tv_price.setText("¥" + waitReturnList.get(position).getProductPrice());
+        holder.tv_price.setText(App.getAppContext().getResources().getString(R.string.RMB) + waitReturnList.get(position).getProductPrice());
     }
 
     @Override

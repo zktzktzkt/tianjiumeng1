@@ -61,12 +61,29 @@ public class SubmitOrderActivity extends BaseActivity {
     //单个商品时候显示的布局
     @BindView(R.id.rl_single)
     RelativeLayout rlSingle;
+    @BindView(R.id.iv_weixin)
+    ImageView ivWeixin;
+    @BindView(R.id.rl_weixin)
+    RelativeLayout rlWeixin;
+    @BindView(R.id.iv_alipay)
+    ImageView ivAlipay;
+    @BindView(R.id.rl_alipay)
+    RelativeLayout rlAlipay;
+    private int amount;
+    private double totalPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
         ButterKnife.bind(this);
+
+        amount = getIntent().getIntExtra("amount", -1);
+        totalPrice = getIntent().getDoubleExtra("totalPrice", -1);
+
+        tvAllPrice.setText(totalPrice + "元");
+
+        btnSubmit.setText("提交(" + amount + ")");
 
         setToolbarNavigationClick();
     }
@@ -80,8 +97,7 @@ public class SubmitOrderActivity extends BaseActivity {
         });
     }
 
-
-    @OnClick({R.id.rl_person_info, R.id.btn_submit})
+    @OnClick({R.id.rl_person_info, R.id.btn_submit, R.id.rl_weixin, R.id.rl_alipay})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_person_info:
@@ -89,6 +105,15 @@ public class SubmitOrderActivity extends BaseActivity {
                 break;
             case R.id.btn_submit:
                 startActivity(new Intent(SubmitOrderActivity.this, PayWayActivity.class));
+                break;
+            case R.id.rl_weixin:
+                ivWeixin.setSelected(true);
+                ivAlipay.setSelected(false);
+                break;
+
+            case R.id.rl_alipay:
+                ivAlipay.setSelected(true);
+                ivWeixin.setSelected(false);
                 break;
         }
     }

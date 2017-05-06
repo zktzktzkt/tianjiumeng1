@@ -5,13 +5,18 @@ package com.yxk.tjm.tianjiumeng.home.bean;
  */
 
 public class SearchBean {
-    public SearchBean(String item) {
-        this.item = item;
+
+    /**
+     * keywords : 五粮液
+     */
+
+    private String keywords;
+
+    public String getKeywords() {
+        return keywords;
     }
 
-    public String getItem() {
-        return item;
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
-
-    private String item;
 }
