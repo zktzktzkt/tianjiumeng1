@@ -133,10 +133,10 @@ public class WaitReplyFragment extends Fragment {
                                 helper.addOnClickListener(R.id.btn_cancel);
                                 Glide.with(App.getAppContext()).load(item.getTailorShowPic()).into((ImageView) helper.getView(R.id.img_pic));
                                 helper.setText(R.id.tv_date, DateUtil.longToString(item.getTailorCrtDate(), "yyyy.MM.dd"));
-                                helper.setText(R.id.tv_return_size, "尺寸：" + item.getTailorSize() + "cm");
+                                helper.setText(R.id.tv_name, "尺寸：" + item.getTailorSize() + "cm");
                                 helper.setText(R.id.tv_texture, "材质：" + item.getTailorMaterial());
                                 helper.setText(R.id.tv_num, "数量：" + item.getTailorAmount() + "个");
-                                helper.setText(R.id.tv_detail, item.getTailorDecr());
+                                helper.setText(R.id.tv_price, item.getTailorDecr());
                             }
                         });
                     }

@@ -119,7 +119,7 @@ public class StandardFragment extends Fragment {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", 1 + ""); // TODO: 2017/4/11 id以后更换
+                intent.putExtra("productId", productInnerSuitBean.getCnnmdForYou().get(position).getId()+""); // TODO: 2017/4/11 id以后更换
                 startActivity(intent);
                 getActivity().finish();
             }

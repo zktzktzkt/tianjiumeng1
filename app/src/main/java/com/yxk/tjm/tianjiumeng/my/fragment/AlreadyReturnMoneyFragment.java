@@ -70,7 +70,7 @@ public class AlreadyReturnMoneyFragment extends Fragment {
                                 Glide.with(getActivity()).load(item.getShowPic()).into((ImageView) helper.getView(R.id.img_pic));
                                 helper.setText(R.id.tv_date, DateUtil.longToString(item.getEndTime(), "yyyy-MM-dd"));
                                 helper.setText(R.id.tv_orderId, "订单号：" + item.getOrderId());
-                                helper.setText(R.id.tv_return_price, "返利金额：" + item.getTtlfdbkAmount()+"元");
+                                helper.setText(R.id.tv_return_price, "已返金额：" + item.getFeedbackAmount()+"元");
                                 helper.setText(R.id.tv_return_day, "已返天数：" + item.getFeedbackDays()+"天");
                                 helper.setText(R.id.tv_price, getResources().getString(R.string.RMB) + item.getProductPrice());
                             }

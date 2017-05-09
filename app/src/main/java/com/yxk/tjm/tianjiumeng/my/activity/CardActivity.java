@@ -1,12 +1,15 @@
 package com.yxk.tjm.tianjiumeng.my.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.google.gson.Gson;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
@@ -31,14 +34,29 @@ public class CardActivity extends BaseActivity {
     @BindView(R.id.recycler)
     RecyclerView recycler;
     private CardBean cardBean;
+    private String submitOrderStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
         App.getActivityManager().pushActivity(this);
-
         ButterKnife.bind(this);
+
+        submitOrderStr = getIntent().getStringExtra("submitOrderEnter");
+
+        if (!TextUtils.isEmpty(submitOrderStr)) {
+            recycler.addOnItemTouchListener(new OnItemClickListener() {
+                @Override
+                public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                    Intent intent = new Intent();
+                    intent.putExtra("couponId", cardBean.getCoupon().get(position).getCouponId()+"");
+                    intent.putExtra("downPrice", cardBean.getCoupon().get(position).getDownPrice()+"");
+                    setResult(1, intent);
+                    finish();
+                }
+            });
+        }
 
         OkHttpUtils.get()
                 .url(ApiConstants.MY_COUPON)
@@ -58,7 +76,7 @@ public class CardActivity extends BaseActivity {
                         recycler.setAdapter(new BaseQuickAdapter<CardBean.CouponBean, BaseViewHolder>(R.layout.item_card, cardBean.getCoupon()) {
                             @Override
                             protected void convert(BaseViewHolder helper, CardBean.CouponBean item) {
-                                helper.setText(R.id.tv_price, item.getDownPrice()+"");
+                                helper.setText(R.id.tv_price, item.getDownPrice() + "");
                                 helper.setText(R.id.tv_time, DateUtil.longToString(item.getStartTime(), "yyyy-MM-dd")
                                         + "至" + DateUtil.longToString(item.getFinalTime(), "yyyy-MM-dd"));
                                 helper.setText(R.id.tv_condition, "满" + item.getFullBuyPrice() + "使用");

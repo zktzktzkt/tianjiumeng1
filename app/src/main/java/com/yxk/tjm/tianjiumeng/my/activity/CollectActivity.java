@@ -1,5 +1,6 @@
 package com.yxk.tjm.tianjiumeng.my.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.custom.MyToolbar;
+import com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity;
 import com.yxk.tjm.tianjiumeng.my.adapter.MyCollectAdapter;
 import com.yxk.tjm.tianjiumeng.my.bean.CollectBeannn;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
@@ -74,6 +76,14 @@ public class CollectActivity extends BaseActivity {
 
                         myCollectAdapter = new MyCollectAdapter(collectBeannn.getCollectitem(), cbAll, btnDelete);
                         recycler.setAdapter(myCollectAdapter);
+                        myCollectAdapter.setOnItemClickListener(new MyCollectAdapter.onItemClickListener() {
+                            @Override
+                            public void onItemClick(int position) {
+                                Intent intent = new Intent(CollectActivity.this, ProductDetailActivity.class);
+                                intent.putExtra("productId", collectBeannn.getCollectitem().get(position).getCollect().getGoodsId() + "");
+                                startActivity(intent);
+                            }
+                        });
                     }
                 });
 

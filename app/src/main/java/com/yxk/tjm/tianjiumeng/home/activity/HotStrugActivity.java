@@ -49,7 +49,7 @@ public class HotStrugActivity extends BaseActivity {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(HotStrugActivity.this, HotStrugDetailActivity.class);
-                intent.putExtra("productId", "1");
+                intent.putExtra("productId", hotStrugBeanList.get(position).getGoodsId()+"");
                 startActivity(intent);
             }
         });

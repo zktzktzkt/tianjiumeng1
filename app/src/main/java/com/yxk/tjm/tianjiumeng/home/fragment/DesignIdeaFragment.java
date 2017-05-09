@@ -39,7 +39,7 @@ import okhttp3.Call;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * 商品详情 -> 设计理念
  */
 public class DesignIdeaFragment extends Fragment {
 
@@ -93,26 +93,29 @@ public class DesignIdeaFragment extends Fragment {
     }
 
     private void setImagePic() {
-        Glide.with(getActivity())
-                .load(productInnerDesignBean.getDesignPics().getGoodsPic())
-                .asBitmap()
-                .into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
-                    @Override
-                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                        int imageWidth = resource.getWidth();
-                        int imageHeight = resource.getHeight();
-                        int height = ScreenUtils.getScreenWidth(App.getAppContext()) * imageHeight / imageWidth;
-                        ViewGroup.LayoutParams para = image.getLayoutParams();
-                        if (para != null) {
-                            para.height = height;
-                            image.setLayoutParams(para);
+        if (productInnerDesignBean.getDesignPics() != null) {
+            Glide.with(getActivity())
+                    .load(productInnerDesignBean.getDesignPics().getGoodsPic())
+                    .asBitmap()
+                    .into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
+                        @Override
+                        public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                            int imageWidth = resource.getWidth();
+                            int imageHeight = resource.getHeight();
+                            int height = ScreenUtils.getScreenWidth(App.getAppContext()) * imageHeight / imageWidth;
+                            ViewGroup.LayoutParams para = image.getLayoutParams();
+                            if (para != null) {
+                                para.height = height;
+                                image.setLayoutParams(para);
+                            }
+                            Glide.with(App.getAppContext()).load(productInnerDesignBean.getDesignPics().getGoodsPic()).asBitmap().into(image);
                         }
-                        Glide.with(App.getAppContext()).load(productInnerDesignBean.getDesignPics().getGoodsPic()).asBitmap().into(image);
+                    });
+        }
 
-                        //加载列表（需要在设置完图片后在设置，否则可能出现goospic空指针）
-                        initRecommendForYouRecycler();
-                    }
-                });
+        //加载列表（需要在设置完图片后在设置，否则可能出现goospic空指针）
+        initRecommendForYouRecycler();
+
     }
 
     private void initRecommendForYouRecycler() {
@@ -122,7 +125,7 @@ public class DesignIdeaFragment extends Fragment {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", 1 + ""); // TODO: 2017/4/11 id以后更换
+                intent.putExtra("productId", productId); // TODO: 2017/4/11 id以后更换
                 startActivity(intent);
                 getActivity().finish();
             }

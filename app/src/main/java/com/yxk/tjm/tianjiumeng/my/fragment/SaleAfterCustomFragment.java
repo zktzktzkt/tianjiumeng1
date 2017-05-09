@@ -60,16 +60,16 @@ public class SaleAfterCustomFragment extends Fragment {
                         waitPayMoneyCustomList = new Gson().fromJson(response, new TypeToken<List<WaitPayMoneyCustomBean>>() {
                         }.getType());
 
-                        recycler.setAdapter(new BaseQuickAdapter<WaitPayMoneyCustomBean, BaseViewHolder>(R.layout.item_sale_after, waitPayMoneyCustomList) {
+                        recycler.setAdapter(new BaseQuickAdapter<WaitPayMoneyCustomBean, BaseViewHolder>(R.layout.item_sale_after_custom, waitPayMoneyCustomList) {
 
                             @Override
                             protected void convert(BaseViewHolder helper, WaitPayMoneyCustomBean item) {
                                 Glide.with(App.getAppContext()).load(item.getTailorShowPic()).into((ImageView) helper.getView(R.id.img_pic));
                                 helper.setText(R.id.tv_date, DateUtil.longToString(item.getCreateDate(), "yyyy.MM.dd"));
-                                helper.setText(R.id.tv_return_size, "尺寸：" + item.getTailorSize() + "cm");
+                                helper.setText(R.id.tv_name, "尺寸：" + item.getTailorSize() + "cm");
                                 helper.setText(R.id.tv_texture, "材质：" + item.getTailorMaterial());
                                 helper.setText(R.id.tv_num, "数量" + item.getTailorAmount() + "个");
-                                helper.setText(R.id.tv_detail, item.getTailorDecr());
+                                helper.setText(R.id.tv_price, item.getTailorDecr());
                                 helper.setText(R.id.tv_orderId, "订单号：" + item.getOrderId());
                             }
                         });

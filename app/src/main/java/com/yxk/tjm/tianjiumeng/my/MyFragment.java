@@ -198,6 +198,10 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), WaitGetActivity.class));
                 break;
 
+            case R.id.tv_appraise:
+                startActivity(new Intent(getActivity(), MyWaitAppraiseActivity.class));
+                break;
+
             case R.id.tv_sale_after:
                 startActivity(new Intent(getActivity(), SaleAfterActivity.class));
                 break;
@@ -242,9 +246,6 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), MyCrystalActivity.class));
                 break;
 
-            case R.id.tv_appraise:
-                startActivity(new Intent(getActivity(), MyWaitAppraiseActivity.class));
-                break;
 
             case R.id.tv_setting:
                 startActivity(new Intent(getActivity(), MySettingActivity.class));

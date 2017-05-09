@@ -56,7 +56,7 @@ public class WaitReturnMoneyAdapter extends RecyclerView.Adapter<WaitReturnMoney
 
         public ViewHolder(View view) {
             super(view);
-            tv_return_percent = (TextView) itemView.findViewById(R.id.tv_return_size);
+            tv_return_percent = (TextView) itemView.findViewById(R.id.tv_name);
             tv_return_cycle = (TextView) itemView.findViewById(R.id.tv_return_cycle);
             tv_price = (TextView) itemView.findViewById(R.id.tv_price);
             tv_orderId = (TextView) itemView.findViewById(R.id.tv_orderId);

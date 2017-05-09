@@ -91,14 +91,31 @@ public class MyCollectAdapter extends RecyclerView.Adapter<MyCollectAdapter.MyHo
         private final TextView tv_title;
         private final CheckBox cb_add_shopcart;
 
-        public MyHolder(View itemView) {
+        public MyHolder(final View itemView) {
             super(itemView);
             checkbox_child = (CheckBox) itemView.findViewById(R.id.checkbox_child);
             img_pic = (ImageView) itemView.findViewById(R.id.img_pic);
             tv_price = (TextView) itemView.findViewById(R.id.tv_price);
             tv_title = (TextView) itemView.findViewById(R.id.tv_title);
             cb_add_shopcart = (CheckBox) itemView.findViewById(R.id.cb_add_shopcart);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickListener.onItemClick(getAdapterPosition());
+                }
+            });
         }
+    }
+
+    onItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(onItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public interface onItemClickListener {
+        void onItemClick(int position);
     }
 
     /**

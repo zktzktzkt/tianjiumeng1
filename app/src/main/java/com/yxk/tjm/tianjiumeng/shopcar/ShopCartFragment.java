@@ -21,10 +21,13 @@ import com.yxk.tjm.tianjiumeng.custom.MyToolbar;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.shopcar.adapter.ShopCartAdapter;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopCartBean;
+import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopcartSerialize;
 import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
@@ -77,9 +80,16 @@ public class ShopCartFragment extends Fragment {
         btn_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                List<ShopcartSerialize> list = new ArrayList<ShopcartSerialize>();
+                for (int i = 0; i < shopCartBean.getBuyitem().size(); i++) {
+                    list.add(new ShopcartSerialize(shopCartBean.getBuyitem().get(i).getBuyCart().getBuyCartId() + "",
+                            shopCartBean.getBuyitem().get(i).getBuyCart().getGoodsAccant() + ""));
+                }
+
                 Intent intent = new Intent(getActivity(), SubmitOrderActivity.class);
                 intent.putExtra("amount", shopCartAdapter.computeCheckedCount());
                 intent.putExtra("totalPrice", shopCartAdapter.getTotalPrice());
+                intent.putExtra("shopcartList", (Serializable) list);
                 getActivity().startActivity(intent);
             }
         });

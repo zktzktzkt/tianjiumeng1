@@ -82,12 +82,26 @@ public class BottomPopPinHuo<T> extends PopupWindow {
             @Override
             public void onClick(View view) {
                 if (COMMON == BUY) {
-                    addNetShopcart();
+                    String goodsHW = "";
+                    for (int i = 0; i < hWsBeanList.size(); i++) {
+                        if (hWsBeanList.get(i).isSelected()) {
+                            goodsHW = hWsBeanList.get(i).getGoodsHeight() + "x" + hWsBeanList.get(i).getGoodsWide();
+                        }
+                    }
+                    if (TextUtils.isEmpty(goodsHW)) {
+                        To.showShort(context, "请选择产品规格！");
+                        return;
+                    }
 
-                } else if (COMMON == ADD_SHOP_CART) {
+                    EventOne eventOne = new EventOne("跳转提交订单页面");
+                    eventOne.setAmount(amount_view.getEditContent());
+                    BusProvider.getInstance().post(eventOne);
+                    dismiss();
+
+                } /*else if (COMMON == ADD_SHOP_CART) {
 
                     addNetShopcart();
-                }
+                }*/
             }
         });
     }

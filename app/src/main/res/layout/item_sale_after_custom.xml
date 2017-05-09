@@ -57,7 +57,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/img_pic"
@@ -75,20 +75,33 @@
             android:layout_marginLeft="22dp"
             android:layout_marginTop="16dp"
             android:layout_toRightOf="@id/img_pic"
-            android:text="返利比例：20%"
+            android:text="尺寸：20x30cm"
             android:textColor="@color/white"
             android:textSize="12sp"
             />
 
         <TextView
-            android:id="@+id/tv_return_cycle"
+            android:id="@+id/tv_texture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_name"
             android:layout_marginLeft="22dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/img_pic"
-            android:text="返利周期：50天"
+            android:text="材质：水晶"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_texture"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/img_pic"
+            android:text="数量：20"
             android:textColor="@color/white"
             android:textSize="12sp"
             />
@@ -97,14 +110,16 @@
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/img_pic"
-            android:layout_marginLeft="22dp"
-            android:layout_toRightOf="@id/img_pic"
-            android:text="$ 199"
-            android:textColor="@color/red_ff0000"
-            android:textSize="14sp"
+            android:layout_alignLeft="@id/tv_num"
+            android:layout_below="@id/tv_num"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:text="详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍"
+            android:textColor="@color/tabTextColor"
+            android:textSize="10sp"
             />
 
     </RelativeLayout>
+
 
 </LinearLayout>

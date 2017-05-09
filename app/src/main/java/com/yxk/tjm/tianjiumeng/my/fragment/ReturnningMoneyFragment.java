@@ -64,12 +64,12 @@ public class ReturnningMoneyFragment extends Fragment {
                             protected void convert(BaseViewHolder helper, ReturnMoneyBean item) {
                                 helper.setText(R.id.tv_date, DateUtil.longToString(item.getStartTime(), "yyyy-MM-dd"));
                                 helper.setText(R.id.tv_orderId, "订单号：" + item.getOrderId());
-                                helper.setText(R.id.tv_return_size, "返利比例：" + item.getFeedbackRate() + "%");
+                                helper.setText(R.id.tv_name, "返利比例：" + item.getFeedbackRate() + "%");
                                 helper.setText(R.id.tv_return_cycle, "返利周期：" + item.getFeedbackTime() + "天");
-                                helper.setText(R.id.tv_return_money, item.getTtlfdbkAmount() + "元");
+                                helper.setText(R.id.tv_return_money, item.getFeedbackAmount() + "元");
                                 helper.setText(R.id.tv_already_day, item.getFeedbackDays() + "天");
                                 helper.setText(R.id.tv_price, getResources().getString(R.string.RMB) + item.getProductPrice());
-                                Glide.with(App.getAppContext()).load(item.getShowPic()).into((ImageView)helper.getView(R.id.img_pic));
+                                Glide.with(App.getAppContext()).load(item.getShowPic()).into((ImageView) helper.getView(R.id.img_pic));
                             }
                         });
                     }

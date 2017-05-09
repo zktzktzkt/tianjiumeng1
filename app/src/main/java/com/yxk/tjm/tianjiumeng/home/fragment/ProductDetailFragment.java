@@ -27,6 +27,7 @@ import com.yxk.tjm.tianjiumeng.home.bean.ProductInnerDetailBean;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.DateUtil;
 import com.yxk.tjm.tianjiumeng.utils.LogUtil;
+import com.yxk.tjm.tianjiumeng.utils.NumberFormatUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -112,7 +113,6 @@ public class ProductDetailFragment extends Fragment {
                         initRecommendForYouRecycler();
                     }
                 });
-
     }
 
     /**
@@ -126,12 +126,12 @@ public class ProductDetailFragment extends Fragment {
 
         //设置用户的信息
         Glide.with(App.getAppContext()).load(productInnerDetailBean.getReviewVO().getAvatar()).into(imgClientHead);
-        tvClientName.setText(productInnerDetailBean.getReviewVO().getRealname());
-        tvId.setText(productInnerDetailBean.getReviewVO().getUserId()+"");
+        tvClientName.setText(NumberFormatUtils.phoneHide(productInnerDetailBean.getReviewVO().getPhoneNumber()));
+        tvId.setText(productInnerDetailBean.getReviewVO().getUserId() + "");
         tvDate.setText(DateUtil.longToString(productInnerDetailBean.getReviewVO().getReviewTime(), "yyyy-MM-dd"));
         tvClientComment.setText(productInnerDetailBean.getReviewVO().getReviewText());
         tvClientResult.setText(productInnerDetailBean.getReviewVO().getReplyText());
-        ratingbar.setRating((long)productInnerDetailBean.getReviewVO().getSatisfyNo());
+        ratingbar.setRating((long) productInnerDetailBean.getReviewVO().getSatisfyNo());
 
         //设置大图
         Glide.with(getActivity()).load(productInnerDetailBean.getDetailPics().getGoodsPic()).into(imgPicture);
@@ -154,7 +154,7 @@ public class ProductDetailFragment extends Fragment {
             @Override
             public void onItemClick(int position) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", 1+""); // TODO: 2017/4/11 id以后更换
+                intent.putExtra("productId", productId); // TODO: 2017/4/11 id以后更换
                 startActivity(intent);
                 getActivity().finish();
             }
@@ -163,7 +163,9 @@ public class ProductDetailFragment extends Fragment {
 
     @OnClick(R.id.tv_all_appraise)
     public void onClick() {
-        startActivity(new Intent(getActivity(), AllAppraiseActivity.class));
+        Intent intent = new Intent(getActivity(), AllAppraiseActivity.class);
+        intent.putExtra("productId", productId);
+        startActivity(intent);
     }
 
     @Override

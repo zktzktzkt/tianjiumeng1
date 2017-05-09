@@ -9,12 +9,12 @@ public class ApiConstants {
     /**
      * 本地服务器
      */
-    public static final String BASE_URL = "http://192.168.31.172:8080/dreamSkyEverMavenWebapp";
+   // public static final String BASE_URL = "http://192.168.31.172:8080/dreamSkyEverMavenWebapp";
 
     /**
      * 正式服务器
      */
-    //public static final String BASE_URL = "http://139.199.104.48:8080/dreamSkyEverMavenWebapp";
+    public static final String BASE_URL = "http://139.199.104.48:8080/dreamSkyEverMavenWebapp";
 
     /**
      * 登录
@@ -116,6 +116,11 @@ public class ApiConstants {
     public static final String DETAIL_PAGE_DETAIL = BASE_URL + "/qryproductDetail";
 
     /**
+     * 详情页->商品详情->全部评价
+     */
+    public static final String DETAIL_PAGE_All_REVIEW = BASE_URL + "/qryAllReview";
+
+    /**
      * 详情页->设计理念
      */
     public static final String DETAIL_PAGE_DESIGN = BASE_URL + "/qryproductDesign";
@@ -139,6 +144,16 @@ public class ApiConstants {
      * 购物车->修改数量
      */
     public static final String SHOPCAR_UPDATE = BASE_URL + "/BuyCart/updateItem";
+
+    /**
+     * 购物车->创建订单
+     */
+    public static final String SHOPCAR_SETTLE = BASE_URL + "/settle";
+
+    /**
+     * 购物车->提交订单
+     */
+    public static final String SHOPCAR_SUBMIT = BASE_URL + "/createorder";
 
     /**
      * 加入购物车
@@ -279,6 +294,16 @@ public class ApiConstants {
      * 我的 -> 私人定制 -> 取消定制
      */
     public static final String MY_CUSTOM_CANCEL = BASE_URL + "/deltailor";
+
+    /**
+     * 我的 -> 水晶钻转换
+     */
+    public static final String MY_CRYSTAL_TRANS = BASE_URL + "/qryjeweltran";
+
+    /**
+     * 我的 -> 水晶钻转换 -> 确认转换
+     */
+    public static final String MY_CRYSTAL_AFFIRM_TRANSED = BASE_URL + "/jeweltran";
 
     /**
      * 支付宝支付

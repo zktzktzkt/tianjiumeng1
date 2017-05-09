@@ -1,5 +1,6 @@
 package com.yxk.tjm.tianjiumeng.home.activity;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -18,14 +19,18 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.squareup.otto.Subscribe;
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
+import com.yxk.tjm.tianjiumeng.activity.SubmitOrderActivity;
 import com.yxk.tjm.tianjiumeng.custom.AutoHeightViewPager;
 import com.yxk.tjm.tianjiumeng.custom.BottomPopPinHuo;
 import com.yxk.tjm.tianjiumeng.custom.MyNestedScrollView;
+import com.yxk.tjm.tianjiumeng.event.BusProvider;
+import com.yxk.tjm.tianjiumeng.event.EventOne;
 import com.yxk.tjm.tianjiumeng.home.bean.HotStrugDetailBean;
 import com.yxk.tjm.tianjiumeng.home.fragment.DesignIdeaFragment;
 import com.yxk.tjm.tianjiumeng.home.fragment.ProductDetailFragment;
@@ -68,6 +73,7 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hot_strug_detail);
         App.getActivityManager().pushActivity(this);
+        BusProvider.getInstance().register(this);//订阅事件
 
         productId = getIntent().getStringExtra("productId");
 
@@ -150,7 +156,7 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
                         mTvTitle.setText(hotStrugDetailBean.getProductDetail().getName());
                         mTvIntroduce.setText(hotStrugDetailBean.getProductDetail().getDescription());
                         tv_tatalStore.setText("库存：" + hotStrugDetailBean.getTatalStore());
-                        mTvPrice.setText(getResources().getString(R.string.RMB) + hotStrugDetailBean.getTatalStore());
+                        mTvPrice.setText(getResources().getString(R.string.RMB) + hotStrugDetailBean.getProductDetail().getNowprice());
 
                         images.clear();
                         for (int i = 0; i < hotStrugDetailBean.getCrclphotos().size(); i++) {
@@ -231,6 +237,24 @@ public class HotStrugDetailActivity extends BaseActivity implements View.OnClick
                 window.setAttributes(wl);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BusProvider.getInstance().unregister(this);//注销订阅
+    }
+
+    @Subscribe
+    public void EventOtto(EventOne eventOne) {
+        switch (eventOne.getEvent()) {
+            case "跳转提交订单页面":
+                Intent intent = new Intent(HotStrugDetailActivity.this, SubmitOrderActivity.class);
+                intent.putExtra("amount", 1);
+                intent.putExtra("totalPrice", Integer.parseInt(eventOne.getAmount()) * (double) hotStrugDetailBean.getProductDetail().getNowprice());
+                startActivity(intent);
+                break;
+        }
     }
 
     private FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {

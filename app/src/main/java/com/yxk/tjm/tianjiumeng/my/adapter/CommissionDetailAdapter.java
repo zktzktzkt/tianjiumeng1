@@ -52,7 +52,7 @@ public class CommissionDetailAdapter extends RecyclerView.Adapter<CommissionDeta
 
             tv_monthday = (TextView) itemView.findViewById(R.id.tv_monthday);
             tv_hourMinute = (TextView) itemView.findViewById(R.id.tv_hourMinute);
-            tv_detail = (TextView) itemView.findViewById(R.id.tv_detail);
+            tv_detail = (TextView) itemView.findViewById(R.id.tv_price);
             tv_money = (TextView) itemView.findViewById(R.id.tv_money);
         }
     }

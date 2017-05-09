@@ -121,7 +121,7 @@ public class MessageActivity extends BaseActivity {
 
         @Override
         protected void convert(BaseViewHolder helper, MessageBean item) {
-            helper.setText(R.id.tv_detail, item.getReplyText());
+            helper.setText(R.id.tv_price, item.getReplyText());
             helper.setText(R.id.tv_time, DateUtil.longToString(item.getReplyTime(), "yyyy-MM-dd"));
         }
     }

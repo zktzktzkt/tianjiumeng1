@@ -68,7 +68,7 @@ public class CrystalDetailActivity extends BaseActivity {
                             protected void convert(BaseViewHolder helper, CrystalDetailBean item) {
                                 helper.setText(R.id.tv_monthday, DateUtil.longToString(item.getCreatetime(), "yyyy-MM-dd"));
                                 helper.setText(R.id.tv_hourMinute, DateUtil.longToString(item.getCreatetime(), "HH:mm"));
-                                helper.setText(R.id.tv_detail, item.getDecr());
+                                helper.setText(R.id.tv_price, item.getDecr());
                                 helper.setText(R.id.tv_money, item.getAmount());
                             }
                         });

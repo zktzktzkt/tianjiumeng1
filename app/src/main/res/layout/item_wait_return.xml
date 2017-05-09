@@ -69,7 +69,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_return_size"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
@@ -84,7 +84,7 @@
             android:id="@+id/tv_return_cycle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_return_size"
+            android:layout_below="@id/tv_name"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="11dp"
             android:layout_toRightOf="@id/img_pic"

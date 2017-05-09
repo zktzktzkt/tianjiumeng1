@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -29,6 +30,8 @@ public class MyCommissionActivity extends BaseActivity {
     ImageView ivWeixin;
     @BindView(R.id.iv_alipay)
     ImageView ivAlipay;
+    @BindView(R.id.et_balance)
+    EditText etBalance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

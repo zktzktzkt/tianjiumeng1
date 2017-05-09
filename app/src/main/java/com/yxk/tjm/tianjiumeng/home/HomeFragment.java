@@ -33,7 +33,6 @@ import com.yxk.tjm.tianjiumeng.home.adapter.FlashSaleAdapter;
 import com.yxk.tjm.tianjiumeng.home.bean.HomeBean;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.GlideImageLoader;
-import com.yxk.tjm.tianjiumeng.utils.To;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -108,7 +107,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", 1 + "");//String.valueOf(homeBean.getNewPro().get(position).getId())
+                intent.putExtra("productId", String.valueOf(homeBean.getNewPro().get(position).getId()));//String.valueOf(homeBean.getNewPro().get(position).getId())
                 startActivity(intent);
             }
         });
@@ -231,7 +230,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             public void onItemClick(int position) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
                 intent.putExtra("flashSale", "flashSale");
-                intent.putExtra("productId", "1");
+                intent.putExtra("productId", String.valueOf(homeBean.getNewPro().get(position).getId()));
                 startActivity(intent);
             }
         });
@@ -256,17 +255,17 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             }
             if (homeBean.getHotcnnmd().get(0).size() >= 2 && homeBean.getHotcnnmd().get(0) != null) {
                 specialOne.setIvPic1(homeBean.getHotcnnmd().get(0).get(1).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(0).get(1).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(0).get(1).getNowprice());
             }
 
             if (homeBean.getHotcnnmd().get(0).size() >= 3 && homeBean.getHotcnnmd().get(0) != null) {
                 specialOne.setIvPic2(homeBean.getHotcnnmd().get(0).get(2).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(0).get(2).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(0).get(2).getNowprice());
             }
 
             if (homeBean.getHotcnnmd().get(0).size() >= 4 && homeBean.getHotcnnmd().get(0) != null) {
                 specialOne.setIvPic3(homeBean.getHotcnnmd().get(0).get(3).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(0).get(3).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(0).get(3).getNowprice());
             }
         }
 
@@ -286,17 +285,17 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             }
             if (homeBean.getHotcnnmd().get(1).size() >= 2 && homeBean.getHotcnnmd().get(1) != null) {
                 specialTwo.setIvPic1(homeBean.getHotcnnmd().get(1).get(1).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(1).get(1).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(1).get(1).getNowprice());
             }
 
             if (homeBean.getHotcnnmd().get(1).size() >= 3 && homeBean.getHotcnnmd().get(1) != null) {
                 specialTwo.setIvPic2(homeBean.getHotcnnmd().get(1).get(2).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(1).get(2).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(1).get(2).getNowprice());
             }
 
             if (homeBean.getHotcnnmd().get(1).size() >= 4 && homeBean.getHotcnnmd().get(1) != null) {
                 specialTwo.setIvPic3(homeBean.getHotcnnmd().get(1).get(3).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(1).get(3).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(1).get(3).getNowprice());
             }
 
         }
@@ -317,15 +316,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             }
             if (homeBean.getHotcnnmd().get(2).size() >= 2 && homeBean.getHotcnnmd().get(2) != null) {
                 specialThree.setIvPic1(homeBean.getHotcnnmd().get(2).get(1).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(2).get(1).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(2).get(1).getNowprice());
             }
             if (homeBean.getHotcnnmd().get(2).size() >= 3 && homeBean.getHotcnnmd().get(2) != null) {
                 specialThree.setIvPic2(homeBean.getHotcnnmd().get(2).get(2).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(2).get(2).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(2).get(2).getNowprice());
             }
             if (homeBean.getHotcnnmd().get(2).size() >= 4 && homeBean.getHotcnnmd().get(2) != null) {
                 specialThree.setIvPic3(homeBean.getHotcnnmd().get(2).get(3).getShowpic(),
-                        "¥" + homeBean.getHotcnnmd().get(2).get(3).getNowprice());
+                        "￥" + homeBean.getHotcnnmd().get(2).get(3).getNowprice());
             }
 
         }
@@ -343,27 +342,27 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         specialOne.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
-                To.showShort(getContext(), "zero");//
+                // To.showShort(getContext(), "zero");//
             }
 
             @Override
             public void onItemOneClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(0).get(1).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
 
             @Override
             public void onItemTwoClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(0).get(2).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
 
             @Override
             public void onItemThreeClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(0).get(3).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
         });
@@ -374,27 +373,27 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         specialTwo.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
-                To.showShort(getContext(), "zero");
+                //  To.showShort(getContext(), "zero");
             }
 
             @Override
             public void onItemOneClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(1).get(1).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
 
             @Override
             public void onItemTwoClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(1).get(2).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
 
             @Override
             public void onItemThreeClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(1).get(3).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
         });
@@ -405,27 +404,27 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         specialThree.setOnItemClickListener(new SpecialRecommendLayout.OnItemClickListener() {
             @Override
             public void onItemZeroClick() {
-                To.showShort(getContext(), "zero");
+                //  To.showShort(getContext(), "zero");
             }
 
             @Override
             public void onItemOneClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(2).get(1).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
 
             @Override
             public void onItemTwoClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(2).get(2).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
 
             @Override
             public void onItemThreeClick() {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");// TODO: 2017/4/17  正常是getId()
+                intent.putExtra("productId", homeBean.getHotcnnmd().get(2).get(3).getId()+"");// TODO: 2017/4/17  正常是getId()
                 startActivity(intent);
             }
         });

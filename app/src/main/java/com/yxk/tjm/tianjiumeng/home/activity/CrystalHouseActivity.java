@@ -77,7 +77,7 @@ public class CrystalHouseActivity extends BaseActivity {
                             @Override
                             public void onItemClick(int position) {
                                 Intent intent = new Intent(CrystalHouseActivity.this, ProductDetailActivity.class);
-                                intent.putExtra("productId", "1");
+                                intent.putExtra("productId", crystalHouseList.get(position).getId()+"");
                                 startActivity(intent);
                             }
                         });

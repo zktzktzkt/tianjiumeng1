@@ -151,11 +151,10 @@ public class WaitGetActivity extends BaseActivity {
             helper.addOnClickListener(R.id.btn_confirm);
             Glide.with(App.getAppContext()).load(item.getGoodsShowpic()).into((ImageView) helper.getView(R.id.img_pic));
             helper.setText(R.id.tv_date, DateUtil.longToString(item.getCreateDate(), "yyyy.MM.dd"));
-            helper.setText(R.id.tv_return_size, "尺寸：" + item.getSize() + "cm");
-            helper.setText(R.id.tv_texture, "材质：" + item.getGoodsMaterial());
+            helper.setText(R.id.tv_name, item.getGoodsName());
             helper.setText(R.id.tv_num, "数量：" + item.getAmount() + "个");
             helper.setText(R.id.tv_orderId, "订单号：" + item.getOrderId());
-            helper.setText(R.id.tv_detail, item.getGoodsDescr());
+            helper.setText(R.id.tv_price, getResources().getString(R.string.RMB) + item.getSkuPrice());
         }
     }
 

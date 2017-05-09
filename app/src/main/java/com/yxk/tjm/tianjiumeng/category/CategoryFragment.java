@@ -76,7 +76,7 @@ public class CategoryFragment extends BaseFragment implements View.OnClickListen
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", "1");
+                intent.putExtra("productId", categoryBean.getProductList().get(position).getId()+"");
                 startActivity(intent);
             }
         });
