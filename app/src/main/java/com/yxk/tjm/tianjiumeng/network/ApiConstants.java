@@ -9,12 +9,12 @@ public class ApiConstants {
     /**
      * 本地服务器
      */
-   // public static final String BASE_URL = "http://192.168.31.172:8080/dreamSkyEverMavenWebapp";
+    public static final String BASE_URL = "http://192.168.0.17:8080/dreamSkyEverMavenWebapp";
 
     /**
      * 正式服务器
      */
-    public static final String BASE_URL = "http://139.199.104.48:8080/dreamSkyEverMavenWebapp";
+    // public static final String BASE_URL = "http://139.199.104.48:8080/dreamSkyEverMavenWebapp";
 
     /**
      * 登录
@@ -304,6 +304,11 @@ public class ApiConstants {
      * 我的 -> 水晶钻转换 -> 确认转换
      */
     public static final String MY_CRYSTAL_AFFIRM_TRANSED = BASE_URL + "/jeweltran";
+
+    /**
+     * 我的 -> 查询佣金
+     */
+    public static final String MY_CRYSTAL_QRY_COMMISSION = BASE_URL + "/qryrakeoff";
 
     /**
      * 支付宝支付

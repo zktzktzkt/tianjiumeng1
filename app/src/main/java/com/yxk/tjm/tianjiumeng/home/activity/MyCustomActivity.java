@@ -1,21 +1,14 @@
 package com.yxk.tjm.tianjiumeng.home.activity;
 
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -36,13 +29,19 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.bean.ImageItem;
+import com.lzy.imagepicker.ui.ImageGridActivity;
+import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
+import com.lzy.imagepicker.view.CropImageView;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.custom.AmountView;
 import com.yxk.tjm.tianjiumeng.custom.CustomPopWindow;
-import com.yxk.tjm.tianjiumeng.home.adapter.MyCustomAdapter;
+import com.yxk.tjm.tianjiumeng.home.adapter.ImagePickerAdapter;
 import com.yxk.tjm.tianjiumeng.home.bean.PopTextrueBean;
+import com.yxk.tjm.tianjiumeng.imageloader.GlideImageLoader;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.FileUtils;
 import com.yxk.tjm.tianjiumeng.utils.ImgUtil;
@@ -52,6 +51,9 @@ import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -60,16 +62,17 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import me.nereo.multi_image_selector.MultiImageSelector;
 import okhttp3.Call;
 import okhttp3.MediaType;
 
-public class MyCustomActivity extends BaseActivity {
+public class MyCustomActivity extends BaseActivity implements ImagePickerAdapter.OnRecyclerViewItemClickListener {
     private static final String TAG = "MyCustomActivity ";
-
-    private static final int REQUEST_IMAGE = 2;
-    protected static final int REQUEST_STORAGE_READ_ACCESS_PERMISSION = 101;
-    protected static final int REQUEST_STORAGE_WRITE_ACCESS_PERMISSION = 102;
+    public static final int IMAGE_ITEM_ADD = -1;
+    public static final int REQUEST_CODE_SELECT = 100;
+    public static final int REQUEST_CODE_PREVIEW = 101;
+    private ImagePickerAdapter adapter;
+    private ArrayList<ImageItem> selImageList; //当前选择的所有图片
+    private int maxImgCount = 6;               //允许选择图片最大数
 
     @BindView(R.id.tv_textrue)
     TextView tvTextrue;
@@ -96,8 +99,6 @@ public class MyCustomActivity extends BaseActivity {
     @BindView(R.id.amount_view)
     AmountView amountView;
 
-    private ArrayList<String> mSelectPath;
-    private MyCustomAdapter myCustomAdapter;
     private CustomPopWindow customPopWindow;
     private View contentView;
     private List<PopTextrueBean> popTextrueBeanList;
@@ -106,6 +107,7 @@ public class MyCustomActivity extends BaseActivity {
     private String tailorSize;
     private String tailorMaterial;
     private String tailorDecr;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +126,9 @@ public class MyCustomActivity extends BaseActivity {
         handlePopClick();
 
         initData();
+
+        initImagePicker();
+        initWidget();
     }
 
     private void initData() {
@@ -148,20 +153,8 @@ public class MyCustomActivity extends BaseActivity {
                         });
                     }
                 });
-
-        LinearLayoutManager layoutManager = new GridLayoutManager(this, 4);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recycler.setLayoutManager(layoutManager);
-        myCustomAdapter = new MyCustomAdapter();
-        recycler.setAdapter(myCustomAdapter);
-
-        myCustomAdapter.setOnItemClickListener(new MyCustomAdapter.onItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                pickImage();
-            }
-        });
     }
+
 
     private void setToolbarClick() {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -185,66 +178,79 @@ public class MyCustomActivity extends BaseActivity {
         });
     }
 
-    private void pickImage() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN // Permission was added in API Level 16
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            requestPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
-                    getString(R.string.mis_permission_rationale),
-                    REQUEST_STORAGE_READ_ACCESS_PERMISSION);
-        } else {
-            int maxNum = 6;
-            MultiImageSelector selector = MultiImageSelector.create(MyCustomActivity.this);
-            selector.showCamera(true);
-            selector.count(maxNum);
-            selector.multi();
-            selector.origin(mSelectPath);
-            selector.start(MyCustomActivity.this, REQUEST_IMAGE);
-        }
+    private void initImagePicker() {
+        ImagePicker imagePicker = ImagePicker.getInstance();
+        imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
+        imagePicker.setShowCamera(true);                      //显示拍照按钮
+        imagePicker.setCrop(true);                           //允许裁剪（单选才有效）
+        imagePicker.setSaveRectangle(true);                   //是否按矩形区域保存
+        imagePicker.setSelectLimit(maxImgCount);              //选中数量限制
+        imagePicker.setStyle(CropImageView.Style.RECTANGLE);  //裁剪框的形状
+        imagePicker.setFocusWidth(800);                       //裁剪框的宽度。单位像素（圆形自动取宽高最小值）
+        imagePicker.setFocusHeight(800);                      //裁剪框的高度。单位像素（圆形自动取宽高最小值）
+        imagePicker.setOutPutX(1000);                         //保存文件的宽度。单位像素
+        imagePicker.setOutPutY(1000);                         //保存文件的高度。单位像素
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_STORAGE_READ_ACCESS_PERMISSION) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                pickImage();
-            }
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
+    private void initWidget() {
+        selImageList = new ArrayList<>();
+        adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
+        adapter.setOnItemClickListener(this);
 
-
-    private void requestPermission(final String permission, String rationale, final int requestCode) {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
-            new AlertDialog.Builder(this)
-                    .setTitle(R.string.mis_permission_dialog_title)
-                    .setMessage(rationale)
-                    .setPositiveButton(R.string.mis_permission_dialog_ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(MyCustomActivity.this, new String[]{permission}, requestCode);
-                        }
-                    })
-                    .setNegativeButton(R.string.mis_permission_dialog_cancel, null)
-                    .create().show();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
-        }
+        recycler.setLayoutManager(new GridLayoutManager(this, 4));
+        recycler.setHasFixedSize(true);
+        recycler.setAdapter(adapter);
     }
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onItemClick(View view, int position) {
+        switch (position) {
+            case IMAGE_ITEM_ADD:
+                //打开选择,本次允许选择的数量
+                ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
+                Intent intent1 = new Intent(MyCustomActivity.this, ImageGridActivity.class);
+                startActivityForResult(intent1, REQUEST_CODE_SELECT);
+                break;
+            default:
+                //打开预览
+                Intent intentPreview = new Intent(this, ImagePreviewDelActivity.class);
+                intentPreview.putExtra(ImagePicker.EXTRA_IMAGE_ITEMS, (ArrayList<ImageItem>) adapter.getImages());
+                intentPreview.putExtra(ImagePicker.EXTRA_SELECTED_IMAGE_POSITION, position);
+                intentPreview.putExtra(ImagePicker.EXTRA_FROM_ITEMS, true);
+                startActivityForResult(intentPreview, REQUEST_CODE_PREVIEW);
+                break;
+        }
+
+    }
+
+    ArrayList<ImageItem> images = null;
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE) {
-            if (resultCode == RESULT_OK) {
-                mSelectPath = data.getStringArrayListExtra(MultiImageSelector.EXTRA_RESULT);
-                myCustomAdapter.setMatchData(mSelectPath);
-                myCustomAdapter.notifyDataSetChanged();
+        if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
+            //添加图片返回
+            if (data != null && requestCode == REQUEST_CODE_SELECT) {
+                images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
+                if (images != null) {
+                    selImageList.addAll(images);
+                    adapter.setImages(selImageList);
+                }
+            }
+        } else if (resultCode == ImagePicker.RESULT_CODE_BACK) {
+            //预览图片返回
+            if (data != null && requestCode == REQUEST_CODE_PREVIEW) {
+                images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_IMAGE_ITEMS);
+                if (images != null) {
+                    selImageList.clear();
+                    selImageList.addAll(images);
+                    adapter.setImages(selImageList);
+                }
             }
         }
     }
+
 
     /**
      * 材质popwindow点击事件
@@ -351,7 +357,7 @@ public class MyCustomActivity extends BaseActivity {
         String width = etWidth.getText().toString().trim();
         String height = etHeight.getText().toString().trim();
 
-        if (mSelectPath == null || mSelectPath.size() == 0) {
+        if (images == null || images.size() == 0) {
             To.showShort(App.getAppContext(), "请选择商品相片!");
             return;
         }
@@ -387,26 +393,35 @@ public class MyCustomActivity extends BaseActivity {
             }
         });
 
-        if (mSelectPath != null && mSelectPath.size() > 0) {
+        if (images != null && images.size() > 0) {
+
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    for (int i = 0; i < mSelectPath.size(); i++) {
-                        Bitmap bitmap = BitmapFactory.decodeFile(mSelectPath.get(i));
-                        Bitmap decodeBitmap = FileUtils.decodeSampledBitmapFromBitmap(bitmap, 300, 300);
-                        String path = saveFile(decodeBitmap, String.valueOf(System.currentTimeMillis()));
-                        Log.e("上传图片 picPath", path);
-                        String name = ImgUtil.uploadFile(ApiConstants.HOME_SUBMIT_IMG, path, "file");
-                        Log.e("上传图片 name:", name);
-                        Message message = Message.obtain();
-                        message.obj = name;
-                        handler.sendMessage(message);
+                    try {
+                        for (int i = 0; i < images.size(); i++) {
+                            Bitmap bitmap = BitmapFactory.decodeFile(images.get(i).path);
+                            Bitmap decodeBitmap = FileUtils.decodeSampledBitmapFromBitmap(bitmap, 300, 300);
+                            String path = saveFile(decodeBitmap, String.valueOf(System.currentTimeMillis()));
+                            Log.e("上传图片 picPath", path);
+                            String result = ImgUtil.uploadFile(ApiConstants.HOME_SUBMIT_IMG, path, "file");
+
+                            JSONObject jo = new JSONObject(result);
+                            Log.e("上传图片 result:", result);
+                            Message message = Message.obtain();
+                            message.obj = (String) jo.get("tailorPicId");
+                            handler.sendMessage(message);
+                        }
+                        Message msg = Message.obtain();
+                        msg.obj = "上传完成";
+                        handler.sendMessage(msg);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    Message msg = Message.obtain();
-                    msg.obj = "上传完成";
-                    handler.sendMessage(msg);
                 }
             }).start();
+
         } else {
             submit();
         }

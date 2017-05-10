@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
 import com.yxk.tjm.tianjiumeng.utils.To;
@@ -63,7 +64,9 @@ public class RechargeActivity extends BaseActivity {
                 break;
 
             case R.id.btn_recharge:
-                To.showShort(getApplicationContext(), "充值");
+                if (!ivAlipay.isSelected() && !ivWeixin.isSelected()) {
+                    To.showShort(App.getAppContext(), "请选择支付方式");
+                }
                 break;
         }
     }

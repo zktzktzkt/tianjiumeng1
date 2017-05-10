@@ -76,6 +76,8 @@ public class MyInfoActivity extends BaseActivity {
     RadioButton rbWomen;
     @BindView(R.id.iv_head)
     CircleImageView ivHead;
+    @BindView(R.id.tv_phone)
+    TextView tvPhone;
     private Unbinder bind;
 
     @Override
@@ -116,6 +118,7 @@ public class MyInfoActivity extends BaseActivity {
                         MyInfoBean myInfoBean = new Gson().fromJson(response, MyInfoBean.class);
                         Glide.with(MyInfoActivity.this).load(myInfoBean.getAvatar()).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE).into(ivHead);
                         etNickName.setText(myInfoBean.getNickname());
+                        tvPhone.setText(myInfoBean.getPhoneNumber());
                         etEmail.setText(myInfoBean.getMail());
                         if (myInfoBean.getSex() == 1) {
                             rbMan.setChecked(true);

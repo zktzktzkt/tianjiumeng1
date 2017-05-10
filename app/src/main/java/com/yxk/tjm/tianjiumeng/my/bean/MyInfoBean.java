@@ -22,6 +22,15 @@ public class MyInfoBean {
     private String nickname;
     private int rakeoff;
     private String avatar;
+    private String phoneNumber;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getMail() {
         return mail;

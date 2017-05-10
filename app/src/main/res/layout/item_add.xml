@@ -6,11 +6,12 @@
 
     <ImageView
         android:id="@+id/img_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp"
+        android:scaleType="fitXY"
         android:layout_centerInParent="true"
-        android:background="@drawable/shape_gray_round_rectangle_20"
-        android:src="@drawable/add"/>
+        android:src="@drawable/selector_image_add"
+        />
 </RelativeLayout>

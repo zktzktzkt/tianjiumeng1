@@ -65,11 +65,13 @@ public class MyCrystalActivity extends BaseActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        LogUtil.e(e+"");
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
+                        LogUtil.e(response);
+
                         crystalBean = new Gson().fromJson(response, CrystalBean.class);
                         tvRule.setText(crystalBean.getJewelTranRules().replace("\\n", "\n"));
                         tvTranable.setText(crystalBean.getJeweltranable());
