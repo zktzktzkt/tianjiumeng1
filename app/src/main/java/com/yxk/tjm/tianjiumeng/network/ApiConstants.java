@@ -9,7 +9,7 @@ public class ApiConstants {
     /**
      * 本地服务器
      */
-    public static final String BASE_URL = "http://192.168.0.17:8080/dreamSkyEverMavenWebapp";
+    public static final String BASE_URL = "http://192.168.31.172:8080/dreamSkyEverMavenWebapp";
 
     /**
      * 正式服务器
