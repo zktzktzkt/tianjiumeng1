@@ -66,7 +66,6 @@ public class MyWaitAppraiseActivity extends BaseActivity {
                         recycler.setAdapter(new BaseQuickAdapter<WaitPayBean, BaseViewHolder>(R.layout.item_wait_appraise, waitPayBeanList) {
                             @Override
                             protected void convert(BaseViewHolder helper, WaitPayBean item) {
-                                // helper.addOnClickListener(R.id.img_pic);
                                 helper.addOnClickListener(R.id.btn_appraise);
                                 Glide.with(App.getAppContext()).load(item.getGoodsShowpic()).into((ImageView) helper.getView(R.id.img_pic));
                                 helper.setText(R.id.tv_date, DateUtil.longToString(item.getCreateDate(), "yyyy.MM.dd"));

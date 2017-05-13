@@ -125,7 +125,7 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         public void onTick(long l) {
             mBtnGetVerifi.setEnabled(false);
             mBtnGetVerifi.setText((l / 1000) + "秒");
-            LogUtil.e("CountDownTimer", "倒计时");
+          //  LogUtil.e("CountDownTimer", "倒计时");
         }
 
         @Override

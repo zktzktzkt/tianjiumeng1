@@ -1,20 +1,16 @@
 package com.yxk.tjm.tianjiumeng.my.activity;
 
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -28,9 +24,16 @@ import android.widget.TextView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.bean.ImageItem;
+import com.lzy.imagepicker.ui.ImageGridActivity;
+import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
+import com.lzy.imagepicker.view.CropImageView;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.activity.BaseActivity;
+import com.yxk.tjm.tianjiumeng.home.adapter.ImagePickerAdapter;
+import com.yxk.tjm.tianjiumeng.imageloader.GlideImageLoader;
 import com.yxk.tjm.tianjiumeng.my.adapter.WaitAppraiseAdapter;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.FileUtils;
@@ -41,6 +44,9 @@ import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -49,11 +55,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import me.nereo.multi_image_selector.MultiImageSelector;
 import okhttp3.Call;
 import okhttp3.MediaType;
 
-public class ImmediateAppraiseActivity extends BaseActivity {
+public class ImmediateAppraiseActivity extends BaseActivity implements ImagePickerAdapter.OnRecyclerViewItemClickListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -84,23 +89,10 @@ public class ImmediateAppraiseActivity extends BaseActivity {
 
         setToolbarNavigationClick();
 
-        initData();
+        initImagePicker();
+        initWidget();
     }
 
-    private void initData() {
-        LinearLayoutManager layoutManager = new GridLayoutManager(this, 4);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recycler.setLayoutManager(layoutManager);
-        waitAppraiseAdapter = new WaitAppraiseAdapter();
-        recycler.setAdapter(waitAppraiseAdapter);
-
-        waitAppraiseAdapter.setOnItemClickListener(new WaitAppraiseAdapter.onItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                pickImage();
-            }
-        });
-    }
 
     /**
      * 保存返回的值
@@ -128,6 +120,15 @@ public class ImmediateAppraiseActivity extends BaseActivity {
      * 上传图片
      */
     private void uploadPic() {
+        String describe = etDescribe.getText().toString().trim();
+        if (TextUtils.isEmpty(describe)) {
+            To.showShort(getApplicationContext(), "评价描述不能为空");
+            return;
+        }
+        if (selImageList != null && selImageList.size() == 0) {
+            To.showShort(getApplicationContext(), "照片不能为空");
+            return;
+        }
         progressDialog = new ProgressDialog(ImmediateAppraiseActivity.this);
         progressDialog.setMessage("正在上传...");
         progressDialog.show();
@@ -141,27 +142,34 @@ public class ImmediateAppraiseActivity extends BaseActivity {
             }
         });
 
-        if (mSelectPath != null && mSelectPath.size() > 0) {
+        if (selImageList != null && selImageList.size() > 0) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    for (int i = 0; i < mSelectPath.size(); i++) {
-                        Bitmap bitmap = BitmapFactory.decodeFile(mSelectPath.get(i));
-                        Bitmap decodeBitmap = FileUtils.decodeSampledBitmapFromBitmap(bitmap, 350, 350);
-                        String path = saveFile(decodeBitmap, String.valueOf(System.currentTimeMillis()));
-                        Log.e("上传图片 picPath", path);
-                        String name = ImgUtil.uploadFile(ApiConstants.MY_ORDER_REVIEW_PIC, path, "file");
-                        Log.e("上传图片 name:", name);
-                        Message message = Message.obtain();
-                        message.obj = name;
-                        handler.sendMessage(message);
+                    try {
+                        for (int i = 0; i < selImageList.size(); i++) {
+                            Bitmap bitmap = BitmapFactory.decodeFile(images.get(i).path);
+                            Bitmap decodeBitmap = FileUtils.decodeSampledBitmapFromBitmap(bitmap, 350, 350);
+                            String path = saveFile(decodeBitmap, String.valueOf(System.currentTimeMillis()));
+                            Log.e("上传图片 picPath", path);
+                            String result = ImgUtil.uploadFile(ApiConstants.MY_ORDER_REVIEW_PIC, path, "file");
+                            JSONObject jo = new JSONObject(result);
+                            Log.e("上传图片 result:", result);
+                            Message message = Message.obtain();
+                            message.obj = (String) jo.get("reviewPicId");
+                            handler.sendMessage(message);
+                        }
+                        Message msg = Message.obtain();
+                        msg.obj = "上传完成";
+                        handler.sendMessage(msg);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    Message msg = Message.obtain();
-                    msg.obj = "上传完成";
-                    handler.sendMessage(msg);
                 }
             }).start();
         } else {
+            /**提交*/
             submit();
         }
     }
@@ -173,6 +181,10 @@ public class ImmediateAppraiseActivity extends BaseActivity {
         String describe = etDescribe.getText().toString().trim();
         if (TextUtils.isEmpty(describe)) {
             To.showShort(getApplicationContext(), "评价描述不能为空");
+            return;
+        }
+        if (selImageList != null && selImageList.size() == 0) {
+            To.showShort(getApplicationContext(), "评论照片不能为空");
             return;
         }
         JsonObject jo = new JsonObject();
@@ -243,28 +255,36 @@ public class ImmediateAppraiseActivity extends BaseActivity {
     }
 
     //-------------------以下是多图选择-------------------------------------
+    public static final int IMAGE_ITEM_ADD = -1;
+    public static final int REQUEST_CODE_SELECT = 100;
+    public static final int REQUEST_CODE_PREVIEW = 101;
+    private ImagePickerAdapter adapter;
+    private ArrayList<ImageItem> selImageList; //当前选择的所有图片
+    private int maxImgCount = 6;               //允许选择图片最大数
 
-    private ArrayList<String> mSelectPath;
-    private static final int REQUEST_IMAGE = 2;
-    protected static final int REQUEST_STORAGE_READ_ACCESS_PERMISSION = 101;
-    protected static final int REQUEST_STORAGE_WRITE_ACCESS_PERMISSION = 102;
 
-    private void pickImage() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN // Permission was added in API Level 16
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            requestPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
-                    getString(R.string.mis_permission_rationale),
-                    REQUEST_STORAGE_READ_ACCESS_PERMISSION);
-        } else {
-            int maxNum = 6;
-            MultiImageSelector selector = MultiImageSelector.create(ImmediateAppraiseActivity.this);
-            selector.showCamera(true);
-            selector.count(maxNum);
-            selector.multi();
-            selector.origin(mSelectPath);
-            selector.start(ImmediateAppraiseActivity.this, REQUEST_IMAGE);
-        }
+    private void initImagePicker() {
+        ImagePicker imagePicker = ImagePicker.getInstance();
+        imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
+        imagePicker.setShowCamera(true);                      //显示拍照按钮
+        imagePicker.setCrop(true);                           //允许裁剪（单选才有效）
+        imagePicker.setSaveRectangle(true);                   //是否按矩形区域保存
+        imagePicker.setSelectLimit(maxImgCount);              //选中数量限制
+        imagePicker.setStyle(CropImageView.Style.RECTANGLE);  //裁剪框的形状
+        imagePicker.setFocusWidth(800);                       //裁剪框的宽度。单位像素（圆形自动取宽高最小值）
+        imagePicker.setFocusHeight(800);                      //裁剪框的高度。单位像素（圆形自动取宽高最小值）
+        imagePicker.setOutPutX(1000);                         //保存文件的宽度。单位像素
+        imagePicker.setOutPutY(1000);                         //保存文件的高度。单位像素
+    }
+
+    private void initWidget() {
+        selImageList = new ArrayList<>();
+        adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
+        adapter.setOnItemClickListener(this);
+
+        recycler.setLayoutManager(new GridLayoutManager(this, 4));
+        recycler.setHasFixedSize(true);
+        recycler.setAdapter(adapter);
     }
 
     private void requestPermission(final String permission, String rationale, final int requestCode) {
@@ -286,15 +306,50 @@ public class ImmediateAppraiseActivity extends BaseActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE) {
-            if (resultCode == RESULT_OK) {
-                mSelectPath = data.getStringArrayListExtra(MultiImageSelector.EXTRA_RESULT);
-                waitAppraiseAdapter.setMatchData(mSelectPath);
-                waitAppraiseAdapter.notifyDataSetChanged();
-            }
+    public void onItemClick(View view, int position) {
+        switch (position) {
+            case IMAGE_ITEM_ADD:
+                //打开选择,本次允许选择的数量
+                ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
+                Intent intent1 = new Intent(ImmediateAppraiseActivity.this, ImageGridActivity.class);
+                startActivityForResult(intent1, REQUEST_CODE_SELECT);
+                break;
+            default:
+                //打开预览
+                Intent intentPreview = new Intent(this, ImagePreviewDelActivity.class);
+                intentPreview.putExtra(ImagePicker.EXTRA_IMAGE_ITEMS, (ArrayList<ImageItem>) adapter.getImages());
+                intentPreview.putExtra(ImagePicker.EXTRA_SELECTED_IMAGE_POSITION, position);
+                intentPreview.putExtra(ImagePicker.EXTRA_FROM_ITEMS, true);
+                startActivityForResult(intentPreview, REQUEST_CODE_PREVIEW);
+                break;
+        }
 
+    }
+
+    ArrayList<ImageItem> images = null;
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
+            //添加图片返回
+            if (data != null && requestCode == REQUEST_CODE_SELECT) {
+                images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
+                if (images != null) {
+                    selImageList.addAll(images);
+                    adapter.setImages(selImageList);
+                }
+            }
+        } else if (resultCode == ImagePicker.RESULT_CODE_BACK) {
+            //预览图片返回
+            if (data != null && requestCode == REQUEST_CODE_PREVIEW) {
+                images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_IMAGE_ITEMS);
+                if (images != null) {
+                    selImageList.clear();
+                    selImageList.addAll(images);
+                    adapter.setImages(selImageList);
+                }
+            }
         }
     }
 
@@ -306,6 +361,5 @@ public class ImmediateAppraiseActivity extends BaseActivity {
             }
         });
     }
-
 
 }

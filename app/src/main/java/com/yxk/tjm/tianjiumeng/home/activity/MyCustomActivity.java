@@ -357,7 +357,7 @@ public class MyCustomActivity extends BaseActivity implements ImagePickerAdapter
         String width = etWidth.getText().toString().trim();
         String height = etHeight.getText().toString().trim();
 
-        if (images == null || images.size() == 0) {
+        if (selImageList == null || images.size() == 0) {
             To.showShort(App.getAppContext(), "请选择商品相片!");
             return;
         }
