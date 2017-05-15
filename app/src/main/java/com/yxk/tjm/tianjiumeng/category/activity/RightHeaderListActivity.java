@@ -81,7 +81,9 @@ public class RightHeaderListActivity extends BaseActivity {
         recycler.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(RightHeaderListActivity.this, ProductDetailActivity.class));
+                Intent intent = new Intent(RightHeaderListActivity.this, ProductDetailActivity.class);
+                intent.putExtra("productId", rightList.get(position).getId()+"");
+                startActivity(intent);
             }
         });
     }
