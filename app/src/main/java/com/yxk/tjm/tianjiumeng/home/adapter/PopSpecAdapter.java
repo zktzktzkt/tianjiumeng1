@@ -32,7 +32,7 @@ public class PopSpecAdapter<T> extends RecyclerView.Adapter<PopSpecAdapter.MyHol
 
     @Override
     public void onBindViewHolder(final PopSpecAdapter.MyHolder holder, final int position) {
-        holder.tv_spec.setText(mDatas.get(position).getGoodsHeight() + "x" + mDatas.get(position).getGoodsWide());
+        holder.tv_spec.setText(mDatas.get(position).getGoodsWide() + "x" + mDatas.get(position).getGoodsHeight());
 
         if (mDatas.get(position).isSelected()) {
             holder.tv_spec.setSelected(true);

@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -278,6 +279,10 @@ public class MyCustomActivity extends BaseActivity implements ImagePickerAdapter
                 break;
 
             case R.id.btn_submit:
+                if (!UserUtil.isLogin(App.getAppContext())) {
+                    To.show(App.getAppContext(), "请先登录！", Toast.LENGTH_SHORT);
+                    return;
+                }
                 uploadImg();
                 break;
 
@@ -295,7 +300,8 @@ public class MyCustomActivity extends BaseActivity implements ImagePickerAdapter
         jo.addProperty("tailorMaterial", tailorMaterial);
         jo.addProperty("tailorSize", tailorSize);
         jo.addProperty("tailorDecr", tailorDecr);
-        if (names != null && names.size() > 0) {
+
+        if (names != null && names.size() > 0) {//判断上传图片后，返回的保存图片id的集合
             JsonArray ja = new JsonArray();
             for (int i = 0; i < names.size(); i++) {
                 JsonObject jsonObject = new JsonObject();
@@ -357,7 +363,7 @@ public class MyCustomActivity extends BaseActivity implements ImagePickerAdapter
         String width = etWidth.getText().toString().trim();
         String height = etHeight.getText().toString().trim();
 
-        if (selImageList == null || images.size() == 0) {
+        if (images == null || images.size() == 0) {
             To.showShort(App.getAppContext(), "请选择商品相片!");
             return;
         }
@@ -394,7 +400,6 @@ public class MyCustomActivity extends BaseActivity implements ImagePickerAdapter
         });
 
         if (images != null && images.size() > 0) {
-
             new Thread(new Runnable() {
                 @Override
                 public void run() {

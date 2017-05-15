@@ -80,6 +80,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
         holder.checkbox_child.setChecked(datas.get(position).isChecked());
         holder.tv_price.setText(App.getAppContext().getResources().getString(R.string.RMB) + datas.get(position).getProduct().getNowprice());
         holder.amount_view.etAmount.setText(datas.get(position).getBuyCart().getGoodsAccant() + "");
+        //holder.amount_view.setGoods_storage();
 
         //由于页面切换到购物车时会重新创建Bean赋给Adapter，之前的Bean里的number自然就归零了，所以要重新计算总价格
         if ((Integer) holder.itemView.getTag() == position) {

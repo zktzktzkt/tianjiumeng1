@@ -76,6 +76,7 @@ public class ImmediateAppraiseActivity extends BaseActivity implements ImagePick
     private ProgressDialog progressDialog;
     private int goodsId;
     private String orderId;
+    private String describe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,12 +121,12 @@ public class ImmediateAppraiseActivity extends BaseActivity implements ImagePick
      * 上传图片
      */
     private void uploadPic() {
-        String describe = etDescribe.getText().toString().trim();
+        describe = etDescribe.getText().toString().trim();
         if (TextUtils.isEmpty(describe)) {
             To.showShort(getApplicationContext(), "评价描述不能为空");
             return;
         }
-        if (selImageList != null && selImageList.size() == 0) {
+        if (images == null || images.size() == 0) {
             To.showShort(getApplicationContext(), "照片不能为空");
             return;
         }
@@ -142,12 +143,12 @@ public class ImmediateAppraiseActivity extends BaseActivity implements ImagePick
             }
         });
 
-        if (selImageList != null && selImageList.size() > 0) {
+        if (images != null && images.size() > 0) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        for (int i = 0; i < selImageList.size(); i++) {
+                        for (int i = 0; i < images.size(); i++) {
                             Bitmap bitmap = BitmapFactory.decodeFile(images.get(i).path);
                             Bitmap decodeBitmap = FileUtils.decodeSampledBitmapFromBitmap(bitmap, 350, 350);
                             String path = saveFile(decodeBitmap, String.valueOf(System.currentTimeMillis()));
@@ -178,15 +179,6 @@ public class ImmediateAppraiseActivity extends BaseActivity implements ImagePick
      * 提交
      */
     private void submit() {
-        String describe = etDescribe.getText().toString().trim();
-        if (TextUtils.isEmpty(describe)) {
-            To.showShort(getApplicationContext(), "评价描述不能为空");
-            return;
-        }
-        if (selImageList != null && selImageList.size() == 0) {
-            To.showShort(getApplicationContext(), "评论照片不能为空");
-            return;
-        }
         JsonObject jo = new JsonObject();
         jo.addProperty("userId", UserUtil.getUserId(App.getAppContext()));
         jo.addProperty("goodsId", goodsId + "");
@@ -194,7 +186,7 @@ public class ImmediateAppraiseActivity extends BaseActivity implements ImagePick
         jo.addProperty("satisfyNo", ratingbar.getRating() + "");
         jo.addProperty("orderId", orderId);
 
-        if (names != null && names.size() > 0) {
+        if (names != null && names.size() > 0) {  //判断上传图片后，返回的保存图片id的集合
             JsonArray ja = new JsonArray();
             for (int i = 0; i < names.size(); i++) {
                 JsonObject jsonObject = new JsonObject();
@@ -251,6 +243,7 @@ public class ImmediateAppraiseActivity extends BaseActivity implements ImagePick
 
     @OnClick(R.id.btn_submit)
     public void onClick() {
+
         uploadPic();
     }
 

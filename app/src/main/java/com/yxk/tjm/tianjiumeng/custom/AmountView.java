@@ -23,7 +23,7 @@ public class AmountView extends RelativeLayout implements View.OnClickListener, 
 
     private static final String TAG = "AmountView";
     private int amount = 1; //购买数量
-    private int goods_storage = 100; //商品库存
+    private int goods_storage = 10000; //商品库存
 
     private OnAmountChangeListener mListener;
 
@@ -87,7 +87,7 @@ public class AmountView extends RelativeLayout implements View.OnClickListener, 
         this.goods_storage = goods_storage;
     }
 
-    public String getEditContent(){
+    public String getEditContent() {
         return etAmount.getText().toString().trim();
     }
 

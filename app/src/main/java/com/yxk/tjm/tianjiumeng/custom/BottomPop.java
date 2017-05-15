@@ -101,7 +101,7 @@ public class BottomPop<T> extends PopupWindow {
             String goodsHW = "";
             for (int i = 0; i < hWsBeanList.size(); i++) {
                 if (hWsBeanList.get(i).isSelected()) {
-                    goodsHW = hWsBeanList.get(i).getGoodsHeight() + "x" + hWsBeanList.get(i).getGoodsWide();
+                    goodsHW = hWsBeanList.get(i).getGoodsWide() + "x" + hWsBeanList.get(i).getGoodsHeight();
                 }
             }
             if (TextUtils.isEmpty(goodsHW)) {
