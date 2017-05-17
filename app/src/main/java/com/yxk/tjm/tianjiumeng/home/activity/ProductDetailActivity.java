@@ -111,6 +111,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
 
         flashSale = getIntent().getStringExtra("flashSale");
         productId = getIntent().getStringExtra("productId");
+        LogUtil.e("productId", productId);
 
         fragments = new ArrayList<>();
 
@@ -445,11 +446,7 @@ public class ProductDetailActivity extends BaseActivity implements View.OnClickL
                         LogUtil.e(TAG, "collect() response:" + response);
                         try {
                             JSONObject jo = new JSONObject(response);
-                            if ((boolean) jo.get("success")) {
-                                To.showShort(getApplicationContext(), "收藏成功");
-                            } else {
-                                To.showShort(getApplicationContext(), "已收藏");
-                            }
+                            To.showShort(getApplicationContext(), (String) jo.get("success"));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

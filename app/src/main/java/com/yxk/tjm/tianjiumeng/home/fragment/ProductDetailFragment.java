@@ -12,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.custom.CircleImageView;
@@ -30,6 +32,9 @@ import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.NumberFormatUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +77,9 @@ public class ProductDetailFragment extends Fragment {
     ImageView imgPicture;
     @BindView(R.id.tuijian)
     TextView tuijian;
+    @BindView(R.id.rl_appraise)
+    RelativeLayout rl_appraise;
+
 
     private RecyclerView mRecycler;
     private String productId;
@@ -106,10 +114,29 @@ public class ProductDetailFragment extends Fragment {
                     public void onResponse(String response, int id) {
                         LogUtil.e(TAG, "onActivityCreated() response " + response);
                         Gson gson = new Gson();
-                        productInnerDetailBean = gson.fromJson(response, ProductInnerDetailBean.class);
+                        try {
+                            JSONObject jo = new JSONObject(response);
+                            if ("[]".equals(jo.get("reviewPics").toString()) && "[]".equals(jo.get("reviewVO").toString())) { //没有商品评价
+                                rl_appraise.setVisibility(View.GONE);
 
-                        // TODO: 2017/4/11 等待设置数据
-                        initDetailInfo();
+                                String cnnmdForYou = jo.getJSONArray("cnnmdForYou").toString();
+                                List<ProductInnerDetailBean.CnnmdForYouBean> cnnmdList = gson.fromJson(cnnmdForYou, new TypeToken<List<ProductInnerDetailBean.CnnmdForYouBean>>() {
+                                }.getType());
+                                productInnerDetailBean = new ProductInnerDetailBean();
+                                productInnerDetailBean.setCnnmdForYou(cnnmdList);
+
+                                String detailPics1 = jo.get("detailPics").toString();
+                                ProductInnerDetailBean.DetailPicsBean detailPics = gson.fromJson(detailPics1, ProductInnerDetailBean.DetailPicsBean.class);
+                                productInnerDetailBean.setDetailPics(detailPics);
+
+                            } else {
+                                productInnerDetailBean = gson.fromJson(response, ProductInnerDetailBean.class);
+                                initDetailInfo();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                         initRecommendForYouRecycler();
                     }
                 });
@@ -125,16 +152,13 @@ public class ProductDetailFragment extends Fragment {
         }
 
         //设置用户的信息
-        Glide.with(App.getAppContext()).load(productInnerDetailBean.getReviewVO().getAvatar()).into(imgClientHead);
-        tvClientName.setText(NumberFormatUtils.phoneHide(productInnerDetailBean.getReviewVO().getPhoneNumber()));
-        tvId.setText(productInnerDetailBean.getReviewVO().getUserId() + "");
-        tvDate.setText(DateUtil.longToString(productInnerDetailBean.getReviewVO().getReviewTime(), "yyyy-MM-dd"));
-        tvClientComment.setText(productInnerDetailBean.getReviewVO().getReviewText());
-        tvClientResult.setText(productInnerDetailBean.getReviewVO().getReplyText());
-        ratingbar.setRating((long) productInnerDetailBean.getReviewVO().getSatisfyNo());
-
-        //设置大图
-        Glide.with(getActivity()).load(productInnerDetailBean.getDetailPics().getGoodsPic()).into(imgPicture);
+        Glide.with(App.getAppContext()).load(productInnerDetailBean.getReviewVO().get(0).getAvatar()).into(imgClientHead);
+        tvClientName.setText(NumberFormatUtils.phoneHide(productInnerDetailBean.getReviewVO().get(0).getPhoneNumber()));
+        tvId.setText(productInnerDetailBean.getReviewVO().get(0).getUserId() + "");
+        tvDate.setText(DateUtil.longToString(productInnerDetailBean.getReviewVO().get(0).getReviewTime(), "yyyy-MM-dd"));
+        tvClientComment.setText(productInnerDetailBean.getReviewVO().get(0).getReviewText());
+        tvClientResult.setText(productInnerDetailBean.getReviewVO().get(0).getReplyText());
+        ratingbar.setRating((long) productInnerDetailBean.getReviewVO().get(0).getSatisfyNo());
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -146,6 +170,9 @@ public class ProductDetailFragment extends Fragment {
     }
 
     private void initRecommendForYouRecycler() {
+        //设置大图
+        Glide.with(getActivity()).load(productInnerDetailBean.getDetailPics().getGoodsPic()).into(imgPicture);
+
         recyclerRecommond.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         RecommendForYouAdapter recommendForYouAdapter = new RecommendForYouAdapter();
         recommendForYouAdapter.setMatchData(productInnerDetailBean.getCnnmdForYou());
@@ -154,7 +181,7 @@ public class ProductDetailFragment extends Fragment {
             @Override
             public void onItemClick(int position) {
                 Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
-                intent.putExtra("productId", productId); // TODO: 2017/4/11 id以后更换
+                intent.putExtra("productId", productInnerDetailBean.getCnnmdForYou().get(position).getId() + ""); // TODO: 2017/4/11 id以后更换
                 startActivity(intent);
                 getActivity().finish();
             }

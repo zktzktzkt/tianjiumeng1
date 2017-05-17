@@ -23,6 +23,7 @@ import com.yxk.tjm.tianjiumeng.shopcar.adapter.ShopCartAdapter;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopCartBean;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopcartSerialize;
 import com.yxk.tjm.tianjiumeng.utils.LogUtil;
+import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -46,6 +47,7 @@ public class ShopCartFragment extends Fragment {
     private ShopCartAdapter shopCartAdapter;
     private CheckBox checkbox_edit;
     public ShopCartBean shopCartBean;
+    public TextView tv_shopcart_null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,6 +62,7 @@ public class ShopCartFragment extends Fragment {
         relative_edit = (RelativeLayout) view.findViewById(R.id.relative_edit);
         relative = (RelativeLayout) view.findViewById(R.id.relative);
         checkbox_edit = (CheckBox) view.findViewById(R.id.checkbox_edit);
+        tv_shopcart_null = (TextView) view.findViewById(R.id.tv_shopcart_null);
 
         LogUtil.e("ShopCartFragment ", "onCreatView");
         return view;
@@ -115,7 +118,7 @@ public class ShopCartFragment extends Fragment {
         OkHttpUtils
                 .get()
                 .url(ApiConstants.SHOPCAR)
-                .addParams("userId", "1")
+                .addParams("userId", UserUtil.getUserId(getContext()))
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -128,9 +131,19 @@ public class ShopCartFragment extends Fragment {
                         LogUtil.e("ShopCartFragment ", "initData response:" + response);
                         Gson gson = new Gson();
                         shopCartBean = gson.fromJson(response, ShopCartBean.class);
+                        if (shopCartBean.getBuyitem().size() <= 0) {
+                            tv_shopcart_null.setVisibility(View.VISIBLE);
+                            relative.setVisibility(View.GONE);
+                            mToolbar.setEditVisible(false);
+                        } else {
+                            tv_shopcart_null.setVisibility(View.GONE);
+                            relative.setVisibility(View.VISIBLE);
+                            mToolbar.setEditVisible(true);
 
-                        initRecyclerView(shopCartBean.getBuyitem());
-                        toolbarEditClickListener();
+                            initRecyclerView(shopCartBean.getBuyitem());
+                            toolbarEditClickListener();
+                        }
+
                     }
                 });
 
@@ -138,7 +151,7 @@ public class ShopCartFragment extends Fragment {
 
     private void initRecyclerView(List<ShopCartBean.BuyitemBean> list) {
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        shopCartAdapter = new ShopCartAdapter(list, checkbox, tv_all_price, btn_account, checkbox_edit, btn_delete);
+        shopCartAdapter = new ShopCartAdapter(list, checkbox, tv_all_price, btn_account, checkbox_edit, btn_delete, tv_shopcart_null, mToolbar);
         recycler.setAdapter(shopCartAdapter);
     }
 

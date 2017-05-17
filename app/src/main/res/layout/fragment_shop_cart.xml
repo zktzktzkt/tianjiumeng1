@@ -106,4 +106,22 @@
         android:layout_marginBottom="50dp"
         />
 
+
+    <TextView
+        android:id="@+id/tv_shopcart_null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:background="@color/gray_common"
+        android:drawablePadding="10dp"
+        android:drawableTop="@drawable/shopcart_null"
+        android:gravity="center_horizontal"
+        android:paddingTop="100dp"
+        android:text="购物车空空萧瑟也"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>

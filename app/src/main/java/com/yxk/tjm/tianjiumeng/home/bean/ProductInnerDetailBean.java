@@ -8,16 +8,17 @@ import java.util.List;
 
 public class ProductInnerDetailBean {
 
+
     /**
      * detailPics : {"goodsPic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"}
-     * reviewPics : [{"reviewPic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"reviewPic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"reviewPic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"}]
-     * reviewVO : {"avatar":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","goodsId":1,"phoneNumber":"15011213780","realname":"燕华","replyText":"哈哈","reviewText":"哈哈","reviewTime":1491960908000,"satisfyNo":4,"sex":1,"userId":1}
-     * cnnmdForYou : [{"id":9,"name":"玻璃杯9","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","typeId":1},{"id":1,"name":"玻璃杯","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","typeId":1},{"id":2,"name":"玻璃杯2","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","typeId":1},{"id":3,"name":"玻璃杯3","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","typeId":1},{"id":4,"name":"玻璃杯4","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","typeId":1},{"id":5,"name":"玻璃杯5","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","typeId":1},{"id":6,"name":"玻璃杯6","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","typeId":1},{"id":7,"name":"玻璃杯7","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg","typeId":1}]
+     * reviewPics : [{"reviewPic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"}]
+     * reviewVO : [{"avatar":"http://139.199.104.48:8080/dreamSkyEverMavenWebapp/avatar/6img_head.jpg","goodsId":6,"nickname":"114努力了","phoneNumber":"15201168650","realname":"复式公寓","replyText":"哈哈","reviewText":"，？！","reviewTime":1493710988000,"satisfyNo":3,"sex":0,"userId":6}]
+     * cnnmdForYou : [{"id":9,"name":"玻璃杯9","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"id":1,"name":"玻璃杯","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"id":2,"name":"玻璃杯2","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"id":3,"name":"玻璃杯3","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"id":4,"name":"玻璃杯4","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"id":5,"name":"玻璃杯5","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"id":6,"name":"高脚杯6","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"},{"id":7,"name":"玻璃杯7","nowprice":299,"orgnprice":299,"pageNo":1,"pageSize":12,"showpic":"http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg"}]
      */
 
     private DetailPicsBean detailPics;
-    private ReviewVOBean reviewVO;
     private List<ReviewPicsBean> reviewPics;
+    private List<ReviewVOBean> reviewVO;
     private List<CnnmdForYouBean> cnnmdForYou;
 
     public DetailPicsBean getDetailPics() {
@@ -28,20 +29,20 @@ public class ProductInnerDetailBean {
         this.detailPics = detailPics;
     }
 
-    public ReviewVOBean getReviewVO() {
-        return reviewVO;
-    }
-
-    public void setReviewVO(ReviewVOBean reviewVO) {
-        this.reviewVO = reviewVO;
-    }
-
     public List<ReviewPicsBean> getReviewPics() {
         return reviewPics;
     }
 
     public void setReviewPics(List<ReviewPicsBean> reviewPics) {
         this.reviewPics = reviewPics;
+    }
+
+    public List<ReviewVOBean> getReviewVO() {
+        return reviewVO;
+    }
+
+    public void setReviewVO(List<ReviewVOBean> reviewVO) {
+        this.reviewVO = reviewVO;
     }
 
     public List<CnnmdForYouBean> getCnnmdForYou() {
@@ -68,22 +69,40 @@ public class ProductInnerDetailBean {
         }
     }
 
+    public static class ReviewPicsBean {
+        /**
+         * reviewPic : http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg
+         */
+
+        private String reviewPic;
+
+        public String getReviewPic() {
+            return reviewPic;
+        }
+
+        public void setReviewPic(String reviewPic) {
+            this.reviewPic = reviewPic;
+        }
+    }
+
     public static class ReviewVOBean {
         /**
-         * avatar : http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg
-         * goodsId : 1
-         * phoneNumber : 15011213780
-         * realname : 燕华
+         * avatar : http://139.199.104.48:8080/dreamSkyEverMavenWebapp/avatar/6img_head.jpg
+         * goodsId : 6
+         * nickname : 114努力了
+         * phoneNumber : 15201168650
+         * realname : 复式公寓
          * replyText : 哈哈
-         * reviewText : 哈哈
-         * reviewTime : 1491960908000
-         * satisfyNo : 4
-         * sex : 1
-         * userId : 1
+         * reviewText : ，？！
+         * reviewTime : 1493710988000
+         * satisfyNo : 3
+         * sex : 0
+         * userId : 6
          */
 
         private String avatar;
         private int goodsId;
+        private String nickname;
         private String phoneNumber;
         private String realname;
         private String replyText;
@@ -107,6 +126,14 @@ public class ProductInnerDetailBean {
 
         public void setGoodsId(int goodsId) {
             this.goodsId = goodsId;
+        }
+
+        public String getNickname() {
+            return nickname;
+        }
+
+        public void setNickname(String nickname) {
+            this.nickname = nickname;
         }
 
         public String getPhoneNumber() {
@@ -174,22 +201,6 @@ public class ProductInnerDetailBean {
         }
     }
 
-    public static class ReviewPicsBean {
-        /**
-         * reviewPic : http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg
-         */
-
-        private String reviewPic;
-
-        public String getReviewPic() {
-            return reviewPic;
-        }
-
-        public void setReviewPic(String reviewPic) {
-            this.reviewPic = reviewPic;
-        }
-    }
-
     public static class CnnmdForYouBean {
         /**
          * id : 9
@@ -199,7 +210,6 @@ public class ProductInnerDetailBean {
          * pageNo : 1
          * pageSize : 12
          * showpic : http://img14.360buyimg.com/n1/jfs/t2671/40/3738529602/91694/6d433474/5796ff32N124294ab.jpg
-         * typeId : 1
          */
 
         private int id;
@@ -209,7 +219,6 @@ public class ProductInnerDetailBean {
         private int pageNo;
         private int pageSize;
         private String showpic;
-        private int typeId;
 
         public int getId() {
             return id;
@@ -265,14 +274,6 @@ public class ProductInnerDetailBean {
 
         public void setShowpic(String showpic) {
             this.showpic = showpic;
-        }
-
-        public int getTypeId() {
-            return typeId;
-        }
-
-        public void setTypeId(int typeId) {
-            this.typeId = typeId;
         }
     }
 }

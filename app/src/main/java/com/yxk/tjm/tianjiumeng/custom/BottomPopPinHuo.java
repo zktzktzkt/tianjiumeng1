@@ -20,6 +20,7 @@ import com.yxk.tjm.tianjiumeng.home.bean.HotStrugDetailBean;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.utils.LogUtil;
 import com.yxk.tjm.tianjiumeng.utils.To;
+import com.yxk.tjm.tianjiumeng.utils.UserUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -123,7 +124,7 @@ public class BottomPopPinHuo<T> extends PopupWindow {
             }
             JSONObject jo = new JSONObject();
             jo.put("goodsId", Integer.parseInt(productId));//商品Id
-            jo.put("userId", 1);//购买者的id(int)
+            jo.put("userId", UserUtil.getUserId(App.getAppContext()));//购买者的id(int)
             jo.put("goodsAccant", Integer.parseInt(amount_view.getEditContent()));//商品数量(int)
             jo.put("goodsPrice", nowprice);//商品单价(int)
             jo.put("goodsHW", goodsHW);//商品的宽*高

@@ -16,6 +16,7 @@ import com.google.gson.JsonObject;
 import com.yxk.tjm.tianjiumeng.App;
 import com.yxk.tjm.tianjiumeng.R;
 import com.yxk.tjm.tianjiumeng.custom.AmountView;
+import com.yxk.tjm.tianjiumeng.custom.MyToolbar;
 import com.yxk.tjm.tianjiumeng.network.ApiConstants;
 import com.yxk.tjm.tianjiumeng.shopcar.bean.ShopCartBean;
 import com.yxk.tjm.tianjiumeng.utils.LogUtil;
@@ -38,8 +39,12 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
     Button btn_account;
     CheckBox checkbox_edit;
     Button btn_delete;
+    TextView tv_shopcart_null;
+    MyToolbar mToolbar;
 
-    public ShopCartAdapter(List<ShopCartBean.BuyitemBean> datas, CheckBox checkbox, TextView tv_all_price, Button btn_account, CheckBox checkbox_edit, Button btn_delete) {
+    public ShopCartAdapter(List<ShopCartBean.BuyitemBean> datas, CheckBox checkbox,
+                           TextView tv_all_price, Button btn_account, CheckBox checkbox_edit,
+                           Button btn_delete, TextView tv_shopcart_null, MyToolbar mToolbar) {
         this.datas = datas;
         this.checkboxAll = checkbox;
         this.tv_all_price = tv_all_price;
@@ -47,6 +52,8 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
         this.checkboxAll.setChecked(true);
         this.checkbox_edit = checkbox_edit;
         this.btn_delete = btn_delete;
+        this.tv_shopcart_null = tv_shopcart_null;
+        this.mToolbar = mToolbar;
         //设置全选按钮的监听
         checkAllListener();
 
@@ -151,7 +158,8 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
                 removeItem();
                 // TODO: 2017/4/5 结算数量为0的时候显示另一个界面
                 if (computeCheckedCount() <= 0) {
-
+                    tv_shopcart_null.setVisibility(View.VISIBLE);
+                    mToolbar.setEditVisible(false);
                 }
             }
         });

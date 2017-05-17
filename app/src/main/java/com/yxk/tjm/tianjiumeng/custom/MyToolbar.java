@@ -47,6 +47,14 @@ public class MyToolbar extends Toolbar {
         initData();
     }
 
+    public void setEditVisible(boolean visible) {
+        if (visible) {
+            tv_edit.setVisibility(VISIBLE);
+        } else {
+            tv_edit.setVisibility(GONE);
+        }
+    }
+
     public void setTitle(String title) {
         tv_title.setText(title);
     }
