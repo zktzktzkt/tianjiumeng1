@@ -108,9 +108,11 @@ public class AmountView extends RelativeLayout implements View.OnClickListener, 
 
         etAmount.clearFocus();
 
-        if (mListener != null) {
-            mListener.onAmountChange(this, amount);
-        }
+        //因为btn点击的时候调用amountChange，Edittext改变的时候又会调用amountChange。
+        // 为防止调用两遍，目前只在edittext改变时调用amountChange。
+//        if (mListener != null) {
+//            mListener.onAmountChange(this, amount);
+//        }
     }
 
     @Override

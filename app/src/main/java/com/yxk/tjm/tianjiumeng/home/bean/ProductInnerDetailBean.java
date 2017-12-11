@@ -6,7 +6,7 @@ import java.util.List;
  * Created by ningfei on 2017/4/11.
  */
 
-public class ProductInnerDetailBean {
+public class  ProductInnerDetailBean {
 
 
     /**

@@ -75,7 +75,6 @@ public class MessageActivity extends BaseActivity {
                         messageBeanList = new Gson().fromJson(response, new TypeToken<List<MessageBean>>() {
                         }.getType());
                         messageAdapter.setNewData(messageBeanList);
-
                     }
                 });
 

@@ -243,29 +243,30 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         /**
          * 第一行
          * */
-        if (homeBean.getHotcnnmd() != null && homeBean.getHotcnnmd().size() >= 1) {
+        if (null != homeBean.getHotcnnmd() && homeBean.getHotcnnmd().size() >= 1) {
             specialOne.setVisibility(View.VISIBLE);
             specialTwo.setVisibility(View.GONE);
             specialThree.setVisibility(View.GONE);
+            List<HomeBean.HotcnnmdBean> hotcnnmdBeen_0 = homeBean.getHotcnnmd().get(0);
 
-            if (homeBean.getHotcnnmd().get(0).size() >= 1 && homeBean.getHotcnnmd().get(0) != null) {
-                specialOne.setZeroData(homeBean.getHotcnnmd().get(0).get(0).getCategoryName(),
-                        homeBean.getHotcnnmd().get(0).get(0).getCategoryPic(),
-                        homeBean.getHotcnnmd().get(0).get(0).getCategoryDecr());
+            if (hotcnnmdBeen_0.size() >= 1 && null != hotcnnmdBeen_0) {
+                specialOne.setZeroData(hotcnnmdBeen_0.get(0).getCategoryName(),
+                        hotcnnmdBeen_0.get(0).getCategoryPic(),
+                        hotcnnmdBeen_0.get(0).getCategoryDecr());
             }
-            if (homeBean.getHotcnnmd().get(0).size() >= 2 && homeBean.getHotcnnmd().get(0) != null) {
-                specialOne.setIvPic1(homeBean.getHotcnnmd().get(0).get(1).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(0).get(1).getNowprice());
-            }
-
-            if (homeBean.getHotcnnmd().get(0).size() >= 3 && homeBean.getHotcnnmd().get(0) != null) {
-                specialOne.setIvPic2(homeBean.getHotcnnmd().get(0).get(2).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(0).get(2).getNowprice());
+            if (hotcnnmdBeen_0.size() >= 2 && null != hotcnnmdBeen_0) {
+                specialOne.setIvPic1(hotcnnmdBeen_0.get(1).getShowpic(),
+                        "￥" + hotcnnmdBeen_0.get(1).getNowprice());
             }
 
-            if (homeBean.getHotcnnmd().get(0).size() >= 4 && homeBean.getHotcnnmd().get(0) != null) {
-                specialOne.setIvPic3(homeBean.getHotcnnmd().get(0).get(3).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(0).get(3).getNowprice());
+            if (hotcnnmdBeen_0.size() >= 3 && null != hotcnnmdBeen_0) {
+                specialOne.setIvPic2(hotcnnmdBeen_0.get(2).getShowpic(),
+                        "￥" + hotcnnmdBeen_0.get(2).getNowprice());
+            }
+
+            if (hotcnnmdBeen_0.size() >= 4 && null != hotcnnmdBeen_0) {
+                specialOne.setIvPic3(hotcnnmdBeen_0.get(3).getShowpic(),
+                        "￥" + hotcnnmdBeen_0.get(3).getNowprice());
             }
         }
 
@@ -273,29 +274,30 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         /**
          * 第二行
          * */
-        if (homeBean.getHotcnnmd() != null && homeBean.getHotcnnmd().size() >= 2) {
+        if (null !=homeBean.getHotcnnmd() && homeBean.getHotcnnmd().size() >= 2) {
             specialOne.setVisibility(View.VISIBLE);
             specialTwo.setVisibility(View.VISIBLE);
             specialThree.setVisibility(View.GONE);
+            List<HomeBean.HotcnnmdBean> hotcnnmdBeen_1 = homeBean.getHotcnnmd().get(1);
 
-            if (homeBean.getHotcnnmd().get(1).size() >= 1 && homeBean.getHotcnnmd().get(1) != null) {
-                specialTwo.setZeroData(homeBean.getHotcnnmd().get(1).get(0).getCategoryName(),
-                        homeBean.getHotcnnmd().get(1).get(0).getCategoryPic(),
-                        homeBean.getHotcnnmd().get(1).get(0).getCategoryDecr());
+            if (hotcnnmdBeen_1.size() >= 1 && null != hotcnnmdBeen_1) {
+                specialTwo.setZeroData(hotcnnmdBeen_1.get(0).getCategoryName(),
+                        hotcnnmdBeen_1.get(0).getCategoryPic(),
+                        hotcnnmdBeen_1.get(0).getCategoryDecr());
             }
-            if (homeBean.getHotcnnmd().get(1).size() >= 2 && homeBean.getHotcnnmd().get(1) != null) {
-                specialTwo.setIvPic1(homeBean.getHotcnnmd().get(1).get(1).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(1).get(1).getNowprice());
-            }
-
-            if (homeBean.getHotcnnmd().get(1).size() >= 3 && homeBean.getHotcnnmd().get(1) != null) {
-                specialTwo.setIvPic2(homeBean.getHotcnnmd().get(1).get(2).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(1).get(2).getNowprice());
+            if (hotcnnmdBeen_1.size() >= 2 && null != hotcnnmdBeen_1) {
+                specialTwo.setIvPic1(hotcnnmdBeen_1.get(1).getShowpic(),
+                        "￥" + hotcnnmdBeen_1.get(1).getNowprice());
             }
 
-            if (homeBean.getHotcnnmd().get(1).size() >= 4 && homeBean.getHotcnnmd().get(1) != null) {
-                specialTwo.setIvPic3(homeBean.getHotcnnmd().get(1).get(3).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(1).get(3).getNowprice());
+            if (hotcnnmdBeen_1.size() >= 3 && null != hotcnnmdBeen_1) {
+                specialTwo.setIvPic2(hotcnnmdBeen_1.get(2).getShowpic(),
+                        "￥" + hotcnnmdBeen_1.get(2).getNowprice());
+            }
+
+            if (hotcnnmdBeen_1.size() >= 4 && null != hotcnnmdBeen_1) {
+                specialTwo.setIvPic3(hotcnnmdBeen_1.get(3).getShowpic(),
+                        "￥" + hotcnnmdBeen_1.get(3).getNowprice());
             }
 
         }
@@ -304,27 +306,29 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         /**
          * 第三行
          * */
-        if (homeBean.getHotcnnmd() != null && homeBean.getHotcnnmd().size() >= 3) {
+        if (null != homeBean.getHotcnnmd() && homeBean.getHotcnnmd().size() >= 3) {
             specialOne.setVisibility(View.VISIBLE);
             specialTwo.setVisibility(View.VISIBLE);
             specialThree.setVisibility(View.VISIBLE);
 
-            if (homeBean.getHotcnnmd().get(2).size() >= 1 && homeBean.getHotcnnmd().get(2) != null) {
-                specialThree.setZeroData(homeBean.getHotcnnmd().get(2).get(0).getCategoryName(),
-                        homeBean.getHotcnnmd().get(2).get(0).getCategoryPic(),
-                        homeBean.getHotcnnmd().get(2).get(0).getCategoryDecr());
+            List<HomeBean.HotcnnmdBean> hotcnnmdBeen_2 = homeBean.getHotcnnmd().get(2);
+
+            if (hotcnnmdBeen_2.size() >= 1 && null != hotcnnmdBeen_2) {
+                specialThree.setZeroData(hotcnnmdBeen_2.get(0).getCategoryName(),
+                        hotcnnmdBeen_2.get(0).getCategoryPic(),
+                        hotcnnmdBeen_2.get(0).getCategoryDecr());
             }
-            if (homeBean.getHotcnnmd().get(2).size() >= 2 && homeBean.getHotcnnmd().get(2) != null) {
-                specialThree.setIvPic1(homeBean.getHotcnnmd().get(2).get(1).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(2).get(1).getNowprice());
+            if (hotcnnmdBeen_2.size() >= 2 && null != hotcnnmdBeen_2) {
+                specialThree.setIvPic1(hotcnnmdBeen_2.get(1).getShowpic(),
+                        "￥" + hotcnnmdBeen_2.get(1).getNowprice());
             }
-            if (homeBean.getHotcnnmd().get(2).size() >= 3 && homeBean.getHotcnnmd().get(2) != null) {
-                specialThree.setIvPic2(homeBean.getHotcnnmd().get(2).get(2).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(2).get(2).getNowprice());
+            if (hotcnnmdBeen_2.size() >= 3 && null != hotcnnmdBeen_2) {
+                specialThree.setIvPic2(hotcnnmdBeen_2.get(2).getShowpic(),
+                        "￥" + hotcnnmdBeen_2.get(2).getNowprice());
             }
-            if (homeBean.getHotcnnmd().get(2).size() >= 4 && homeBean.getHotcnnmd().get(2) != null) {
-                specialThree.setIvPic3(homeBean.getHotcnnmd().get(2).get(3).getShowpic(),
-                        "￥" + homeBean.getHotcnnmd().get(2).get(3).getNowprice());
+            if (hotcnnmdBeen_2.size() >= 4 && null != hotcnnmdBeen_2) {
+                specialThree.setIvPic3(hotcnnmdBeen_2.get(3).getShowpic(),
+                        "￥" + hotcnnmdBeen_2.get(3).getNowprice());
             }
 
         }

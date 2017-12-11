@@ -106,7 +106,6 @@
         android:layout_marginBottom="50dp"
         />
 
-
     <TextView
         android:id="@+id/tv_shopcart_null"
         android:layout_width="match_parent"

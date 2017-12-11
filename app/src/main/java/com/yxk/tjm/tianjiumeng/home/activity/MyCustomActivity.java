@@ -109,7 +109,6 @@ public class MyCustomActivity extends BaseActivity implements ImagePickerAdapter
     private String tailorMaterial;
     private String tailorDecr;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -332,7 +331,6 @@ public class MyCustomActivity extends BaseActivity implements ImagePickerAdapter
                         finish();
                     }
                 });
-
     }
 
     /**

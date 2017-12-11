@@ -90,6 +90,8 @@ public class NewsFragment extends BaseFragment {
      */
     private void setData() {
         recycler.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        newsAdapter = new NewsAdapter();
+        recycler.setAdapter(newsAdapter);
 
         OkHttpUtils.get()
                 .url(ApiConstants.NEWS_PAGE)
@@ -106,16 +108,14 @@ public class NewsFragment extends BaseFragment {
                         Gson gson = new Gson();
                         newsBean = gson.fromJson(response, NewsBean.class);
 
+                        //设置垂直公告
                         List<String> publiclist = new ArrayList<>();
-
                         for (int i = 0; i < newsBean.getPubliclist().size(); i++) {
                             publiclist.add(newsBean.getPubliclist().get(i).getPublicpic());
                         }
-
                         marqueeView.startWithList(publiclist);
 
-                        newsAdapter = new NewsAdapter();
-                        recycler.setAdapter(newsAdapter);
+                        newsAdapter.setNewData(newsBean.getNewslist());
                         newsAdapter.setLoadMoreView(new CustomLoadMoreView());
                         newsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
                             @Override

@@ -171,7 +171,9 @@ public class ProductDetailFragment extends Fragment {
 
     private void initRecommendForYouRecycler() {
         //设置大图
-        Glide.with(getActivity()).load(productInnerDetailBean.getDetailPics().getGoodsPic()).into(imgPicture);
+        if(null != productInnerDetailBean.getDetailPics().getGoodsPic()){
+            Glide.with(this).load(productInnerDetailBean.getDetailPics().getGoodsPic()).into(imgPicture);
+        }
 
         recyclerRecommond.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         RecommendForYouAdapter recommendForYouAdapter = new RecommendForYouAdapter();

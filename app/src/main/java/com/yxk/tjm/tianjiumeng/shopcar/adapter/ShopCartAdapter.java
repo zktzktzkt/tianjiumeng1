@@ -101,7 +101,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
                 if ((Integer) holder.itemView.getTag() == position) {
                     datas.get(position).setNumber(amount);
                     showTotalPrice();
-                    updateCountToNet(amount, datas.get(position).getBuyCart().getBuyCartId());// TODO: 2017/4/14 调用了两次，待处理
+                    updateCountToNet(amount, datas.get(position).getBuyCart().getBuyCartId());
                 }
             }
         });
@@ -110,7 +110,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
             @Override
             public void onClick(View view) {
                 //设置取反状态
-                datas.get(position).setChecked(!datas.get(holder.getLayoutPosition()).isChecked());
+                datas.get(holder.getLayoutPosition()).setChecked(!datas.get(holder.getLayoutPosition()).isChecked());
                 //计算总价格
                 showTotalPrice();
                 //计算结算的数量
@@ -156,8 +156,11 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
             @Override
             public void onClick(View view) {
                 removeItem();
-                // TODO: 2017/4/5 结算数量为0的时候显示另一个界面
-                if (computeCheckedCount() <= 0) {
+                // 结算数量为0的时候显示另一个界面
+              /*  if (computeCheckedCount() <= 0) {
+                    tv_shopcart_null.setVisibility(View.VISIBLE);
+                    mToolbar.setEditVisible(false);
+                } */if (datas.size() <= 0) {
                     tv_shopcart_null.setVisibility(View.VISIBLE);
                     mToolbar.setEditVisible(false);
                 }
@@ -177,13 +180,13 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
                 jo = new JsonObject();
                 jo.addProperty("buyCartId", datas.get(i).getBuyCart().getBuyCartId() + "");
                 ja.add(jo);
-                //----------------------
+                //-----------------------------------
                 notifyItemRemoved(i);
                 datas.remove(i);
                 len--;
                 i--;
                 notifyItemRangeChanged(0, getItemCount()); //此处要从0开始刷新，否则刷新为范围不对，数组越界
-                //---------------------
+                //------------------------------------
             }
         }
         deleteFromNetwork(ja.toString());

@@ -212,6 +212,18 @@ public class FlashSaleAdapter extends RecyclerView.Adapter<FlashSaleAdapter.MyHo
     }
 
     /**
+     * （原）取消倒计时
+     */
+    public void cancelRefreshTime() {
+        isCancel = true;
+        if (null != mTimer) {
+            mTimer.cancel();
+        }
+        mHandler.removeCallbacks(mRefreshTimeRunnable);
+    }
+
+
+    /**
      * （原）每隔10毫秒执行一遍该Runnable，执行间隔在Timer设置
      */
     private Runnable mRefreshTimeRunnable = new Runnable() {   //7.

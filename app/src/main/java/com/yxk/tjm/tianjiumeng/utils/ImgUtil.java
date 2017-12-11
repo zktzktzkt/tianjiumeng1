@@ -65,8 +65,8 @@ public class ImgUtil {
     /**
      * 上传图片的方法
      */
-    public static String uploadFile(String RequestURL, String path, String key) {
-        File file = new File(path);
+    public static String uploadFile(String RequestURL, String filePath, String key) {
+        File file = new File(filePath);
         String BOUNDARY = UUID.randomUUID().toString(); // 边界标识 随机生成
         String PREFIX = "--", LINE_END = "\r\n";
         String CONTENT_TYPE = "multipart/form-data"; // 内容类型
@@ -83,55 +83,50 @@ public class ImgUtil {
             conn.setRequestProperty("connection", "keep-alive");
             conn.setRequestProperty("Content-Type", CONTENT_TYPE + ";boundary=" + BOUNDARY);
 
-            if (file != null) {
-                /**
-                 * 当文件不为空，把文件包装并且上传
-                 */
-                OutputStream outputSteam = conn.getOutputStream();
-                DataOutputStream dos = new DataOutputStream(outputSteam);
-                StringBuffer sb = new StringBuffer();
-                sb.append(PREFIX);
-                sb.append(BOUNDARY);
-                sb.append(LINE_END);
-                /**
-                 * 这里重点注意： name里面的值为服务器端需要key 只有这个key 才可以得到对应的文件
-                 * filename是文件的名字，包含后缀名的 比如:abc.png
-                 */
-                sb.append("Content-Disposition: form-data; name=\" " + key + " \"; filename=\" " + file.getName() + " \"" + LINE_END);
-                sb.append("Content-Type: application/octet-stream; charset=" + CHARSET + LINE_END);
-                sb.append(LINE_END);
-                dos.write(sb.toString().getBytes());
-                InputStream is = new FileInputStream(file);
-                byte[] bytes = new byte[1024];
-                int len = 0;
-                while ((len = is.read(bytes)) != -1) {
-                    dos.write(bytes, 0, len);
+            OutputStream outputSteam = conn.getOutputStream();
+            DataOutputStream dos = new DataOutputStream(outputSteam);
+            StringBuffer sb = new StringBuffer();
+            sb.append(PREFIX);
+            sb.append(BOUNDARY);
+            sb.append(LINE_END);
+            /**
+             * 这里重点注意： name里面的值为服务器端需要key 只有这个key 才可以得到对应的文件
+             * filename是文件的名字，包含后缀名的 比如:abc.png
+             */
+            sb.append("Content-Disposition: form-data; name=\" " + key + " \"; filename=\" " + file.getName() + " \"" + LINE_END);
+            sb.append("Content-Type: application/octet-stream; charset=" + CHARSET + LINE_END);
+            sb.append(LINE_END);
+            dos.write(sb.toString().getBytes());
+            InputStream is = new FileInputStream(file);
+            byte[] bytes = new byte[1024];
+            int len = 0;
+            while ((len = is.read(bytes)) != -1) {
+                dos.write(bytes, 0, len);
+            }
+            is.close();
+            dos.write(LINE_END.getBytes());
+            byte[] end_data = (PREFIX + BOUNDARY + PREFIX + LINE_END).getBytes();
+            dos.write(end_data);
+            dos.flush();
+            /**
+             * 获取响应码 200=成功 当响应成功，获取响应的流
+             */
+            int res = conn.getResponseCode();
+            System.out.println(res);
+            if (res == 200) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                //创建字节输出流
+                BufferedInputStream reader = new BufferedInputStream(conn.getInputStream());
+                int b;
+                byte[] bit = new byte[1024];
+                while (-1 != (b = reader.read(bit))) {
+                    byteArrayOutputStream.write(bit, 0, b);
                 }
-                is.close();
-                dos.write(LINE_END.getBytes());
-                byte[] end_data = (PREFIX + BOUNDARY + PREFIX + LINE_END).getBytes();
-                dos.write(end_data);
-                dos.flush();
-                /**
-                 * 获取响应码 200=成功 当响应成功，获取响应的流
-                 */
-                int res = conn.getResponseCode();
-                System.out.println(res);
-                if (res == 200) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    //创建字节输出流
-                    BufferedInputStream reader = new BufferedInputStream(conn.getInputStream());
-                    int b;
-                    byte[] bit = new byte[1024];
-                    while (-1 != (b = reader.read(bit))) {
-                        byteArrayOutputStream.write(bit, 0, b);
-                    }
-                    String result = new String(byteArrayOutputStream.toByteArray());
-                    Log.i("result", result);
-                    return result;
-                } else {
-                    return "";
-                }
+                String result = new String(byteArrayOutputStream.toByteArray());
+                Log.i("result", result);
+                return result;
+            } else {
+                return "";
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();

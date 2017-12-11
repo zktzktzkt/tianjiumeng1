@@ -115,6 +115,7 @@ public class ShopCartFragment extends Fragment {
     }
 
     private void initData() {
+        LogUtil.e("userId", UserUtil.getUserId(getContext()));
         OkHttpUtils
                 .get()
                 .url(ApiConstants.SHOPCAR)
@@ -123,7 +124,7 @@ public class ShopCartFragment extends Fragment {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        LogUtil.e("ShopCartFragment ", "e：" + e);
                     }
 
                     @Override
