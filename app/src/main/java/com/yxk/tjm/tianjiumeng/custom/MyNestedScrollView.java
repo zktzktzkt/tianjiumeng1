@@ -73,7 +73,7 @@ public class MyNestedScrollView extends NestedScrollView {
                 alpha = 255;
             if (alpha <= 0)
                 alpha = 0;
-            toolbar.getBackground().setAlpha(alpha);
+            toolbar.getBackground().mutate().setAlpha(alpha);
         }
 
         super.onScrollChanged(l, t, oldl, oldt);
