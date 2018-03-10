@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\animator\\scale_with_alpha.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\67aeb7203bbadaac954dd0856744313b08e65745\\output\\res\\animator\\scale_with_alpha.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\animator\\scale_with_alpha.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\e7a23b12e07121e2a8290a6cfbd775f81187b062\\output\\res\\animator\\scale_with_alpha.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\animator\\scale_with_alpha.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\e7a23b12e07121e2a8290a6cfbd775f81187b062\\output\\res\\animator\\scale_with_alpha.xml"
     }
 ]

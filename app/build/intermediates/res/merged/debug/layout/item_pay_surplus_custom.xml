@@ -15,6 +15,7 @@
         >
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -26,6 +27,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_orderId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -67,7 +69,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_return_percent"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
@@ -82,7 +84,7 @@
             android:id="@+id/tv_texture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_return_percent"
+            android:layout_below="@id/tv_name"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/img_pic"
@@ -105,7 +107,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_detail"
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_num"
@@ -136,7 +138,7 @@
         android:paddingTop="10dp">
 
         <Button
-            android:id="@+id/btn_get_money"
+            android:id="@+id/btn_cancel"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"

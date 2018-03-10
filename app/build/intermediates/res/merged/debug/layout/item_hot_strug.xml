@@ -51,6 +51,7 @@
         />
 
     <TextView
+        android:id="@+id/tv_sendOutTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/tv_amount"

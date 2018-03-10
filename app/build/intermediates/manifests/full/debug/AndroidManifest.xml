@@ -5,13 +5,16 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="25" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:name="com.yxk.tjm.tianjiumeng.App"
@@ -99,6 +102,25 @@
         <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.SearchActivity" />
         <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.TJMHouseActivity" >
         </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.AllAppraiseActivity" >
+        </activity>
+        <activity
+            android:name="com.yxk.tjm.tianjiumeng.shopcar.activity.PaySuccessActivity"
+            android:label="@string/title_activity_pay_success"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.shopcar.activity.PayFailedActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.SeeLogisticsActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.shopcar.activity.PayWayActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.my.activity.UpdateCustomActivity" >
+        </activity>
+        <activity android:name="com.yxk.tjm.tianjiumeng.home.activity.SearchListActivity" />
+        <activity
+            android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"
+            android:theme="@style/ImagePickerThemeFullScreen" />
         <activity
             android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
             android:configChanges="orientation|screenSize" />
@@ -108,6 +130,30 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name="com.lzy.imagepicker.ui.ImageBaseActivity" />
+        <activity
+            android:name="com.lzy.imagepicker.ui.ImageGridActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/ImagePickerTheme" />
+        <activity
+            android:name="com.lzy.imagepicker.ui.ImageCropActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="false"
+            android:theme="@style/ImagePickerTheme" />
+        <activity
+            android:name="com.lzy.imagepicker.ui.ImagePreviewActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/ImagePickerThemeFullScreen" />
+
+        <provider
+            android:name="com.lzy.imagepicker.ImagePickerProvider"
+            android:authorities="com.yxk.tjm.tianjiumeng.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

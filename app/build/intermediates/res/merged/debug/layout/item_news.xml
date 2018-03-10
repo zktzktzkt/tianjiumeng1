@@ -16,10 +16,9 @@
 
         <ImageView
             android:id="@+id/img_pic"
-            android:layout_width="175dp"
-            android:layout_height="175dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitXY"
             android:src="@drawable/pic_news_1"/>
 
         <TextView

@@ -1,286 +1,626 @@
 [
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_news.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_news.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_round.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_red_round.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\test_wheel_bg.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\citypickerview\\build\\intermediates\\bundles\\default\\res\\drawable\\test_wheel_bg.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_orange_round_stroke.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_orange_round_stroke.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_clear_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_edit_text_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\design_snackbar_background.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_round.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_red_round.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\black_background.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\67aeb7203bbadaac954dd0856744313b08e65745\\output\\res\\drawable\\black_background.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\wheel_bg.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\citypickerview\\build\\intermediates\\bundles\\default\\res\\drawable\\wheel_bg.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\notification_bg_low.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_item_checked.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\imagepicker\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_item_checked.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_address_rb.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_address_rb.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\white_radius.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\e7a23b12e07121e2a8290a6cfbd775f81187b062\\output\\res\\drawable\\white_radius.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_text_cursor_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_line.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_gray_line.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_bottom_navigation_item_background.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\design_bottom_navigation_item_background.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_dialog_material_background.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_select.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_select.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_common_stroke.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_gray_common_stroke.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\notification_bg.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\notification_tile_bg.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_red.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_red.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_select.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_select.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\notification_bg.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_line.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_gray_line.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_round_spec.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_round_spec.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_home.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_home.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_common_stroke.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_gray_common_stroke.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_colored_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_grid_camera_bg.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\imagepicker\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_grid_camera_bg.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\white_radius.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\67aeb7203bbadaac954dd0856744313b08e65745\\output\\res\\drawable\\white_radius.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_red.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_red.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\navigation_empty_icon.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_top_ok.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\imagepicker\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_top_ok.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_stroke.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_red_stroke.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_round_rectangle_search.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_gray_round_rectangle_search.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_round_login.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_round_login.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sample_footer_loading.png",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\drawable\\sample_footer_loading.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\wheel_val.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\citypickerview\\build\\intermediates\\bundles\\default\\res\\drawable\\wheel_val.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_orange_round_stroke.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_orange_round_stroke.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_vector_test.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\notification_icon_background.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_address_rb.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_address_rb.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_round_rectangle_search.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_gray_round_rectangle_search.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_black_round.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_black_round.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_back_press.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\imagepicker\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_back_press.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_round_spec.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_round_spec.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shopcart_check.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_shopcart_check.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sample_footer_loading_progress.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\cc1699d219efabfe39f26c0354e973675c557ebd\\output\\res\\drawable\\sample_footer_loading_progress.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_back_press.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\imagepicker\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_back_press.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_radio_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\white_radius.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\e7a23b12e07121e2a8290a6cfbd775f81187b062\\output\\res\\drawable\\white_radius.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shopcar.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_shopcar.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ratingbar_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shopcart_check.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_shopcart_check.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\scan_light.png",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\99b5e18bb280eee0cb44743d5666ff2897095393\\output\\res\\drawable\\scan_light.png"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sample_footer_loading_progress.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\drawable\\sample_footer_loading_progress.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rating_bar.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\rating_bar.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\design_fab_background.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_password_eye.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\design_password_eye.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_home.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_home.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shopcar.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_shopcar.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_round_stroke.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_red_round_stroke.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\wheel_bg.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\citypickerview\\build\\intermediates\\bundles\\default\\res\\drawable\\wheel_bg.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\design_bottom_navigation_item_background.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_clear_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_news.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_news.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_textfield_search_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gray_radius.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\67aeb7203bbadaac954dd0856744313b08e65745\\output\\res\\drawable\\gray_radius.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mis_action_btn.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\\output\\res\\drawable\\mis_action_btn.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_select.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_select.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\design_snackbar_background.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_dialog_material_background.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\notification_bg_low.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_round_rectangle_20.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\shape_gray_round_rectangle_20.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_password_eye.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\b9b4755efe17fce8e10a66ad2f68fe827708eaef\\output\\res\\drawable\\design_password_eye.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_open.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_open.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sample_footer_loading.png",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\cc1699d219efabfe39f26c0354e973675c557ebd\\output\\res\\drawable\\sample_footer_loading.png"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_stroke.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_red_stroke.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_check_material.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_vector_test.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_up_down.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_up_down.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shopcart_check.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\drawable\\selector_shopcart_check.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\2fbcfff19208193a98ae7bf89317d1b01929ee51\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_round_stroke.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_red_round_stroke.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_black_round.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_black_round.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_line.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_gray_line.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_open.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_open.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_orange_round_stroke.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_orange_round_stroke.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\black_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\e7a23b12e07121e2a8290a6cfbd775f81187b062\\output\\res\\drawable\\black_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shopcar.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_shopcar.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\test_wheel_bg.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\citypickerview\\build\\intermediates\\bundles\\default\\res\\drawable\\test_wheel_bg.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gray_radius.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\e7a23b12e07121e2a8290a6cfbd775f81187b062\\output\\res\\drawable\\gray_radius.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_open.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_open.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_stroke.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_red_stroke.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_up_down.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_up_down.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mis_action_btn.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\15e76f3c8ce661820c7b677435521c0029ac677b\\output\\res\\drawable\\mis_action_btn.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sample_footer_loading_progress.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\drawable\\sample_footer_loading_progress.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_round_rectangle_20.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_gray_round_rectangle_20.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\scan_light.png",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\\output\\res\\drawable\\scan_light.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\scan_light.png",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\\output\\res\\drawable\\scan_light.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_up_down.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_up_down.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_black_round.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_black_round.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\design_fab_background.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_address_rb.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_address_rb.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\black_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\e7a23b12e07121e2a8290a6cfbd775f81187b062\\output\\res\\drawable\\black_background.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_round.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_red_round.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_red_round_stroke.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_red_round_stroke.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_password_eye.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\design_password_eye.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_red.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_red.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\wheel_val.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\citypickerview\\build\\intermediates\\bundles\\default\\res\\drawable\\wheel_val.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_vector_test.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_round_spec.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_round_spec.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_item_checked.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\imagepicker\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_item_checked.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_top_ok.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\imagepicker\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_top_ok.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\sample_footer_loading.png",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\drawable\\sample_footer_loading.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_home.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_home.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rating_bar.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\rating_bar.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mis_action_btn.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\15e76f3c8ce661820c7b677435521c0029ac677b\\output\\res\\drawable\\mis_action_btn.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rating_bar.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\rating_bar.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_round_rectangle_search.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_gray_round_rectangle_search.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_round_login.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_round_login.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gray_radius.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\e7a23b12e07121e2a8290a6cfbd775f81187b062\\output\\res\\drawable\\gray_radius.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_round_login.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_round_login.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_common_stroke.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_gray_common_stroke.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_grid_camera_bg.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\imagepicker\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_grid_camera_bg.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\83da2a15e72127eac9d3b6c0f53971deed5f49e2\\output\\res\\drawable\\design_fab_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_news.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\drawable\\selector_news.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_gray_round_rectangle_20.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\drawable\\shape_gray_round_rectangle_20.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\9c9c69838095ec267768c4efb70693c045ec45cb\\output\\res\\drawable\\abc_seekbar_track_material.xml"
     }
 ]

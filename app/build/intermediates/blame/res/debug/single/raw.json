@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
-        "source": "C:\\Users\\ningfei\\.android\\build-cache\\99b5e18bb280eee0cb44743d5666ff2897095393\\output\\res\\raw\\beep.ogg"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\\output\\res\\raw\\beep.ogg"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
+        "source": "C:\\Users\\zkt\\.android\\build-cache\\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\\output\\res\\raw\\beep.ogg"
     }
 ]

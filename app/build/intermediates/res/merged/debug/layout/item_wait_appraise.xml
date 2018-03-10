@@ -15,6 +15,7 @@
         >
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -26,6 +27,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_orderId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -67,27 +69,27 @@
             />
 
         <TextView
-            android:id="@+id/tv_return_percent"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
-            android:layout_marginTop="16dp"
             android:layout_toRightOf="@id/img_pic"
-            android:text="尺寸：20x30cm"
+            android:text="标题标题"
+            android:layout_marginTop="11sp"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="16sp"
             />
 
         <TextView
             android:id="@+id/tv_texture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_return_percent"
+            android:layout_below="@id/tv_name"
             android:layout_marginLeft="22dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/img_pic"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="0sp"
             />
 
         <TextView
@@ -98,23 +100,24 @@
             android:layout_marginLeft="22dp"
             android:layout_toRightOf="@id/img_pic"
             android:text="数量：20件"
-            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/gray_858489"
             android:textSize="12sp"
             />
 
         <TextView
-            android:id="@+id/tv_detail"
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_num"
             android:layout_marginLeft="22dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/img_pic"
             android:ellipsize="end"
             android:maxLines="2"
             android:text="$ 299"
             android:textColor="@color/red_ff0000"
-            android:textSize="12sp"
+            android:textSize="14sp"
             />
 
     </RelativeLayout>
@@ -134,7 +137,7 @@
         android:paddingTop="10dp">
 
         <Button
-            android:id="@+id/btn_get_money"
+            android:id="@+id/btn_appraise"
             android:layout_width="70dp"
             android:layout_height="25dp"
             android:layout_alignParentRight="true"

@@ -15,12 +15,24 @@
         >
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:text="2016.5.20"
+            android:textColor="@color/tabTextColor"
+            android:textSize="11sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_orderId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_vertical"
+            android:text="订单号：1221165165"
             android:textColor="@color/tabTextColor"
             android:textSize="11sp"
             />
@@ -57,7 +69,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_return_percent"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
@@ -69,10 +81,10 @@
             />
 
         <TextView
-            android:id="@+id/tv_base"
+            android:id="@+id/tv_texture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_return_percent"
+            android:layout_below="@id/tv_name"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/img_pic"
@@ -85,7 +97,7 @@
             android:id="@+id/tv_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_base"
+            android:layout_below="@id/tv_texture"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/img_pic"
@@ -95,7 +107,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_detai"
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/tv_num"
@@ -124,7 +136,7 @@
             android:id="@+id/btn_see"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:layout_below="@id/tv_detai"
+            android:layout_below="@id/tv_price"
             android:layout_margin="8dp"
             android:background="@drawable/shape_orange_round_stroke"
             android:text="查看合同"
@@ -136,7 +148,7 @@
             android:id="@+id/btn_pay"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:layout_below="@id/tv_detai"
+            android:layout_below="@id/tv_price"
             android:layout_margin="8dp"
             android:background="@drawable/shape_red_stroke"
             android:text="立即付款"

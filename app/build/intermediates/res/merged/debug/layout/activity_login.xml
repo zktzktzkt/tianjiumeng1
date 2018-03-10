@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#201f25"
-        app:navigationIcon="@drawable/iocn_back">
+       >
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
             android:layout_height="75dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/icon_user"/>
 
         <EditText
             android:id="@+id/et_phone"
@@ -72,6 +72,7 @@
             android:drawablePadding="24dp"
             android:gravity="center_vertical"
             android:hint="至少六位密码"
+            android:inputType="textPassword"
             android:paddingLeft="24dp"
             android:paddingRight="10dp"
             android:singleLine="true"

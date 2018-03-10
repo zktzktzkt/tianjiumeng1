@@ -15,6 +15,7 @@
         >
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -57,54 +58,54 @@
             />
 
         <TextView
-            android:id="@+id/tv_return_percent"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/img_pic"
-            android:text="尺寸：20x30cm"
+            android:text="名称名称名称"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="16sp"
             />
 
         <TextView
-            android:id="@+id/tv_base"
+            android:id="@+id/tv_texture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_return_percent"
+            android:layout_below="@id/tv_name"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/img_pic"
             android:text="材质：水晶"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="0sp"
             />
 
         <TextView
             android:id="@+id/tv_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_base"
+            android:layout_below="@id/tv_texture"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/img_pic"
             android:text="数量：20"
-            android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textColor="@color/gray_858489"
+            android:textSize="12sp"
             />
 
         <TextView
-            android:id="@+id/tv_detai"
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/tv_num"
             android:layout_below="@id/tv_num"
             android:layout_marginBottom="8dp"
-            android:layout_marginTop="10dp"
-            android:text="详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍"
-            android:textColor="@color/tabTextColor"
-            android:textSize="10sp"
+            android:layout_marginTop="8dp"
+            android:text="￥200"
+            android:textColor="@color/red_ff0000"
+            android:textSize="14sp"
             />
 
     </RelativeLayout>

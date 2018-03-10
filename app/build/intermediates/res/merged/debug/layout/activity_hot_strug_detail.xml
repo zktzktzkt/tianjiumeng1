@@ -8,6 +8,7 @@
                 tools:context="com.yxk.tjm.tianjiumeng.home.activity.HotStrugDetailActivity">
 
     <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp"
@@ -33,7 +34,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="123dp"
+                    android:layout_height="wrap_content"
                     android:background="#28272f">
 
                     <TextView
@@ -75,6 +76,21 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_original_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_price"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="3dp"
+                        android:text="参考价￥899"
+                        android:textColor="@color/tabTextColor"
+                        android:textSize="11sp"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_tatalStore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@id/tv_price"
@@ -115,35 +131,35 @@
                         />
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#28272f"
-                    >
+                <!-- <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="45dp"
+                     android:layout_marginTop="10dp"
+                     android:background="#28272f"
+                     >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:text="购买数量"
-                        android:textColor="#fff"
-                        android:textSize="13sp"
-                        />
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerVertical="true"
+                         android:layout_marginLeft="10dp"
+                         android:text="购买数量"
+                         android:textColor="#fff"
+                         android:textSize="13sp"
+                         />
 
-                    <com.yxk.tjm.tianjiumeng.custom.AmountView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/more"
-                        amount_view:AddBtnDrawable="@drawable/jia_bai"
-                        amount_view:ReduceBtnDrawable="@drawable/jian_bai"
-                        amount_view:etColor="#fff"
-                        />
-                </RelativeLayout>
+                     <com.yxk.tjm.tianjiumeng.custom.AmountView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentRight="true"
+                         android:layout_centerVertical="true"
+                         android:layout_marginRight="10dp"
+                         android:src="@drawable/more"
+                         amount_view:AddBtnDrawable="@drawable/jia_bai"
+                         amount_view:ReduceBtnDrawable="@drawable/jian_bai"
+                         amount_view:etColor="#fff"
+                         />
+                 </RelativeLayout>-->
 
                 <android.support.design.widget.TabLayout
                     android:id="@+id/tab_layout"
@@ -157,33 +173,6 @@
                     android:id="@+id/view_pager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:background="#28272f"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tuijian"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="20dp"
-                        android:text="为您推荐"
-                        android:textColor="#fff"
-                        android:textSize="13sp"
-                        />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignBottom="@id/tuijian"
-                        android:layout_toLeftOf="@id/tuijian"
-                        android:src="@drawable/icon_tuijian"
-                        />
-                </RelativeLayout>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler"
@@ -229,6 +218,7 @@
             android:text="收藏"
             android:textColor="#cccccc"
             android:textSize="9sp"
+            android:visibility="gone"
             />
 
         <TextView
@@ -243,11 +233,12 @@
             android:text="加购物车"
             android:textColor="#cccccc"
             android:textSize="9sp"
+            android:visibility="gone"
             />
 
         <Button
             android:id="@+id/btn_buy"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_gravity="right"
@@ -255,7 +246,7 @@
             android:gravity="center"
             android:text="参与拼伙"
             android:textColor="#fff"
-            android:textSize="14sp"
+            android:textSize="15sp"
             />
 
     </RelativeLayout>

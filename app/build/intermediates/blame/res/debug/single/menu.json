@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_template.xml",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\menu\\menu_template.xml"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_template.xml",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\menu\\menu_template.xml"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_template.xml",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\menu\\menu_template.xml"
     }
 ]

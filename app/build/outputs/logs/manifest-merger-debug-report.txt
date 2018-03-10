@@ -1,284 +1,383 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:2:1-98:12
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:2:1-118:12
 	package
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:3:11-44
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:3:11-44
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:2:11-69
 	android:versionCode
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:5:5-66
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:5:5-66
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:6:5-79
-MERGED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\ningfei\.android\build-cache\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\output\AndroidManifest.xml:11:5-80
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:6:5-79
+MERGED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\zkt\.android\build-cache\15e76f3c8ce661820c7b677435521c0029ac677b\output\AndroidManifest.xml:11:5-80
+MERGED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:16:5-80
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:6:22-77
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:6:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:7:5-80
-MERGED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\ningfei\.android\build-cache\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\output\AndroidManifest.xml:12:5-81
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:7:5-80
+MERGED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\zkt\.android\build-cache\15e76f3c8ce661820c7b677435521c0029ac677b\output\AndroidManifest.xml:12:5-81
+MERGED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:14:5-81
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:7:22-78
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:7:22-78
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:8:5-64
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:8:5-64
+MERGED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:18:5-65
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:8:22-62
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:8:22-62
 application
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:10:5-96:19
-MERGED from [com.android.support:design:25.2.0] C:\Users\ningfei\.android\build-cache\b9b4755efe17fce8e10a66ad2f68fe827708eaef\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:transition:25.2.0] C:\Users\ningfei\.android\build-cache\f90d75705197d61659be99517702676a64cd7b1f\output\AndroidManifest.xml:22:5-20
-MERGED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\ningfei\.android\build-cache\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\output\AndroidManifest.xml:14:5-18:19
-MERGED from [com.sunfusheng:marqueeview:1.2.0] C:\Users\ningfei\.android\build-cache\a444286954d643223368f8942be4fc96aa74c243\output\AndroidManifest.xml:11:5-15:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.1] C:\Users\ningfei\.android\build-cache\dfc1b54a831f4270f692185d664aecb49088a0f6\output\AndroidManifest.xml:9:5-20
-MERGED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\ningfei\.android\build-cache\99b5e18bb280eee0cb44743d5666ff2897095393\output\AndroidManifest.xml:11:5-18:19
-MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\ningfei\.android\build-cache\2fbcfff19208193a98ae7bf89317d1b01929ee51\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\ningfei\.android\build-cache\fa46c268028f3dbf6bb703dfab03d2d4193d2dfd\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\ningfei\.android\build-cache\616a2fe5a607c8f60db61f4ced67a41df738a8bf\output\AndroidManifest.xml:23:5-20
-MERGED from [com.android.support:support-v4:25.2.0] C:\Users\ningfei\.android\build-cache\0f64d1783abc5d52e50ca9380ac9f5510477eac8\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\ningfei\.android\build-cache\e5747571f59b11c51059077b6895208adb2ae3b2\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\ningfei\.android\build-cache\22819a322e318b1cb074fc7c3f1445eca082932d\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\ningfei\.android\build-cache\61d5ec67e9727f78863160449610024161f391a0\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\ningfei\.android\build-cache\5aeb5eb8c90efee6b2fa8f5d73814b115f17649b\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:25.2.0] C:\Users\ningfei\.android\build-cache\594ef4f0d91c4cbfddb4d7517e3fda55e1bdcbdb\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\ningfei\.android\build-cache\317642a35fd618a35f99e58f93914be8a8c8785a\output\AndroidManifest.xml:22:5-20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:10:5-116:19
+MERGED from [liji.library.dev:citypickerview:1.0.0] D:\Android_Project\tianjiumeng1\citypickerview\build\intermediates\bundles\default\AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.support:design:25.2.0] C:\Users\zkt\.android\build-cache\83da2a15e72127eac9d3b6c0f53971deed5f49e2\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:transition:25.2.0] C:\Users\zkt\.android\build-cache\ddc98e544cac5938e254e2b00bf504897edb3cb7\output\AndroidManifest.xml:22:5-20
+MERGED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\zkt\.android\build-cache\15e76f3c8ce661820c7b677435521c0029ac677b\output\AndroidManifest.xml:14:5-18:19
+MERGED from [com.sunfusheng:marqueeview:1.2.0] C:\Users\zkt\.android\build-cache\e200c9925ba978d9e8e0c86a9baaa0c9edb62a79\output\AndroidManifest.xml:11:5-15:19
+MERGED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\zkt\.android\build-cache\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\output\AndroidManifest.xml:11:5-18:19
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\zkt\.android\build-cache\abb7216569877402a87d75fa97d76f6e50be4e0f\output\AndroidManifest.xml:22:5-20
+MERGED from [com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5] C:\Users\zkt\.android\build-cache\75331a42fdca27aea39639ed3deb9f105a515123\output\AndroidManifest.xml:11:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.1] C:\Users\zkt\.android\build-cache\36dd51a9d72c754a998357465d2519463acd09ba\output\AndroidManifest.xml:9:5-20
+MERGED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:20:5-45:19
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\zkt\.android\build-cache\9c9c69838095ec267768c4efb70693c045ec45cb\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\zkt\.android\build-cache\c581741141dcca3053f875688a3dfdf868e93e5b\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\zkt\.android\build-cache\4536c1e990c28f84ee2641e1229cc32ec7d20358\output\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\zkt\.android\build-cache\94690817118f3086257946e8e7e100f7ee3ba7ec\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\zkt\.android\build-cache\9254e9e0b591dd3c1c03d4ea985715d32964c6bf\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\zkt\.android\build-cache\10a22c72afee3fce295815168732857b99571c27\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\zkt\.android\build-cache\e455cf218b0dd81d15bf9d6e2832faa506db878a\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\zkt\.android\build-cache\9cb40a3e13dc64103a93545338ced30b1537f5fb\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\zkt\.android\build-cache\026867a32383d9a5d63ad4c3a9a83746dbf8b4b9\output\AndroidManifest.xml:25:5-20
 	android:label
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:14:9-41
 	android:supportsRtl
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:16:9-35
 	android:roundIcon
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:15:9-54
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:15:9-54
 	android:allowBackup
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:12:9-35
 	android:icon
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:13:9-43
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:13:9-43
 	android:theme
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:17:9-40
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:17:9-40
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:11:9-28
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:11:9-28
 activity#com.yxk.tjm.tianjiumeng.SplashActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:18:9-24:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:18:9-24:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:18:19-49
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:18:19-49
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:19:13-23:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:20:17-68
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:20:17-68
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:22:17-76
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:22:17-76
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:22:27-74
 activity#com.yxk.tjm.tianjiumeng.MainActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:25:9-28:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:25:9-28:20
 	android:windowSoftInputMode
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:27:13-52
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:27:13-52
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:26:13-41
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:26:13-41
 activity#com.yxk.tjm.tianjiumeng.activity.LoginActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:29:9-59
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:29:9-59
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:29:19-57
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:29:19-57
 activity#com.yxk.tjm.tianjiumeng.activity.RegistActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:30:9-60
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:30:9-60
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:30:19-58
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:30:19-58
 activity#com.yxk.tjm.tianjiumeng.activity.ForgetPwdActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:31:9-63
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:31:9-63
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:31:19-61
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:31:19-61
 activity#com.yxk.tjm.tianjiumeng.home.activity.CrystalHouseActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:32:9-33:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:32:9-33:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:32:19-69
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:32:19-69
 activity#com.yxk.tjm.tianjiumeng.home.activity.HotStrugActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:34:9-35:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:34:9-35:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:34:19-65
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:34:19-65
 activity#com.yxk.tjm.tianjiumeng.home.activity.MyCustomActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:36:9-39:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:36:9-39:20
 	android:windowSoftInputMode
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:38:13-72
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:38:13-72
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:37:13-59
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:37:13-59
 activity#com.yxk.tjm.tianjiumeng.home.activity.TemplateActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:40:9-41:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:40:9-41:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:40:19-65
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:40:19-65
 activity#com.yxk.tjm.tianjiumeng.home.activity.HotStrugDetailActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:42:9-43:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:42:9-43:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:42:19-71
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:42:19-71
 activity#com.yxk.tjm.tianjiumeng.home.activity.ProductDetailActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:44:9-72
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:44:9-72
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:44:19-70
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:44:19-70
 activity#com.yxk.tjm.tianjiumeng.news.activity.NewsDetailActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:45:9-46:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:45:9-46:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:45:19-67
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:45:19-67
 activity#com.yxk.tjm.tianjiumeng.my.activity.CommissionActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:47:9-48:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:47:9-48:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:47:19-65
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:47:19-65
 activity#com.yxk.tjm.tianjiumeng.my.activity.ReturnMoneyDetailActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:49:9-50:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:49:9-50:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:49:19-72
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:49:19-72
 activity#com.yxk.tjm.tianjiumeng.my.activity.WaitPayActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:51:9-52:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:51:9-52:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:51:19-62
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:51:19-62
 activity#com.yxk.tjm.tianjiumeng.my.activity.WaitShipActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:53:9-54:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:53:9-54:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:53:19-63
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:53:19-63
 activity#com.yxk.tjm.tianjiumeng.my.activity.WaitGetActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:55:9-64
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:55:9-64
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:55:19-62
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:55:19-62
 activity#com.yxk.tjm.tianjiumeng.my.activity.SaleAfterActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:56:9-66
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:56:9-66
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:56:19-64
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:56:19-64
 activity#com.yxk.tjm.tianjiumeng.my.activity.MessageActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:57:9-64
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:57:9-64
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:57:19-62
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:57:19-62
 activity#com.yxk.tjm.tianjiumeng.my.activity.CollectActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:58:9-59:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:58:9-59:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:58:19-62
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:58:19-62
 activity#com.yxk.tjm.tianjiumeng.my.activity.CrystalDetailActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:60:9-70
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:60:9-70
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:60:19-68
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:60:19-68
 activity#com.yxk.tjm.tianjiumeng.my.activity.ShareActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:61:9-62:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:61:9-62:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:61:19-60
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:61:19-60
 activity#com.yxk.tjm.tianjiumeng.my.activity.CustomActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:63:9-64:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:63:9-64:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:63:19-61
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:63:19-61
 activity#com.yxk.tjm.tianjiumeng.my.activity.MyInfoActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:65:9-66:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:65:9-66:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:65:19-61
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:65:19-61
 activity#com.yxk.tjm.tianjiumeng.my.activity.AddressActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:67:9-68:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:67:9-68:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:67:19-62
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:67:19-62
 activity#com.yxk.tjm.tianjiumeng.my.activity.AddAddressActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:69:9-70:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:69:9-70:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:69:19-65
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:69:19-65
 activity#com.yxk.tjm.tianjiumeng.my.activity.AccountSafeActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:71:9-72:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:71:9-72:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:71:19-66
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:71:19-66
 activity#com.yxk.tjm.tianjiumeng.my.activity.RechargeActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:73:9-74:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:73:9-74:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:73:19-63
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:73:19-63
 activity#com.yxk.tjm.tianjiumeng.my.activity.CardActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:75:9-76:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:75:9-76:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:75:19-59
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:75:19-59
 activity#com.yxk.tjm.tianjiumeng.my.activity.MyCommissionActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:77:9-78:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:77:9-78:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:77:19-67
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:77:19-67
 activity#com.yxk.tjm.tianjiumeng.my.activity.MyCrystalActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:79:9-80:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:79:9-80:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:79:19-64
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:79:19-64
 activity#com.yxk.tjm.tianjiumeng.my.activity.MyWaitAppraiseActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:81:9-82:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:81:9-82:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:81:19-69
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:81:19-69
 activity#com.yxk.tjm.tianjiumeng.my.activity.MySettingActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:83:9-84:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:83:9-84:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:83:19-64
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:83:19-64
 activity#com.yxk.tjm.tianjiumeng.my.activity.ClientFeedbackActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:85:9-86:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:85:9-86:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:85:19-69
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:85:19-69
 activity#com.yxk.tjm.tianjiumeng.activity.SubmitOrderActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:87:9-88:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:87:9-88:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:87:19-63
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:87:19-63
 activity#com.yxk.tjm.tianjiumeng.category.activity.RightHeaderListActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:89:9-90:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:89:9-90:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:89:19-76
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:89:19-76
 activity#com.yxk.tjm.tianjiumeng.my.activity.ImmediateAppraiseActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:91:9-92:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:91:9-92:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:91:19-72
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:91:19-72
 activity#com.yxk.tjm.tianjiumeng.home.activity.SearchActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:93:9-65
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:93:9-65
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:93:19-63
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:93:19-63
 activity#com.yxk.tjm.tianjiumeng.my.activity.TJMHouseActivity
-ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:94:9-95:20
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:94:9-95:20
 	android:name
-		ADDED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml:94:19-63
-uses-sdk
-INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:design:25.2.0] C:\Users\ningfei\.android\build-cache\b9b4755efe17fce8e10a66ad2f68fe827708eaef\output\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:transition:25.2.0] C:\Users\ningfei\.android\build-cache\f90d75705197d61659be99517702676a64cd7b1f\output\AndroidManifest.xml:20:5-44
-MERGED from [com.youth.banner:banner:1.4.9] C:\Users\ningfei\.android\build-cache\67aeb7203bbadaac954dd0856744313b08e65745\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.8.6] C:\Users\ningfei\.android\build-cache\cc1699d219efabfe39f26c0354e973675c557ebd\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.iwgang:countdownview:2.1.3] C:\Users\ningfei\.android\build-cache\3933e19e32fe5e5e73fd3142c64b0545c3980e40\output\AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\ningfei\.android\build-cache\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.sunfusheng:marqueeview:1.2.0] C:\Users\ningfei\.android\build-cache\a444286954d643223368f8942be4fc96aa74c243\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:recyclerview-v7:25.2.0] C:\Users\ningfei\.android\build-cache\cdf68711f5a43bd2ec9418feb892ca5f0f84ad0a\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support.constraint:constraint-layout:1.0.1] C:\Users\ningfei\.android\build-cache\dfc1b54a831f4270f692185d664aecb49088a0f6\output\AndroidManifest.xml:5:5-7:41
-MERGED from [com.jakewharton:butterknife:8.5.1] C:\Users\ningfei\.android\build-cache\51e817d61a6d99573177608ca989ccaba9663007\output\AndroidManifest.xml:5:5-43
-MERGED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\ningfei\.android\build-cache\99b5e18bb280eee0cb44743d5666ff2897095393\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\ningfei\.android\build-cache\2fbcfff19208193a98ae7bf89317d1b01929ee51\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\ningfei\.android\build-cache\fa46c268028f3dbf6bb703dfab03d2d4193d2dfd\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\ningfei\.android\build-cache\616a2fe5a607c8f60db61f4ced67a41df738a8bf\output\AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:support-v4:25.2.0] C:\Users\ningfei\.android\build-cache\0f64d1783abc5d52e50ca9380ac9f5510477eac8\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\ningfei\.android\build-cache\e5747571f59b11c51059077b6895208adb2ae3b2\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\ningfei\.android\build-cache\22819a322e318b1cb074fc7c3f1445eca082932d\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\ningfei\.android\build-cache\61d5ec67e9727f78863160449610024161f391a0\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\ningfei\.android\build-cache\5aeb5eb8c90efee6b2fa8f5d73814b115f17649b\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.2.0] C:\Users\ningfei\.android\build-cache\594ef4f0d91c4cbfddb4d7517e3fda55e1bdcbdb\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\ningfei\.android\build-cache\317642a35fd618a35f99e58f93914be8a8c8785a\output\AndroidManifest.xml:20:5-43
-	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.2.0] C:\Users\ningfei\.android\build-cache\b9b4755efe17fce8e10a66ad2f68fe827708eaef\output\AndroidManifest.xml:23:9-59
-	android:targetSdkVersion
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
-	android:minSdkVersion
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\ningfei\Desktop\tjm\tianjiumeng\app\src\main\AndroidManifest.xml
-activity#me.nereo.multi_image_selector.MultiImageSelectorActivity
-ADDED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\ningfei\.android\build-cache\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\output\AndroidManifest.xml:15:9-17:62
-	android:configChanges
-		ADDED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\ningfei\.android\build-cache\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\output\AndroidManifest.xml:17:13-59
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:94:19-63
+activity#com.yxk.tjm.tianjiumeng.home.activity.AllAppraiseActivity
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:96:9-97:20
 	android:name
-		ADDED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\ningfei\.android\build-cache\2a0c9617f5e35d96f74e817774e4dc95d44e1d4e\output\AndroidManifest.xml:16:13-84
-activity#com.uuzuche.lib_zxing.activity.CaptureActivity
-ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\ningfei\.android\build-cache\99b5e18bb280eee0cb44743d5666ff2897095393\output\AndroidManifest.xml:12:9-17:63
-	android:screenOrientation
-		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\ningfei\.android\build-cache\99b5e18bb280eee0cb44743d5666ff2897095393\output\AndroidManifest.xml:15:13-49
-	android:windowSoftInputMode
-		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\ningfei\.android\build-cache\99b5e18bb280eee0cb44743d5666ff2897095393\output\AndroidManifest.xml:17:13-60
-	android:configChanges
-		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\ningfei\.android\build-cache\99b5e18bb280eee0cb44743d5666ff2897095393\output\AndroidManifest.xml:14:13-63
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:96:19-68
+activity#com.yxk.tjm.tianjiumeng.shopcar.activity.PaySuccessActivity
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:98:9-102:20
+	android:label
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:100:13-63
 	android:theme
-		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\ningfei\.android\build-cache\99b5e18bb280eee0cb44743d5666ff2897095393\output\AndroidManifest.xml:16:13-63
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:101:13-44
 	android:name
-		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\ningfei\.android\build-cache\99b5e18bb280eee0cb44743d5666ff2897095393\output\AndroidManifest.xml:13:13-74
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:99:13-64
+activity#com.yxk.tjm.tianjiumeng.shopcar.activity.PayFailedActivity
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:103:9-104:20
+	android:name
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:103:19-69
+activity#com.yxk.tjm.tianjiumeng.my.activity.SeeLogisticsActivity
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:105:9-106:20
+	android:name
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:105:19-67
+activity#com.yxk.tjm.tianjiumeng.shopcar.activity.PayWayActivity
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:107:9-108:20
+	android:name
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:107:19-66
+activity#com.yxk.tjm.tianjiumeng.my.activity.UpdateCustomActivity
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:109:9-110:20
+	android:name
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:109:19-67
+activity#com.yxk.tjm.tianjiumeng.home.activity.SearchListActivity
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:111:9-69
+	android:name
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:111:19-67
+activity#com.lzy.imagepicker.ui.ImagePreviewDelActivity
+ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:113:9-115:64
+	android:theme
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:115:13-62
+	android:name
+		ADDED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml:114:13-74
+uses-sdk
+INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [tianjiumeng1:countdown:unspecified] D:\Android_Project\tianjiumeng1\countdown\build\intermediates\bundles\default\AndroidManifest.xml:8:5-10:41
+MERGED from [liji.library.dev:citypickerview:1.0.0] D:\Android_Project\tianjiumeng1\citypickerview\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:25.2.0] C:\Users\zkt\.android\build-cache\83da2a15e72127eac9d3b6c0f53971deed5f49e2\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:transition:25.2.0] C:\Users\zkt\.android\build-cache\ddc98e544cac5938e254e2b00bf504897edb3cb7\output\AndroidManifest.xml:20:5-44
+MERGED from [com.youth.banner:banner:1.4.9] C:\Users\zkt\.android\build-cache\e7a23b12e07121e2a8290a6cfbd775f81187b062\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.15] C:\Users\zkt\.android\build-cache\7f89113fec9c9e3e591412f107cb39cd255585a2\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\zkt\.android\build-cache\15e76f3c8ce661820c7b677435521c0029ac677b\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.sunfusheng:marqueeview:1.2.0] C:\Users\zkt\.android\build-cache\e200c9925ba978d9e8e0c86a9baaa0c9edb62a79\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.jakewharton:butterknife:8.5.1] C:\Users\zkt\.android\build-cache\847c0a980dc4517677366c73e8fc33ae17c50899\output\AndroidManifest.xml:5:5-43
+MERGED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\zkt\.android\build-cache\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:cardview-v7:25.2.0] C:\Users\zkt\.android\build-cache\abb7216569877402a87d75fa97d76f6e50be4e0f\output\AndroidManifest.xml:20:5-43
+MERGED from [com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5] C:\Users\zkt\.android\build-cache\75331a42fdca27aea39639ed3deb9f105a515123\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\zkt\.android\build-cache\c902ab498a3a24af354a587d0ed7ad55f0c50d12\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.1] C:\Users\zkt\.android\build-cache\36dd51a9d72c754a998357465d2519463acd09ba\output\AndroidManifest.xml:5:5-7:41
+MERGED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\zkt\.android\build-cache\9c9c69838095ec267768c4efb70693c045ec45cb\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.2.0] C:\Users\zkt\.android\build-cache\c581741141dcca3053f875688a3dfdf868e93e5b\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.2.0] C:\Users\zkt\.android\build-cache\4536c1e990c28f84ee2641e1229cc32ec7d20358\output\AndroidManifest.xml:21:5-43
+MERGED from [com.github.chrisbanes.photoview:library:1.2.4] C:\Users\zkt\.android\build-cache\99ed6e12f5f1f121bd298e214769debffa21fc50\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\zkt\.android\build-cache\94690817118f3086257946e8e7e100f7ee3ba7ec\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.2.0] C:\Users\zkt\.android\build-cache\9254e9e0b591dd3c1c03d4ea985715d32964c6bf\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\zkt\.android\build-cache\10a22c72afee3fce295815168732857b99571c27\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\zkt\.android\build-cache\e455cf218b0dd81d15bf9d6e2832faa506db878a\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:recyclerview-v7:25.2.0] C:\Users\zkt\.android\build-cache\36e304fca4eea270ec81f83e855865b03ad5eb08\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-ui:25.2.0] C:\Users\zkt\.android\build-cache\9cb40a3e13dc64103a93545338ced30b1537f5fb\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.2.0] C:\Users\zkt\.android\build-cache\026867a32383d9a5d63ad4c3a9a83746dbf8b4b9\output\AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.2.0] C:\Users\zkt\.android\build-cache\83da2a15e72127eac9d3b6c0f53971deed5f49e2\output\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_Project\tianjiumeng1\app\src\main\AndroidManifest.xml
+activity#me.nereo.multi_image_selector.MultiImageSelectorActivity
+ADDED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\zkt\.android\build-cache\15e76f3c8ce661820c7b677435521c0029ac677b\output\AndroidManifest.xml:15:9-17:62
+	android:configChanges
+		ADDED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\zkt\.android\build-cache\15e76f3c8ce661820c7b677435521c0029ac677b\output\AndroidManifest.xml:17:13-59
+	android:name
+		ADDED from [com.github.lovetuzitong:MultiImageSelector:1.2] C:\Users\zkt\.android\build-cache\15e76f3c8ce661820c7b677435521c0029ac677b\output\AndroidManifest.xml:16:13-84
+activity#com.uuzuche.lib_zxing.activity.CaptureActivity
+ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\zkt\.android\build-cache\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\output\AndroidManifest.xml:12:9-17:63
+	android:screenOrientation
+		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\zkt\.android\build-cache\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\output\AndroidManifest.xml:15:13-49
+	android:windowSoftInputMode
+		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\zkt\.android\build-cache\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\output\AndroidManifest.xml:17:13-60
+	android:configChanges
+		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\zkt\.android\build-cache\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\output\AndroidManifest.xml:14:13-63
+	android:theme
+		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\zkt\.android\build-cache\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\output\AndroidManifest.xml:16:13-63
+	android:name
+		ADDED from [cn.yipianfengye.android:zxing-library:2.1] C:\Users\zkt\.android\build-cache\84b50a82bb7eb8f5e5b70f6c879d99027091dc9a\output\AndroidManifest.xml:13:13-74
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:12:5-84
+	android:name
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:12:22-81
+activity#com.lzy.imagepicker.ui.ImageBaseActivity
+ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:21:9-77
+	android:name
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:21:19-74
+activity#com.lzy.imagepicker.ui.ImageGridActivity
+ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:22:9-25:55
+	android:configChanges
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:24:13-59
+	android:theme
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:25:13-52
+	android:name
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:23:13-68
+activity#com.lzy.imagepicker.ui.ImageCropActivity
+ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:26:9-30:55
+	android:hardwareAccelerated
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:29:13-48
+	android:configChanges
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:28:13-59
+	android:theme
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:30:13-52
+	android:name
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:27:13-68
+activity#com.lzy.imagepicker.ui.ImagePreviewActivity
+ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:31:9-34:65
+	android:configChanges
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:33:13-59
+	android:theme
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:34:13-62
+	android:name
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:32:13-71
+provider#com.lzy.imagepicker.ImagePickerProvider
+ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:36:9-44:20
+	android:authorities
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:38:13-60
+	android:grantUriPermissions
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:40:13-47
+	android:exported
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:39:13-37
+	android:name
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:37:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:41:13-43:58
+	android:resource
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:43:17-55
+	android:name
+		ADDED from [tianjiumeng1:imagepicker:unspecified] D:\Android_Project\tianjiumeng1\imagepicker\build\intermediates\bundles\default\AndroidManifest.xml:42:17-67

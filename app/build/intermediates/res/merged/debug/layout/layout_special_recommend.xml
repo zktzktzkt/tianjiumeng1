@@ -16,6 +16,7 @@
         android:paddingTop="13dp">
 
         <TextView
+            android:id="@+id/tv_top_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="珍品"
@@ -24,6 +25,7 @@
             />
 
         <ImageView
+            android:id="@+id/iv_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
@@ -31,6 +33,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_bottom_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -63,6 +66,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_price_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -94,6 +98,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_price_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -125,6 +130,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_price_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

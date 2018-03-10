@@ -27,6 +27,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_all_appraise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -48,6 +49,7 @@
         />
 
     <RelativeLayout
+        android:id="@+id/rl_appraise"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
@@ -74,6 +76,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_client_name"
@@ -86,6 +89,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -125,7 +129,7 @@
             />
 
         <RatingBar
-            android:id="@+id/rc_rate"
+            android:id="@+id/ratingbar"
             style="@style/fiveRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,6 +159,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_client_result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/official_response"
@@ -204,8 +209,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_recommond"
-        android:background="@color/background"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:background="@color/background"/>
 
 </LinearLayout>

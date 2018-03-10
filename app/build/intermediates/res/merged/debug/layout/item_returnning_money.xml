@@ -15,6 +15,7 @@
         >
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -26,6 +27,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_orderId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -67,7 +69,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_return_percent"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
@@ -82,7 +84,7 @@
             android:id="@+id/tv_return_cycle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_return_percent"
+            android:layout_below="@id/tv_name"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="11dp"
             android:layout_toRightOf="@id/img_pic"
@@ -92,6 +94,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/img_pic"
@@ -106,7 +109,7 @@
             android:id="@+id/tv_return_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/tv_return_percent"
+            android:layout_alignBottom="@id/tv_name"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:text="20元"
@@ -115,7 +118,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_already_return"
+            android:id="@+id/tv_already_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/tv_return_cycle"
@@ -132,7 +135,7 @@
             android:layout_marginLeft="22dp"
             android:layout_marginTop="16dp"
             android:layout_toLeftOf="@id/tv_return_money"
-            android:text="返利金额："
+            android:text="已返金额："
             android:textColor="@color/white"
             android:textSize="12sp"
             />
@@ -140,10 +143,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/tv_already_return"
+            android:layout_alignBottom="@id/tv_already_day"
             android:layout_marginLeft="22dp"
-            android:layout_toLeftOf="@id/tv_already_return"
-            android:text="返利金额："
+            android:layout_toLeftOf="@id/tv_already_day"
+            android:text="已返天数："
             android:textColor="@color/white"
             android:textSize="12sp"
             />

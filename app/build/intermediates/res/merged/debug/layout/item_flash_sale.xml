@@ -3,6 +3,12 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="1dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:background="@color/gray_common"
     >
 
     <ImageView
@@ -61,27 +67,6 @@
         android:src="@drawable/miaosha"
         />
 
-    <!--  <cn.iwgang.countdownview.CountdownView
-          android:id="@+id/cv_countdownView"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/tv_price"
-          android:layout_centerHorizontal="true"
-          android:layout_gravity="center_horizontal"
-          app:isHideTimeBackground="false"
-          app:isShowDay="false"
-          app:isShowHour="true"
-          app:isShowMillisecond="false"
-          app:isShowMinute="true"
-          app:isShowSecond="true"
-          app:isShowTimeBgDivisionLine="false"
-          app:suffixGravity="center"
-          app:suffixTextColor="#000000"
-          app:suffixTextSize="20sp"
-          app:timeBgColor="#FF5000"
-          app:timeTextColor="#FFFFFF"
-          app:timeTextSize="10sp"/>-->
-
     <cn.iwgang.countdownview.CountdownView
         android:id="@+id/cv_countdownView"
         android:layout_width="wrap_content"
@@ -90,25 +75,25 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="3dp"
-        app:isShowTimeBgBorder="true"
         app:isHideTimeBackground="false"
         app:isShowDay="false"
         app:isShowHour="true"
-        app:isShowMillisecond="false"
+        app:isShowMillisecond="true"
         app:isShowMinute="true"
         app:isShowSecond="true"
-        app:suffixGravity="center"
+        app:isShowTimeBgBorder="true"
         app:isShowTimeBgDivisionLine="false"
-        app:suffixLRMargin="5dp"
-        app:suffixTextColor="@color/red_ff0000"
-        app:suffixTextSize="10sp"
-        app:timeBgBorderColor="@color/red_ff0000"
+        app:suffixGravity="center"
+        app:suffixLRMargin="2dp"
+        app:suffixTextColor="@color/gray_444444"
+        app:suffixTextSize="18sp"
+        app:timeBgBorderColor="@color/gray_444444"
         app:timeBgBorderRadius="1dp"
         app:timeBgBorderSize="1dp"
-        app:timeBgColor="@color/gray_common"
+        app:timeBgColor="@color/gray_444444"
         app:timeBgRadius="0dp"
-        app:timeBgSize="16dp"
-        app:timeTextColor="@color/red_ff0000"
+        app:timeBgSize="18dp"
+        app:timeTextColor="@color/white"
         app:timeTextSize="11sp"/>
 
 </RelativeLayout>

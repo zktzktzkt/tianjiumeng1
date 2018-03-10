@@ -36,16 +36,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="输入提现金额"
+            android:text="转佣金"
             android:textColor="@color/white"
             android:textSize="15sp"
             />
 
         <EditText
+            android:id="@+id/et_cystal_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:hint="余额：200元"
+            android:hint="请输入水晶钻数量"
+            android:inputType="number"
             android:padding="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/tabTextColor"
@@ -67,21 +69,51 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="实际佣金"
+            android:text="可转换水晶钻"
             android:textColor="@color/white"
             android:textSize="15sp"
             />
 
         <TextView
+            android:id="@+id/tv_tranable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="$31321"
+            android:text="￥31321"
             android:textColor="@color/white"
             android:textSize="15sp"
             />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/gray_common"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上月收入的水晶钻"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="￥31321"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btn_submit"
@@ -98,49 +130,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
         android:text="转化规则："
         android:textColor="#fff"
         android:textSize="15sp"/>
 
-
     <TextView
+        android:id="@+id/tv_rule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
         android:text="上月收入500水晶钻以下      只能转化40%为佣金"
         android:textColor="@color/tabTextColor"
-        android:textSize="12sp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="上月收入501-2000水晶钻       只能转化60%为佣金"
-        android:textColor="@color/tabTextColor"
-        android:textSize="12sp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="上月收入2001-5000水晶钻      只能转化80%为佣金"
-        android:textColor="@color/tabTextColor"
-        android:textSize="12sp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="上月收入5001-15000水晶钻     只能转化90%为佣金"
-        android:textColor="@color/tabTextColor"
-        android:textSize="12sp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="上月收入15000水晶钻以上    只能转化100%为佣金"
-        android:textColor="@color/tabTextColor"
-        android:textSize="12sp"/>
+        android:textSize="13sp"/>
 
 </LinearLayout>

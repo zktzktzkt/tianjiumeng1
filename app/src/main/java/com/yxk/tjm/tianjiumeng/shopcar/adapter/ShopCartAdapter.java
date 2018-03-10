@@ -80,7 +80,7 @@ public class ShopCartAdapter extends RecyclerView.Adapter<ShopCartAdapter.MyHold
 
     @Override
     public void onBindViewHolder(final ShopCartAdapter.MyHolder holder, final int position) {
-        //注意此处，要给每个item设置tag，不能给单独某个控件，否则出现Edittext数据错乱
+        //注意此处，要给每个item整体设置tag，不能给单独某个控件，否则出现Edittext数据错乱
         holder.itemView.setTag(position);
         holder.tv_title.setText(datas.get(position).getProduct().getName());
         Glide.with(App.getAppContext()).load(datas.get(position).getProduct().getShowpic()).into(holder.img_pic);

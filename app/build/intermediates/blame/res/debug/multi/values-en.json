@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
+        "outputFile": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 100
                 },
                 "from": {
-                    "file": "C:\\Users\\ningfei\\.android\\build-cache\\cc1699d219efabfe39f26c0354e973675c557ebd\\output\\res\\values-en\\values-en.xml",
+                    "file": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\values-en\\values-en.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 157
                 },
                 "from": {
-                    "file": "C:\\Users\\ningfei\\.android\\build-cache\\cc1699d219efabfe39f26c0354e973675c557ebd\\output\\res\\values-en\\values-en.xml",
+                    "file": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\values-en\\values-en.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,69 @@
                     "endOffset": 204
                 },
                 "from": {
-                    "file": "C:\\Users\\ningfei\\.android\\build-cache\\cc1699d219efabfe39f26c0354e973675c557ebd\\output\\res\\values-en\\values-en.xml",
+                    "file": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\values-en\\values-en.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 162,
+                        "endColumn": 46,
+                        "endOffset": 204
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en\\values-en.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\values-en\\values-en.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 49,
+                        "endOffset": 100
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 56,
+                    "endOffset": 157
+                },
+                "from": {
+                    "file": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\values-en\\values-en.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 105,
+                        "endColumn": 56,
+                        "endOffset": 157
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 162,
+                    "endColumn": 46,
+                    "endOffset": 204
+                },
+                "from": {
+                    "file": "C:\\Users\\zkt\\.android\\build-cache\\7f89113fec9c9e3e591412f107cb39cd255585a2\\output\\res\\values-en\\values-en.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

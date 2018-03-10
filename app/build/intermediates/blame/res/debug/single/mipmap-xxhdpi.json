@@ -1,50 +1,98 @@
 [
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_cart_nor.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_cart_nor.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher_round.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_my_p.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_my_p.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_cart_nor.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_cart_nor.png"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_home_p.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_home_p.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_news_p.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_news_p.png"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_fenlei_p.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_fenlei_p.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_home_nor.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_home_nor.png"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_home_nor.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_home_nor.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_fenlei_nor.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_fenlei_nor.png"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_news_nor.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_news_nor.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_my_p.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_my_p.png"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_my_nor.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_my_nor.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_home_p.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_home_p.png"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_fenlei_nor.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_fenlei_nor.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_news_nor.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_news_nor.png"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_news_p.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_news_p.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_my_nor.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_my_nor.png"
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_home_nor.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_home_nor.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_fenlei_p.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_fenlei_p.png"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_news_nor.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_news_nor.png"
     },
     {
-        "merged": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_cart_p.png",
-        "source": "C:\\Users\\ningfei\\Desktop\\tjm\\tianjiumeng\\app\\src\\main\\res\\mipmap-xxhdpi\\t_cart_p.png"
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher_round.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_fenlei_nor.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_fenlei_nor.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_news_p.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_news_p.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_cart_p.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_cart_p.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_fenlei_p.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_fenlei_p.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher_round.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_my_nor.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_my_nor.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_cart_nor.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_cart_nor.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_home_p.png",
+        "source": "D:\\AndroidStudioProjects\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_home_p.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_cart_p.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_cart_p.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Android_Project\\tianjiumeng1\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\t_my_p.png",
+        "source": "D:\\Android_Project\\tianjiumeng1\\app\\src\\main\\res\\mipmap-xxhdpi\\t_my_p.png"
     }
 ]

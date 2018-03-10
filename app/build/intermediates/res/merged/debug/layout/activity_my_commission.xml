@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="佣金明细"
+            android:text="佣金提现"
             android:textColor="#fff"
             android:textSize="20sp"/>
     </android.support.v7.widget.Toolbar>
@@ -36,16 +36,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="输入提现金额"
+            android:text="请输入提现金额"
             android:textColor="@color/white"
             android:textSize="15sp"
             />
 
         <EditText
+            android:id="@+id/et_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:hint="余额：200元"
+            android:inputType="number"
             android:padding="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/tabTextColor"
